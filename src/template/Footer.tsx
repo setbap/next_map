@@ -1,38 +1,74 @@
-import { FiTwitter, FiInstagram, FiLinkedin, FiFacebook } from "react-icons/fi";
+import { FiTwitter, FiInstagram, FiLinkedin, FiGithub } from "react-icons/fi";
 
 interface Props {}
 
-const Footer = ({}: Props) => {
+const Footer = (props: Props) => {
   return (
-    <footer className=" bg-gray-800 text-white body-font">
-      <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-        <div className="flex title-font font-medium items-center md:justify-start justify-center text-white">
-          <span className="ml-3 text-xl">سینا</span>
-        </div>
-        <p className="text-sm  sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+    <footer className="bg-white dark:bg-gray-800 w-full py-8">
+      <div className="max-w-screen-xl mx-auto px-4">
+        <ul className="max-w-screen-md mx-auto text-lg font-light flex flex-wrap justify-between">
+          <li className="my-2">
+            <a
+              className="text-gray-400 hover:text-orange-400 dark:text-gray-300 dark:hover:text-white transition-colors duration-200"
+              href="/"
+            >
+              یه لینک
+            </a>
+          </li>
+          <li className="my-2">
+            <a
+              className="text-gray-400 hover:text-orange-400 dark:text-gray-300 dark:hover:text-white transition-colors duration-200"
+              href="/"
+            >
+              یه لینک دیگه
+            </a>
+          </li>
+          <li className="my-2">
+            <a
+              className="text-gray-400 hover:text-orange-400 dark:text-gray-300 dark:hover:text-white transition-colors duration-200"
+              href="/"
+            >
+              لینکداین
+            </a>
+          </li>
+          <li className="my-2">
+            <a
+              className="text-gray-400 hover:text-orange-400 dark:text-gray-300 dark:hover:text-white transition-colors duration-200"
+              href="/"
+            >
+              گیتهاب
+            </a>
+          </li>
+        </ul>
+        <div className="pt-8 flex max-w-xs mx-auto items-center justify-between">
           <a
-            href="http://nitgisenvironment.ir.domains.blog.ir/"
-            className="underline ml-1 text-gray-200"
-            rel="noopener noreferrer"
-            target="_blank"
+            href="/"
+            className="text-gray-400 hover:text-orange-400 dark:hover:text-white transition-colors duration-200"
           >
-            ©2020 nitgisenvironment
+            <FiInstagram size={28} />
           </a>
-        </p>
-        <span className="inline-flex transition-colors duration-300 sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-          <a className="text-gray-200">
-            <FiFacebook className="me-2 hover:text-blue-500 transition-colors text-xl duration-300 " />
+          <a
+            href="/"
+            className="text-gray-400 hover:text-orange-400 dark:hover:text-white transition-colors duration-200"
+          >
+            <FiTwitter size={28} />
           </a>
-          <a className="ml-3 text-gray-200">
-            <FiTwitter className="me-1 hover:text-blue-300 transition-colors text-xl duration-300 " />
+          <a
+            href="/"
+            className="text-gray-400 hover:text-orange-400 dark:hover:text-white transition-colors duration-200"
+          >
+            <FiGithub size={28} />
           </a>
-          <a className="ml-3 text-gray-200">
-            <FiLinkedin className="me-1 hover:text-blue-400 transition-colors text-xl duration-300" />
+          <a
+            href="/"
+            className="text-gray-400 hover:text-orange-400 dark:hover:text-white transition-colors duration-200"
+          >
+            <FiLinkedin size={28} />
           </a>
-          <a className="ml-3 text-gray-200">
-            <FiInstagram className="me-1 hover:text-orange-500 transition-colors text-xl duration-300" />
-          </a>
-        </span>
+        </div>
+        <div className="text-center text-gray-500 dark:text-gray-200 pt-10 sm:pt-12 font-light flex items-center justify-center">
+          Created by Copy & Paste
+        </div>
       </div>
     </footer>
   );

@@ -24,14 +24,14 @@ const BlogItemSelected = ({ selectedId }: Props) => {
           <div className="lg:h-48 md:h-36 w-full relative">
             <motion.img
               layoutId={`img-${selectedId}`}
-              style={{ filter: "blur(6px)",maxHeight:"50vh" }}
+              style={{ filter: "blur(6px)", maxHeight: "50vh" }}
               className=" lg:h-48 md:h-36 w-full object-cover object-center"
               src="https://thumbs.dreamstime.com/z/earth-globe-family-hands-world-environment-day-concept-elements-image-furnished-nasa-172933016.jpg"
               alt="blog"
             />
 
             <h1 className="text-green-800 absolute bottom-12 right-4  text-lg font-bold  mb-3">
-              سامانه اطلاعات مکانی تحت وب
+              سامانه اطلاعات مکانی تحت وب - {`${selectedId}`}
             </h1>
             <h2 className="absolute  bottom-4 right-4 tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
               CATEGORY
