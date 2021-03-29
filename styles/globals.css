@@ -1,0 +1,58 @@
+@import url("../node_modules/vazir-font/dist/font-face.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+
+  min-height: -webkit-fill-available;
+}
+
+.ol-popup {
+  min-width: 280px;
+}
+.ol-popup:after,
+.ol-popup:before {
+  top: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.ol-popup:after {
+  border-top-color: white;
+  border-width: 10px;
+}
+.ol-popup:before {
+  border-top-color: #cccccc;
+  border-width: 11px;
+}
+[dir="rtl"] .ol-popup:before,
+[dir="rtl"] .ol-popup::after {
+  right: 48px;
+  margin-right: -11px;
+}
+
+[dir="ltr"] .ol-popup:before,
+[dir="rtl"] .ol-popup::after {
+  left: 48px;
+  margin-left: -10px;
+}
+.ol-popup-closer:after {
+  content: "✖";
+  margin-bottom: 4px;
+}
+
+.ol-zoom-in {
+  background-color: red;
+}
+.ol-zoom-in {
+  background-color: red;
+}
