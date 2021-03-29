@@ -45,7 +45,7 @@ const UniMap: FC = () => {
     };
   }, [uniMapRef]);
   return (
-    <div className="lg:w-1/2 flex-col   rounded-lg  sm:mx-3  flex items-end justify-start relative">
+    <>
       <div
         ref={uniMapRef}
         className="inset-0"
@@ -85,7 +85,7 @@ const UniMap: FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
