@@ -27,6 +27,7 @@ const Home = () => {
         <meta property="og:url" content={`https://www.nitenviro.com`} />
         <meta property="og:image" content={"/og/home.png"} />
         <meta property="og:description" content={"خانه "} />
+
         <meta property="og:locale " content="fa_IR" />
       </Head>
       {/* <MapNav />  */}

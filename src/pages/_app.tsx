@@ -15,19 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta charSet="utf-8" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="description" content="دمو سامانه مکان محور محیط زیست" />
-        <meta
-          property="og:description"
-          content="پیش نمایش سامانه مکان محور محیط زیست"
-        />
-        <meta property="og:determiner" content="the" />
-        <meta property="og:locale" content="fa_IR" />
-        <meta property="og:site_name" content="مازند گیس :) " />
-        <meta property="og:image" content="/zist.jpg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="400" />
-        <meta property="og:image:height" content="300" />
+        <meta property="og:site_name" content="سامانه مکان محور nitenviro" />
       </Head>
       <AnimateSharedLayout type="switch">
         <div

@@ -26,7 +26,7 @@ const Blog = ({ postData }) => {
           property="og:url"
           content={`https://www.nitenviro.com/blog/${postData.postId}`}
         />
-        <meta property="og:image" content={postData.title} />
+        <meta property="og:image" content={postData.image} />
         <meta property="og:description" content={postData.short} />
         <meta property="og:locale " content="fa_IR" />
       </Head>
@@ -114,7 +114,6 @@ export default Blog;
 
 export async function getStaticProps({ params }) {
   const postData = await getSinglePostData(params.slug);
-  console.log(postData);
   return {
     props: {
       postData,
