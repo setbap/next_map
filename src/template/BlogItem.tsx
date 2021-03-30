@@ -1,13 +1,16 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 import { motion } from "framer-motion";
 import { AiOutlineEye } from "react-icons/ai";
 import { BsChat } from "react-icons/bs";
 interface Props {
   id: string;
+  title: string;
+  short: string;
+  image: string;
 }
 
-const BlogItem = ({ id }: Props) => {
+const BlogItem = ({ id, title, short, image }: Props) => {
   return (
     <>
       <motion.div
@@ -21,33 +24,30 @@ const BlogItem = ({ id }: Props) => {
           <motion.img
             layoutId={`img-${id}`}
             className="lg:h-48 md:h-36 w-full object-cover object-center"
-            src="https://thumbs.dreamstime.com/z/earth-globe-family-hands-world-environment-day-concept-elements-image-furnished-nasa-172933016.jpg"
-            alt="blog"
+            src={image}
+            alt={`${title} - image`}
           />
           <motion.div layoutId={`category-${id}`} className="p-6">
             <h1 className=" font-bold  text-lg  text-green-800 mb-3">
-              سامانه اطلاعات مکانی تحت وب
+              {title}
             </h1>
-            <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-              The Catalyzer
-            </h1>
-            <p className="leading-relaxed text-gray-600 mb-3">
-              روش­های مختلفی برای به اشتراک گذاشتن نقشه ­ها با دیگران وجود دارد.
-              بهترین راه حل برای این کار، استفاده از بستر وب یا همان نقشه­ های
-              تحت وب می­باشد.
+            {/* <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                The Catalyzer
+              </h1> */}
+            <p
+              style={{ textOverflow: "ellipsis" }}
+              className="leading-relaxed h-20  overflow-hidden overflow-ellipsis text-gray-600 mb-3"
+            >
+              {short}
             </p>
             <motion.div
               layoutId={`link-${id}`}
               className="flex items-center flex-wrap "
             >
-              <Link
-                href={`/blog/${id}`}
-                >
-                <a
-                  className="text-yellow-500 inline-flex items-center md:mb-2 lg:mb-0"
-                >
-                <span>بیشتر</span>
-                  </a>
+              <Link href={`/blog/${id}`}>
+                <a className="text-yellow-500 inline-flex items-center md:mb-2 lg:mb-0">
+                  <span>بیشتر</span>
+                </a>
               </Link>
               <span className="text-green-700 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                 <AiOutlineEye className="text-xl me-1 -mt-px" />

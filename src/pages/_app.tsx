@@ -1,26 +1,26 @@
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { AppProps } from "next/app";
-import Head from 'next/head'
+import Head from "next/head";
 import { useState } from "react";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import AsideMenu from "../template/AsideMenu";
-import '../../styles/globals.css'
+import "../../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [open, setOpen] = useState(false);
   const closeFn = () => setOpen(false);
   return (
-    <html lang="fa" dir="rtl">
+    <div lang="fa" dir="rtl">
       <Head>
         <meta charSet="utf-8" />
-        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
+        <meta name="description" content="دمو سامانه مکان محور محیط زیست" />
         <meta
-          name="description"
-          content="دمو سامانه مکان محور محیط زیست"
+          property="og:description"
+          content="پیش نمایش سامانه مکان محور محیط زیست"
         />
-        <meta property="og:description" content="پیش نمایش سامانه مکان محور محیط زیست" />
         <meta property="og:determiner" content="the" />
         <meta property="og:locale" content="fa_IR" />
         <meta property="og:site_name" content="مازند گیس :) " />
@@ -51,7 +51,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <HiOutlineMenuAlt3 size={24} />
         </div>
       </AnimateSharedLayout>
-    </html>
+    </div>
   );
 }
 

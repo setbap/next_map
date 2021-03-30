@@ -4,7 +4,7 @@ interface Props {}
 
 const Footer = (props: Props) => {
   return (
-    <footer className="bg-white dark:bg-gray-800 w-full py-8">
+    <footer className="bg-gray-50 border-t-2 border-gray-100 dark:bg-gray-800 w-full py-8">
       <div className="max-w-screen-xl mx-auto px-4">
         <ul className="max-w-screen-md mx-auto text-lg font-light flex flex-wrap justify-between">
           <li className="my-2">

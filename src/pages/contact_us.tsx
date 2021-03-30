@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Footer from "~/template/Footer";
 import dynamic from "next/dynamic";
 import Nav from "~/template/Nav";
+import Head from "next/head";
 
 const UniMap = dynamic(() => import("@components/contact-us/uniMap"), {
   ssr: false,
@@ -22,6 +23,17 @@ const ContactUs = () => {
   };
   return (
     <>
+      <Head>
+        <title>{"تماس با ما"}</title>
+        <meta property="og:title" content={"تماس با ما"} />
+        <meta
+          property="og:url"
+          content={`https://www.nitenviro.com/contact_us`}
+        />
+        <meta property="og:image" content={"/og/contactus.png"} />
+        <meta property="og:description" content={"تماس با ما "} />
+        <meta property="og:locale " content="fa_IR" />
+      </Head>
       <Nav />
       <div className="flex flex-1 overflow-hidden ">
         <motion.div
