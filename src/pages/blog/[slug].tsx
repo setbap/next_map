@@ -27,9 +27,7 @@ const Blog = ({}: Props) => {
       <div className="flex flex-1 overflow-hidden ">
         <motion.div
           // variants={thumbnailVariants}
-          className={` relative ${
-            !!slug ? "overflow-hidden" : "overflow-auto"
-          } w-full`}
+          className={` relative overflow-hidden w-full`}
           // initial="initial"
           // animate="enter"
           // exit="exit"
