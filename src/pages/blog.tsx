@@ -42,12 +42,13 @@ const Blog = ({ allPostsData }) => {
           <section className="text-gray-600">
             <div className="container p-5  mx-auto">
               <div className="flex flex-wrap -m-4">
-                {allPostsData.map(({ postId, image, title, short }) => {
+                {allPostsData.map(({ postId, image, jdate, title, short }) => {
                   return (
                     <BlogItem
                       image={image}
                       key={postId}
                       short={short}
+                      date={jdate}
                       id={postId}
                       title={title}
                     />

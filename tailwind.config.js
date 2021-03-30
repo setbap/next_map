@@ -10,6 +10,15 @@ module.exports = {
     },
 
     extend: {
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme("colors.gray.800"),
+
+            // ...
+          },
+        },
+      }),
       spacing: {
         100: "45rem",
         97: "25rem",

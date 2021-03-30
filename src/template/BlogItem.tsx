@@ -3,14 +3,16 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { AiOutlineEye } from "react-icons/ai";
 import { BsChat } from "react-icons/bs";
+import { BiTimeFive } from "react-icons/bi";
 interface Props {
   id: string;
   title: string;
   short: string;
+  date: string;
   image: string;
 }
 
-const BlogItem = ({ id, title, short, image }: Props) => {
+const BlogItem = ({ id, title, short, date, image }: Props) => {
   return (
     <>
       <motion.div
@@ -28,9 +30,13 @@ const BlogItem = ({ id, title, short, image }: Props) => {
             alt={`${title} - image`}
           />
           <motion.div layoutId={`category-${id}`} className="p-6">
-            <h1 className=" font-bold  text-lg  text-green-800 mb-3">
-              {title}
-            </h1>
+            <Link href={`/blog/${id}`}>
+              <a>
+                <h1 className=" font-bold  text-lg  text-green-800 mb-3">
+                  {title}
+                </h1>
+              </a>
+            </Link>
             {/* <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
                 The Catalyzer
               </h1> */}
@@ -49,13 +55,10 @@ const BlogItem = ({ id, title, short, image }: Props) => {
                   <span>بیشتر</span>
                 </a>
               </Link>
-              <span className="text-green-700 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                <AiOutlineEye className="text-xl me-1 -mt-px" />
-                1.2K
-              </span>
+              <span className="text-green-700 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"></span>
               <span className="text-green-700 inline-flex items-center leading-none text-sm">
-                <BsChat className="text-sm  me-1 -mt-1" />
-                {" 6 "}
+                <p> {date}</p>
+                <BiTimeFive className="text-xl ms-1  -mt-1" />
               </span>
             </motion.div>
           </motion.div>
