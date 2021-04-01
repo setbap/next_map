@@ -105,8 +105,8 @@ jdate: "1400.01.03"
 <p style="text-align: center;"><a target="_blank" href="//bayanbox.ir/info/4272565747086401458/landfills"><img height="794" width="1122" src="http://bayanbox.ir/view/4272565747086401458/landfills.jpg"></a></p>
 <p>&nbsp;</p>
 <p>در ادامه تصاویری از این مدفن ها آورده شده است.</p>
-<p style="text-align: center;">
-<img height="720" width="1280" src="http://bayanbox.ir/view/5039998006582656165/Presentation1.jpg"></p>
+<div style="text-align: center;">
+<img height="720" width="1280" src="http://bayanbox.ir/view/5039998006582656165/Presentation1.jpg"></div>
 <p>&nbsp;</p>
 </div></div>
 <div class="post_detail">
