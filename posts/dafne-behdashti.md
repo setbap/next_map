@@ -14,7 +14,11 @@ image: "http://bayanbox.ir/view/2432127609701707465/%D8%AF%D9%81%D9%86.jpg"
 <p style="text-align: center;"><img src="http://bayanbox.ir/preview/6523762669005694105/%D8%AF%D9%81%D9%862.jpg"></p>
 <p>هدف اصلی دفن بهداشتی زباله، دفع طولانی مدت و ایمن پسماند، از نظر بهداشتی و زیست محیطی است. به همین جهت به این فرآیند دفن بهداشتی میگویند. همچنین لازم است در طی این فرآیند به دلیل داشتن گاز و شیرابه، خروجی ها تا حد ممکن تصفیه و کنترل شوند. در شکل زیر نمونه ای از ساختار دفن بهداشتی در زمین نشان داده شده است.</p>
 <p>&nbsp;</p>
-<p style="text-align: center;"><a target="_blank" href="//bayanbox.ir/info/2432127609701707465/%D8%AF%D9%81%D9%86"><img height="525" width="700" src="//bayanbox.ir/view/2432127609701707465/%D8%AF%D9%81%D9%86.jpg"></a></p>
+<div style="text-align: center;">
+
+<img height="525" width="700" src="//bayanbox.ir/view/2432127609701707465/%D8%AF%D9%81%D9%86.jpg">
+
+</div>
 <p>&nbsp;</p>
 </div></div>
 <div class="post_detail">

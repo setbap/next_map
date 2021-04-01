@@ -102,7 +102,11 @@ jdate: "1400.01.03"
 </tbody></table>
 <p></p>
 <p><span lang="FA" dir="RTL" style="font-size:13.0pt"><span style="line-height:107%"><span style=" ">همچنین در شکل زیر&nbsp;موقعیت جغرافیایی هریک از این مدفن ها در نقشه ­ی استان مازندران نشان داده شده است.</span></span></span></p>
-<p style="text-align: center;"><a target="_blank" href="//bayanbox.ir/info/4272565747086401458/landfills"><img height="794" width="1122" src="http://bayanbox.ir/view/4272565747086401458/landfills.jpg"></a></p>
+<div style="text-align: center;">
+
+<img height="794" width="1122" src="http://bayanbox.ir/view/4272565747086401458/landfills.jpg">
+
+</div>
 <p>&nbsp;</p>
 <p>در ادامه تصاویری از این مدفن ها آورده شده است.</p>
 <div style="text-align: center;">
