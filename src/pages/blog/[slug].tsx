@@ -61,17 +61,21 @@ const Blog = ({ postData, lastThreePost }) => {
                       <motion.img
                         layoutId={`img-${postData.postId}`}
                         style={{ filter: "blur(6px)", maxHeight: "50vh" }}
+                        id="image_cover"
                         className=" lg:h-48 md:h-36 w-full object-cover object-center"
                         src={postData.image}
                         alt="blog"
                       />
 
-                      <h1 className="text-white px-4 py-2 bg-gray-700 absolute bottom-12 right-4  text-lg font-bold  mb-3">
+                      <h1
+                        id="page_title"
+                        className="text-white px-4 py-2 bg-gray-700 absolute bottom-12 right-4  text-lg font-bold  mb-3"
+                      >
                         {postData.title}
                       </h1>
                       <h2 className="absolute  bottom-4 right-4 tracking-widest text-xs title-font font-medium px-4 py-2 bg-gray-700 mb-1">
                         <span className="text-white inline-flex items-center leading-none text-sm">
-                          <p> {postData.date}</p>
+                          <p id="post_date"> {postData.jdate}</p>
                           <BiTimeFive className="text-xl ms-1  -mt-1" />
                         </span>
                       </h2>
@@ -91,6 +95,7 @@ const Blog = ({ postData, lastThreePost }) => {
                     <div className="flex sm:flex-row flex-col relative justify-center content-center ">
                       <div className="md:w-10/12 flex w-full  flex-row sm:w-10/12  text-justify max-w-screen-xl tracking-wide leading-8 text-lg sm:ps-4 px-2 sm:pe-0  ">
                         <div
+                          id="post_content"
                           className="prose prose-blue prose-2xl mx-auto overflow-y-hidden"
                           dangerouslySetInnerHTML={{
                             __html: postData.contentHtml,
@@ -99,7 +104,10 @@ const Blog = ({ postData, lastThreePost }) => {
                       </div>
                       <div className=" sticky start-0 m-4 max-w-sm sm:w-72 w-full top-8 h-64 border-s-4 border-orange-400">
                         <div className="ps-2">
-                          <h3 className="text-3xl mb-8 text-black">
+                          <h3
+                            id="related_posts"
+                            className="text-3xl mb-8 text-black"
+                          >
                             آخرین مقالات{" "}
                           </h3>
                           {lastThreePost.map(({ title, postId, jdate }) => {
