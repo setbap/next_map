@@ -54,7 +54,7 @@ const LandFill = () => {
               <button type="button" className="shadow-lg">
                 <div>
                   <div className=" w-12 h-12 bg-green-100 flex flex-grow items-center justify-center shadow-lg me-1 rounded-md">
-                    ساری
+                    asda
                   </div>
                 </div>
               </button>
