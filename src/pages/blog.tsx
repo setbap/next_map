@@ -39,7 +39,7 @@ const Blog = ({ allPostsData }) => {
           // animate="enter"
           // exit="exit"
         >
-          <section className="text-gray-600">
+          <section className="text-skin-muted">
             <div className="container p-5  mx-auto">
               <div className="flex flex-wrap -m-4">
                 {allPostsData.map(({ postId, image, jdate, title, short }) => {

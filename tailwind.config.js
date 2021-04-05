@@ -14,12 +14,14 @@ module.exports = {
           base: "var(--color-text-base)",
           muted: "var(--color-text-muted)",
           primary: "var(--color-primary)",
+          secondary: "var(--color-secondary)",
           "on-primary": "var(--color-text-on-primary)",
         },
       },
 
       backgroundColor: {
         skin: {
+          secondary: "var(--color-secondary)",
           base: "var(--color-background)",
           card: "var(--color-card-background)",
           "card-hover": "var(--color-primary-hover)",
@@ -30,6 +32,7 @@ module.exports = {
 
       borderColor: {
         skin: {
+          secondary: "var(--color-secondary)",
           base: "var(--color-background)",
           primary: "var(--color-primary)",
         },

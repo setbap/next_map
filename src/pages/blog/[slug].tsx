@@ -41,9 +41,9 @@ const Blog = ({ postData, lastThreePost }) => {
           animate="enter"
           exit="exit"
         >
-          <section className="text-gray-600">
+          <section className="text-skin-muted">
             <AnimatePresence>
-              <motion.div layout className=" bg-white ">
+              <motion.div layout className=" bg-skin-card ">
                 {" "}
                 <motion.div
                   initial={{ opacity: 0.9 }}
@@ -55,7 +55,7 @@ const Blog = ({ postData, lastThreePost }) => {
                 >
                   <motion.div
                     layoutId={`main-${postData.postId}`}
-                    className="h-full  bg-white  "
+                    className="h-full  bg-skin-card  "
                   >
                     <div className="lg:h-48 md:h-36 w-full relative ">
                       <motion.img
@@ -69,12 +69,12 @@ const Blog = ({ postData, lastThreePost }) => {
 
                       <h1
                         id="page_title"
-                        className="text-white px-4 py-2 bg-gray-700 absolute bottom-12 right-4  text-lg font-bold  mb-3"
+                        className="text-skin-on-primary bg-skin-primary px-4 py-2  absolute bottom-12 right-4  text-lg font-bold rounded-md  mb-3"
                       >
                         {postData.title}
                       </h1>
-                      <h2 className="absolute  bottom-4 right-4 tracking-widest text-xs title-font font-medium px-4 py-2 bg-gray-700 mb-1">
-                        <span className="text-white inline-flex items-center leading-none text-sm">
+                      <h2 className="absolute  bottom-4 right-4 tracking-widest text-xs title-font font-medium px-4 py-2 text-skin-on-primary bg-skin-primary rounded-md mb-1">
+                        <span className="text-skin-on-primary  inline-flex items-center leading-none text-sm">
                           <p id="post_date"> {postData.jdate}</p>
                           <BiTimeFive className="text-xl ms-1  -mt-1" />
                         </span>
@@ -88,25 +88,25 @@ const Blog = ({ postData, lastThreePost }) => {
                         layoutId={`link-${postData.postId}`}
                         className="flex items-center flex-wrap "
                       >
-                        <span className="text-green-700 inline-flex items-center leading-none text-sm"></span>
-                        <span className="text-green-700 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"></span>
+                        <span className="text-skin-secondary inline-flex items-center leading-none text-sm"></span>
+                        <span className="text-skin-secondary mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"></span>
                       </motion.div>
                     </motion.div>
                     <div className="flex sm:flex-row flex-col relative justify-center content-center ">
                       <div className="md:w-10/12 flex w-full  flex-row sm:w-10/12  text-justify max-w-screen-xl tracking-wide leading-8 text-lg sm:ps-4 px-2 sm:pe-0  ">
                         <div
                           id="post_content"
-                          className="prose prose-blue prose-2xl mx-auto overflow-y-hidden"
+                          className="prose text-skin-base  prose-2xl mx-auto overflow-y-hidden"
                           dangerouslySetInnerHTML={{
                             __html: postData.contentHtml,
                           }}
                         />
                       </div>
-                      <div className=" sticky start-0 m-4 max-w-sm sm:w-72 w-full top-8 h-64 border-s-4 border-orange-400">
+                      <div className=" sticky start-0 m-4 max-w-sm sm:w-72 w-full top-8 h-64 border-s-4 border-skin-primary">
                         <div className="ps-2">
                           <h3
                             id="related_posts"
-                            className="text-3xl mb-8 text-black"
+                            className="text-3xl mb-8 text-skin-base"
                           >
                             آخرین مقالات{" "}
                           </h3>
@@ -114,11 +114,11 @@ const Blog = ({ postData, lastThreePost }) => {
                             return (
                               <div key={postId} className="mt-4">
                                 <Link href={`/blog/${postId}`}>
-                                  <a className="text-base hover:text-blue-400">
+                                  <a className="text-base hover:text-skin-primary">
                                     {title}
                                   </a>
                                 </Link>
-                                <div className="text-xs mt-2 text-gray-700">
+                                <div className="text-xs mt-2 text-skin-secondary">
                                   {jdate}
                                 </div>
                               </div>
