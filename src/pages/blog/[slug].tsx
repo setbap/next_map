@@ -43,7 +43,7 @@ const Blog = ({ postData, lastThreePost }) => {
         >
           <section className="text-skin-muted">
             <AnimatePresence>
-              <motion.div layout className=" bg-skin-card ">
+              <motion.div layout className=" bg-skin-base ">
                 {" "}
                 <motion.div
                   initial={{ opacity: 0.9 }}
@@ -55,7 +55,7 @@ const Blog = ({ postData, lastThreePost }) => {
                 >
                   <motion.div
                     layoutId={`main-${postData.postId}`}
-                    className="h-full  bg-skin-card  "
+                    className="h-full"
                   >
                     <div className="lg:h-48 md:h-36 w-full relative ">
                       <motion.img
@@ -96,7 +96,7 @@ const Blog = ({ postData, lastThreePost }) => {
                       <div className="md:w-10/12 flex w-full  flex-row sm:w-10/12  text-justify max-w-screen-xl tracking-wide leading-8 text-lg sm:ps-4 px-2 sm:pe-0  ">
                         <div
                           id="post_content"
-                          className="prose text-skin-base  prose-2xl mx-auto overflow-y-hidden"
+                          className="prose text-skin-base   prose-2xl mx-auto overflow-y-hidden"
                           dangerouslySetInnerHTML={{
                             __html: postData.contentHtml,
                           }}
@@ -128,7 +128,6 @@ const Blog = ({ postData, lastThreePost }) => {
                       </div>
                     </div>
                   </motion.div>
-                  <div className="sm:h-10" />
                 </motion.div>
               </motion.div>
             </AnimatePresence>

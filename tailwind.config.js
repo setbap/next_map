@@ -31,6 +31,7 @@ module.exports = {
           "light-primary": "var(--color-light-primary)",
           "card-hover": "var(--color-primary-hover)",
           primary: "var(--color-primary)",
+          muted: "var(--color-muted)",
           // primary: "var(--color-card-background)",
         },
       },

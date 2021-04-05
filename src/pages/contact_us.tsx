@@ -95,7 +95,7 @@ const ContactUs = () => {
                     className="w-full bg-skin-card rounded border border-skin-muted focus:border-skin-primary focus:ring-2 focus:ring-yellow-200 text-base outline-none  text-skin-muted py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   ></textarea>
                 </div>
-                <button className="text-skin-on-primary bg-skin-primary border-0 py-2 px-6 focus:outline-none hover:bg-skin-light-primary rounded text-lg">
+                <button className="text-skin-on-primary bg-skin-primary border-0 py-2 px-6 focus:outline-none hover:bg-skin-primary-relaxed rounded text-lg">
                   ارسال
                 </button>
                 <p className="text-xs text-skin-muted mt-3">

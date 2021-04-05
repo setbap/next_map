@@ -17,7 +17,7 @@ const AsideMenu = ({ open, closeFn }: Props) => {
       <aside
         className={`z-50 h-full absolute start-0 overflow-auto   transition-all duration-200 ${
           open ? "sm:w-48 lg:w-48 w-full" : "w-0"
-        }  bg-skin-base `}
+        }  bg-skin-card `}
       >
         <ul className="text-center flex flex-col w-full">
           <li className="h-14  block">
