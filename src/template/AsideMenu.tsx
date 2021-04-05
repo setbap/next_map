@@ -19,7 +19,6 @@ const AsideMenu = ({ open, closeFn }: Props) => {
           open ? "sm:w-48 lg:w-48 w-full" : "w-0"
         }  bg-skin-card `}
       >
-        <div className="absolute  top-0 left-0 bottom-0 right-0 footer_filter footer_image "></div>
         <ul className="text-center flex flex-col w-full">
           <li className="h-14  block">
             <div
