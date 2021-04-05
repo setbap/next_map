@@ -43,20 +43,20 @@ const ContactUs = () => {
           animate="enter"
           exit="exit"
         >
-          <section className="text-gray-600 body-font flex-1">
+          <section className="text-skin-muted body-font flex-1">
             <div className="container px-5 py-4 mx-auto flex lg:flex-row flex-col">
               <div className="lg:w-1/2 flex-col   rounded-lg  sm:mx-3  flex items-end justify-start relative">
                 <UniMap />
               </div>
               <div className="w-10 block lg:hidden" />
               <div className="lg:w-1/2 flex flex-col md:ms-auto w-full px-2 lg:py-8 mt-8 ">
-                <h2 className="text-gray-900 text-lg mb-1 font-medium ">
+                <h2 className="text-skin-base text-lg mb-1 font-medium ">
                   ارسال نظر
                 </h2>
                 <div className="relative mb-4">
                   <label
                     htmlFor="name"
-                    className="leading-7 text-sm text-gray-600"
+                    className="leading-7 text-sm text-skin-muted"
                   >
                     نام *
                   </label>
@@ -65,13 +65,13 @@ const ContactUs = () => {
                     type="text"
                     id="name"
                     name="name"
-                    className="w-full bg-white rounded border border-gray-300 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    className="w-full bg-skin-card rounded border border-gray-300 focus:border-skin-primary focus:ring-2 focus:ring-yellow-200 text-base outline-none  text-skin-muted py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>
                 <div className="relative mb-4">
                   <label
                     htmlFor="email"
-                    className="leading-7 text-sm text-gray-600"
+                    className="leading-7 text-sm text-skin-muted"
                   >
                     پست الکترونيک
                   </label>
@@ -79,26 +79,26 @@ const ContactUs = () => {
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full bg-white rounded border border-gray-300 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    className="w-full bg-skin-card rounded border border-gray-300 focus:border-skin-primary focus:ring-2 focus:ring-yellow-200 text-base outline-none  text-skin-muted py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>
                 <div className="relative mb-4">
                   <label
                     htmlFor="message"
-                    className="leading-7 text-sm text-gray-600"
+                    className="leading-7 text-sm text-skin-muted"
                   >
                     پیام
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    className="w-full bg-white rounded border border-gray-300 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                    className="w-full bg-skin-card rounded border border-gray-300 focus:border-skin-primary focus:ring-2 focus:ring-yellow-200 text-base outline-none  text-skin-muted py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   ></textarea>
                 </div>
-                <button className="text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg">
+                <button className="text-skin-on-primary bg-skin-primary border-0 py-2 px-6 focus:outline-none hover:bg-skin-card-hover rounded text-lg">
                   ارسال
                 </button>
-                <p className="text-xs text-gray-500 mt-3">
+                <p className="text-xs text-skin-muted mt-3">
                   نظر شما به هیچ وجه امکان عمومی شدن در قسمت نظرات را ندارد، و
                   تنها راه پاسخگویی به آن نیز از طریق پست الکترونیک می‌باشد.
                   بنابراین در صورتیکه مایل به دریافت پاسخ هستید، پست الکترونیک

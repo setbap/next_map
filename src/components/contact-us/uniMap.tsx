@@ -56,9 +56,9 @@ const UniMap: FC = () => {
           height: "400px",
         }}
       ></div>
-      <div className="   bg-white relative flex flex-wrap -mt-8 py-6 mx-4 rounded shadow-md">
+      <div className="   bg-skin-card relative flex flex-wrap -mt-8 py-6 mx-4 rounded shadow-md">
         <div className="lg:w-1/2 px-6">
-          <h2 className=" font-semibold text-gray-900 tracking-widest text-xs">
+          <h2 className=" font-semibold text-skin-base tracking-widest text-xs">
             آدرس:
           </h2>
           <p className="mt-1">
@@ -68,15 +68,15 @@ const UniMap: FC = () => {
         </div>
         <div className="flex space-y-4 lg:flex-col sm:flex-row flex-col lg:w-1/2 w-full justify-start items-start px-6 mt-4 lg:mt-0">
           <div className="w-full ">
-            <h2 className=" font-semibold text-gray-900 tracking-widest text-xs">
+            <h2 className=" font-semibold text-skin-base tracking-wide text-xs">
               ایمیل:
             </h2>
-            <a className="text-yellow-500 leading-relaxed pt-1">
+            <a className="text-skin-primary leading-relaxed pt-1">
               shomalGIS@gmail.com
             </a>
           </div>
           <div className="w-full ">
-            <h2 className=" font-semibold w-full text-gray-900 tracking-widest text-xs lg:mt-4">
+            <h2 className=" font-semibold w-full text-skin-base tracking-wide text-xs lg:mt-4">
               تلفن:
             </h2>
             <div className="leading-relaxed w-full pt-1 ">

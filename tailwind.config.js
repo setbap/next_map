@@ -8,8 +8,33 @@ module.exports = {
       sans: ["Vazir", "sans-serif"],
       serif: ["Merriweather", "serif"],
     },
-
     extend: {
+      textColor: {
+        skin: {
+          base: "var(--color-text-base)",
+          muted: "var(--color-text-muted)",
+          primary: "var(--color-primary)",
+          "on-primary": "var(--color-text-on-primary)",
+        },
+      },
+
+      backgroundColor: {
+        skin: {
+          base: "var(--color-background)",
+          card: "var(--color-card-background)",
+          "card-hover": "var(--color-primary-hover)",
+          primary: "var(--color-primary)",
+          // primary: "var(--color-card-background)",
+        },
+      },
+
+      borderColor: {
+        skin: {
+          base: "var(--color-background)",
+          primary: "var(--color-primary)",
+        },
+      },
+
       typography: (theme) => ({
         DEFAULT: {
           css: {

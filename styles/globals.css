@@ -4,6 +4,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    /* TEXT */
+    --color-text-base: #000;
+    --color-text-muted: #6b7280;
+    --color-text-on-primary: #fff;
+
+    /* BUTTON */
+    --color-primary-hover: #d97706;
+
+    --color-background: #e5e7eb;
+    --color-card-background: #fff;
+    --color-primary: #f59e0b;
+  }
+}
+
 html {
   height: 100%;
 }
