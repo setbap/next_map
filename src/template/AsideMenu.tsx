@@ -19,6 +19,7 @@ const AsideMenu = ({ open, closeFn }: Props) => {
           open ? "sm:w-48 lg:w-48 w-full" : "w-0"
         }  bg-skin-card `}
       >
+        <div className="absolute  top-0 left-0 bottom-0 right-0 footer_filter footer_image "></div>
         <ul className="text-center flex flex-col w-full">
           <li className="h-14  block">
             <div
@@ -26,11 +27,16 @@ const AsideMenu = ({ open, closeFn }: Props) => {
               onClick={closeFn}
               className="h-full w-full hover:bg-skin-primary block p-3"
             >
-              <img
-                className="object-contain h-full w-full"
-                src="https://avatars1.githubusercontent.com/u/6157842?v=4"
-                alt="open-source"
-              />
+              <div className=" flex flex-col justify-center items-center ">
+                <div className="bg-white p-1  rounded-lg">
+                  <img
+                    src="/title_image.png"
+                    className="scale-75 transform"
+                    width="30px"
+                    height="30px"
+                  />
+                </div>
+              </div>
             </div>
           </li>
           <AsideNavLink

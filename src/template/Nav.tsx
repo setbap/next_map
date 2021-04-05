@@ -25,16 +25,23 @@ const Nav = () => {
       initial="initial"
       animate="enter"
       variants={variants}
-      className=" bg-skin-card px-6 py-2 flex items-center min-w-0 h-14"
+      className=" relative bg-skin-card px-6 py-2 flex items-center min-w-0 h-14"
     >
+      <div className="absolute  top-0 left-0 bottom-0 right-0 footer_filter footer_image "></div>
+
       <IoMdArrowForward
         className="mx-5"
         onClick={() => {
           // history.goBack();
         }}
       />
-      <h1 className="font-semibold text-skin-base text-lg">
-        {" "}
+      <img
+        src="/title_image.png"
+        className="scale-75 transform"
+        width="40px"
+        height="40px"
+      />
+      <h1 className="font-semibold text-skin-base text-sm sm:text-lg">
         مدیریت محیط زیست
       </h1>
       <span className="flex-1"></span>

@@ -2,8 +2,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Nav from "~/template/Nav";
 import Footer from "../../template/Footer";
 import { getAllPostIds, getSinglePostData, getPostsShort } from "lib/posts";
-import { BsChat } from "react-icons/bs";
-import { AiOutlineEye } from "react-icons/ai";
 import Head from "next/head";
 import Link from "next/link";
 import { BiTimeFive } from "react-icons/bi";
@@ -44,7 +42,6 @@ const Blog = ({ postData, lastThreePost }) => {
           <section className="text-skin-muted">
             <AnimatePresence>
               <motion.div layout className=" bg-skin-base ">
-                {" "}
                 <motion.div
                   initial={{ opacity: 0.9 }}
                   animate={{ opacity: 1 }}
@@ -69,7 +66,7 @@ const Blog = ({ postData, lastThreePost }) => {
 
                       <h1
                         id="page_title"
-                        className="text-skin-on-primary bg-skin-primary px-4 py-2  absolute bottom-12 right-4  text-lg font-bold rounded-md  mb-3"
+                        className="text-skin-on-primary bg-skin-primary px-4 py-3 me-2  absolute bottom-12 right-4 text-b  ase max-w-sm  sm:text-lg font-bold rounded-md  mb-3"
                       >
                         {postData.title}
                       </h1>
@@ -92,17 +89,20 @@ const Blog = ({ postData, lastThreePost }) => {
                         <span className="text-skin-secondary mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"></span>
                       </motion.div>
                     </motion.div>
-                    <div className="flex sm:flex-row flex-col relative justify-center content-center ">
-                      <div className="md:w-10/12 flex w-full  flex-row sm:w-10/12  text-justify max-w-screen-xl tracking-wide leading-8 text-lg sm:ps-4 px-2 sm:pe-0  ">
+                    <div className="flex md:flex-row flex-col relative justify-center content-center ">
+                      <div className=" flex w-full  flex-row md:w-10/12  text-justify max-w-screen-xl tracking-wide leading-8 text-lg sm:ps-4 px-2 sm:pe-0  ">
                         <div
                           id="post_content"
-                          className="prose text-skin-base   prose-2xl mx-auto overflow-y-hidden"
+                          className="prose text-skin-base px-2  prose-2xl mx-auto overflow-y-hidden"
                           dangerouslySetInnerHTML={{
                             __html: postData.contentHtml,
                           }}
                         />
                       </div>
-                      <div className=" sticky start-0 m-4 max-w-sm sm:w-72 w-full top-8 h-64 border-s-4 border-skin-primary">
+                      <div
+                        style={{ maxHeight: "77vh", maxWidth: "90vw" }}
+                        className="block md:sticky  overflow-auto  start-0 m-4 max-w-sm sm:w-72 w-full top-8 h-80  border-s-4 border-skin-primary"
+                      >
                         <div className="ps-2">
                           <h3
                             id="related_posts"

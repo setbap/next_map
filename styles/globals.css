@@ -4,6 +4,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .footer_image {
+    background-image: url(/footer_image.svg),
+      linear-gradient(to right, var(--color-secondary), var(--color-primary));
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    z-index: -1;
+  }
+  .footer_filter {
+    opacity: 0.2;
+
+    filter: blur(18px);
+  }
+}
+
 @layer base {
   :root {
     /* TEXT */

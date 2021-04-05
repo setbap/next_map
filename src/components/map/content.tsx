@@ -209,7 +209,7 @@ const Content = () => {
                 onClick={() => {
                   setMapType({ type: "osm" });
                 }}
-                className={`relative flex-1 h-10 p-2 m-1 rounded-2xl text-center`}
+                className={`relative flex-1 h-10 p-2 m-1 rounded-2xl text-center text-skin-base`}
               >
                 osm
                 {mapType.type === "osm" && (
@@ -228,7 +228,7 @@ const Content = () => {
                 onClick={() => {
                   setMapType({ type: "bing" });
                 }}
-                className={`flex-1 p-2 m-1 rounded-2xl text-center relative`}
+                className={`flex-1 p-2 m-1 rounded-2xl text-center relative  text-skin-base`}
               >
                 bing
                 {mapType.type === "bing" && (
@@ -243,7 +243,12 @@ const Content = () => {
                 )}
               </motion.div>
             </div>
-            <div className="w-1/2 flex-1 bg-skin-card">
+            <div
+              style={{
+                maxHeight: "50vh",
+              }}
+              className="w-1/2 flex-1 bg-skin-card overflow-auto "
+            >
               <div>
                 <label className="flex text-skin-base justify-between m-4 items-center">
                   <span>شهر</span>
