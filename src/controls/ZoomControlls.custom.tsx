@@ -22,14 +22,14 @@ const ZoomControlls = () => {
   return (
     <div className="fixed end-4 bottom-12  flex flex-col bg-transparent z-40">
       <button
-        className="p-2 text-center rounded-full border-2 border-gray-100 focus:outline-none focus:border-blue-400 text-orange-400 bg-white"
+        className="p-2 text-center rounded-full border-2 border-skin-base focus:outline-none focus:border-skin-secondary text-skin-primary bg-skin-card"
         onClick={zoomOut("zoomIn")}
       >
         <AiOutlineZoomIn size={26} />
       </button>
       <div className="h-2" />
       <button
-        className="p-2 text-center rounded-full border-2 border-gray-100 focus:outline-none focus:border-blue-400 text-orange-400 bg-white"
+        className="p-2 text-center rounded-full border-2 border-skin-base focus:outline-none focus:border-skin-secondary text-skin-primary bg-skin-card"
         onClick={zoomOut("zoomOut")}
       >
         <AiOutlineZoomOut size={26} />

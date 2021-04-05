@@ -192,7 +192,7 @@ const Content = () => {
         }}
         transition={{ type: "tween" }}
         style={{ direction: "rtl" }}
-        className="absolute bottom-4 z-10 overflow-hidden  w-48 bg-white right-4 border-2 border-orange-400 rounded-lg"
+        className="absolute bottom-4 z-10 overflow-hidden  w-48 bg-skin-card right-4 border-2 border-skin-primary rounded-lg"
       >
         {/* <AnimatePresence>
           {menuOpen && ( */}
@@ -207,9 +207,9 @@ const Content = () => {
             animate={{ x: menuPage === "mapsPage" ? "0%" : "50%" }}
             style={{ width: "200%" }}
             transition={{ type: "tween" }}
-            className="flex flex-row flex-nowrap bg-green-50"
+            className="flex flex-row flex-nowrap bg-skin-card"
           >
-            <div className="w-1/2 flex flex-col h-20 bg-green-50">
+            <div className="w-1/2 flex flex-col h-20   ">
               <motion.div
                 layout
                 onClick={() => {
@@ -223,7 +223,7 @@ const Content = () => {
                     className="absolute top-0 h-10 left-0 w-full  border-2 rounded-2xl"
                     layoutId="outline"
                     animate={{
-                      borderColor: "orange",
+                      borderColor: "var(--color-primary)",
                     }}
                     initial={false}
                   />
@@ -242,16 +242,16 @@ const Content = () => {
                     className="absolute top-0 left-0 w-full h-full border-2 rounded-2xl"
                     layoutId="outline"
                     animate={{
-                      borderColor: "green",
+                      borderColor: "var(--color-primary)",
                     }}
                     initial={false}
                   />
                 )}
               </motion.div>
             </div>
-            <div className="w-1/2 flex-1 bg-orange-50">
+            <div className="w-1/2 flex-1 bg-skin-card">
               <div>
-                <label className="flex justify-between m-4 items-center">
+                <label className="flex text-skin-base justify-between m-4 items-center">
                   <span>شهر</span>
                   <input
                     type="checkbox"
@@ -261,7 +261,7 @@ const Content = () => {
                 </label>
               </div>
               <div>
-                <label className="flex justify-between m-4 items-center">
+                <label className="flex text-skin-base justify-between m-4 items-center">
                   <span>لندفیل</span>
                   <input
                     type="checkbox"
@@ -272,7 +272,7 @@ const Content = () => {
               </div>
 
               <div>
-                <label className="flex justify-between m-4 items-center">
+                <label className="flex text-skin-base justify-between m-4 items-center">
                   <span>روستا</span>
                   <input
                     type="checkbox"
@@ -283,7 +283,7 @@ const Content = () => {
               </div>
 
               <div>
-                <label className="flex justify-between m-4 items-center">
+                <label className="flex text-skin-base justify-between m-4 items-center">
                   <span>جاده</span>
                   <input
                     type="checkbox"
@@ -294,7 +294,7 @@ const Content = () => {
               </div>
 
               <div>
-                <label className="flex justify-between m-4 items-center">
+                <label className="flex text-skin-base justify-between m-4 items-center">
                   <span>شهرستان</span>
                   <input
                     type="checkbox"
@@ -304,7 +304,7 @@ const Content = () => {
                 </label>
               </div>
               <div>
-                <label className="flex justify-between m-4 items-center">
+                <label className="flex text-skin-base justify-between m-4 items-center">
                   <span>صنابع</span>
                   <input
                     type="checkbox"
@@ -315,10 +315,12 @@ const Content = () => {
               </div>
             </div>
           </motion.div>
-          <div className="flex flex-row text-center border-b border-orange-400">
+          <div className="flex text-skin-base flex-row text-center border-b border-skin-primary">
             <div
               onClick={() => setMenuPage("layerPage")}
-              className="bg-orange-50 flex-1 p-2"
+              className={`${
+                menuPage === "layerPage" ? "bg-skin-card" : "bg-skin-base"
+              }  flex-1 p-2 transition-colors duration-300`}
             >
               لایه ها
             </div>
@@ -327,7 +329,9 @@ const Content = () => {
                 setMenuPage("mapsPage");
                 console.log(menuPage);
               }}
-              className="bg-green-50 flex-1 p-2"
+              className={`${
+                menuPage === "mapsPage" ? "bg-skin-card" : "bg-skin-base"
+              }  flex-1 p-2 transition-colors duration-300`}
             >
               نقشه ها
             </div>

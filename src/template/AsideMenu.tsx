@@ -17,14 +17,14 @@ const AsideMenu = ({ open, closeFn }: Props) => {
       <aside
         className={`z-50 h-full absolute start-0 overflow-auto   transition-all duration-200 ${
           open ? "sm:w-48 lg:w-48 w-full" : "w-0"
-        }  bg-gray-100 text-gray-200`}
+        }  bg-skin-base `}
       >
         <ul className="text-center flex flex-col w-full">
-          <li className="h-14  border-gray-200 block">
+          <li className="h-14  block">
             <div
               id="page-icon"
               onClick={closeFn}
-              className="h-full w-full hover:bg-gray-700 block p-3"
+              className="h-full w-full hover:bg-skin-primary block p-3"
             >
               <img
                 className="object-contain h-full w-full"

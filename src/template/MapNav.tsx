@@ -22,14 +22,14 @@ const MapNav = () => {
       initial="initial"
       animate="enter"
       variants={variants}
-      className=" absolute top-0 z-20 w-full   bg-transparent justify-between text-white px-4 py-2 flex items-center min-w-0 h-14"
+      className=" absolute top-0 z-20 w-full   bg-transparent justify-between text-skin-on-primary px-4 py-2 flex items-center min-w-0 h-14"
     >
       <h1 className="font-semibold text-lg"> </h1>
 
       {/* input */}
       <div className="relative">
         <div className="absolute cursor-pointer flex border border-transparent end-1 h-9 top-1  w-9">
-          <div className="flex items-center justify-center rounded-tl rounded-bl z-10 bg-transparent text-gray-600 text-lg h-full w-full">
+          <div className="flex items-center justify-center rounded-tl rounded-bl z-10 bg-transparent text-skin-muted text-lg h-full w-full">
             <AiOutlineSearch className="w-5 h-5" size={20} />
           </div>
         </div>
@@ -39,12 +39,12 @@ const MapNav = () => {
           name="name"
           type="text"
           placeholder="جست و جو"
-          className="text-sm sm:text-base relative w-full border-2 rounded-xl placeholder-gray-400 text-black focus:border-blue-500 focus:outline-none py-2 ps-2 pe-10"
+          className="text-sm sm:text-base relative w-full border-2 rounded-xl placeholder-gray-400 text-skin-base focus:border-skin-primary-relaxed focus:outline-none py-2 ps-2 pe-10"
         />
       </div>
       {/* input */}
 
-      <button className=" border rounded-full p-1  text-center leading-none text-orange-400  bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+      <button className=" border rounded-full p-1  text-center leading-none text-skin-primary  bg-skin-card focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
         <CgUserlane size={28} className="m-px" />
       </button>
     </motion.nav>

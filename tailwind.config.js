@@ -14,7 +14,9 @@ module.exports = {
           base: "var(--color-text-base)",
           muted: "var(--color-text-muted)",
           primary: "var(--color-primary)",
+          "primary-relaxed": "var(--color-relaxed-primary)",
           secondary: "var(--color-secondary)",
+          "light-primary": "var(--color-light-primary)",
           "on-primary": "var(--color-text-on-primary)",
         },
       },
@@ -22,8 +24,11 @@ module.exports = {
       backgroundColor: {
         skin: {
           secondary: "var(--color-secondary)",
+          "primary-relaxed": "var(--color-relaxed-primary)",
           base: "var(--color-background)",
           card: "var(--color-card-background)",
+          "primary-relaxed": "var(--color-relaxed-primary)",
+          "light-primary": "var(--color-light-primary)",
           "card-hover": "var(--color-primary-hover)",
           primary: "var(--color-primary)",
           // primary: "var(--color-card-background)",
@@ -34,6 +39,9 @@ module.exports = {
         skin: {
           secondary: "var(--color-secondary)",
           base: "var(--color-background)",
+          muted: "var(--color-text-muted)",
+          "primary-relaxed": "var(--color-relaxed-primary)",
+          "light-primary": "var(--color-light-primary)",
           primary: "var(--color-primary)",
         },
       },
