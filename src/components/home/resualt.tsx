@@ -42,7 +42,7 @@ const Resualt = () => {
       <div className="shadow-lg rounded-xl w-full md:w-5/12 p-4 bg-skin-card dark:bg-gray-800 text-base dark:text-gray-100 relative overflow-hidden">
         <div className="w-full h-full block">
           <div className="w-full">
-            <p className="text-gray-700 dark:text-white  text-2xl font-light mb-4">
+            <p className="text-skin-muted   text-2xl font-light mb-4">
               بعد از nitEnviro
             </p>
             <div className="flex items-center justify-between text-skin-muted text-sm">

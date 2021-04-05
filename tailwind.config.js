@@ -39,7 +39,7 @@ module.exports = {
         skin: {
           secondary: "var(--color-secondary)",
           base: "var(--color-background)",
-          muted: "var(--color-text-muted)",
+          muted: "var(--color-border-muted)",
           "primary-relaxed": "var(--color-relaxed-primary)",
           "light-primary": "var(--color-light-primary)",
           primary: "var(--color-primary)",

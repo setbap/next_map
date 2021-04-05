@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           className="sm:relative fixed top-0 bottom-0"
         >
           <AsideMenu closeFn={closeFn} open={open} />
-          <section className="h-full sm:h-screen w-screen bg-gray-200 flex flex-col-reverse sm:flex-row min-h-0 min-w-0 overflow-hidden">
+          <section className="h-full sm:h-screen w-screen bg-skin-base flex flex-col-reverse sm:flex-row min-h-0 min-w-0 overflow-hidden">
             <main className="sm:h-full flex-1 flex flex-col min-h-0 min-w-0 overflow-hidden">
               <AnimatePresence exitBeforeEnter initial={false}>
                 <Component {...pageProps} />

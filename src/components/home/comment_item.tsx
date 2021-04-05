@@ -31,8 +31,8 @@ const CommentItem = ({ comment, name, title }: Props) => {
       </div>
       <div className="flex items-center mt-4 text-skin-muted"></div>
       <div className="mt-3">
-        <span className="font-bold">{title}</span>
-        <p className="mt-1">{comment}</p>
+        <span className="font-bold text-skin-base">{title}</span>
+        <p className="mt-1 text-skin-muted">{comment}</p>
       </div>
     </div>
   );

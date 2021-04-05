@@ -4,7 +4,7 @@ const TeamMember = () => {
   return (
     <div className="container mx-auto my-12">
       <div className="p-8 bg-skin-card dark:bg-gray-800 rounded-lg shadow">
-        <p className="text-center text-3xl font-bold text-skin-on-base dark:text-white">
+        <p className="text-center text-3xl font-bold text-skin-base dark:text-white">
           اعضای تیم
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">

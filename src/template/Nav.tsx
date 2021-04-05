@@ -22,7 +22,7 @@ const Nav = () => {
       initial="initial"
       animate="enter"
       variants={variants}
-      className="border-b bg-skin-card px-6 py-2 flex items-center min-w-0 h-14"
+      className=" bg-skin-card px-6 py-2 flex items-center min-w-0 h-14"
     >
       <IoMdArrowForward
         className="mx-5"
@@ -30,10 +30,13 @@ const Nav = () => {
           // history.goBack();
         }}
       />
-      <h1 className="font-semibold text-lg"> مدیریت محیط زیست</h1>
+      <h1 className="font-semibold text-skin-base text-lg">
+        {" "}
+        مدیریت محیط زیست
+      </h1>
       <span className="flex-1"></span>
 
-      <button className=" border rounded-full p-1  text-center leading-none text-skin-primary  bg-skin-card focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+      <button className=" border border-skin-muted rounded-full p-1  text-center leading-none text-skin-primary  bg-skin-card focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
         <CgUserlane size={28} className="m-px" />
       </button>
     </motion.nav>

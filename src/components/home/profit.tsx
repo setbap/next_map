@@ -5,10 +5,10 @@ const Profit = () => {
         <div className="flex flex-wrap -px-8">
           <div className="w-full lg:w-1/2 px-8">
             <div className="mb-12 lg:mb-0 pb-12 lg:pb-0 border-b lg:border-b-0">
-              <h2 className="mb-4 text-3xl lg:text-4xl font-bold font-heading">
+              <h2 className="mb-4 text-3xl lg:text-4xl text-skin-primary font-bold font-heading">
                 مزایای استفاده از nitEnviro
               </h2>
-              <p className="mb-8 leading-loose text-skin-muted ">
+              <p className="mb-8 leading-loose  text-skin-muted ">
                 در ادامه با برخی از مزایای عضویت در nitEnviro و استفاده از آن
                 اشنا خواهیم شد
               </p>
@@ -34,7 +34,9 @@ const Profit = () => {
                   </span>
                 </div>
                 <div className="px-4">
-                  <h3 className="my-4 text-xl font-semibold ">مسئولیت پذیری</h3>
+                  <h3 className="my-4 text-skin-base  text-xl font-semibold ">
+                    مسئولیت پذیری
+                  </h3>
                   <p className="text-skin-muted leading-loose">
                     خیلی آدم مسئولیت پذیری خواهید شد.
                   </p>
@@ -47,7 +49,10 @@ const Profit = () => {
                   </span>
                 </div>
                 <div className="px-4">
-                  <h3 className="my-4 text-xl font-semibold "> افزایش درآمد</h3>
+                  <h3 className="my-4 text-skin-base text-xl font-semibold ">
+                    {" "}
+                    افزایش درآمد
+                  </h3>
                   <p className="text-skin-muted leading-loose">
                     nitEnviro_to_the_moon#
                   </p>
@@ -60,7 +65,7 @@ const Profit = () => {
                   </span>
                 </div>
                 <div className="px-4">
-                  <h3 className="my-4 text-xl font-semibold ">
+                  <h3 className="my-4 text-skin-base text-xl font-semibold ">
                     بهبود در زندگی
                   </h3>
                   <p className="text-skin-muted leading-loose">

@@ -28,7 +28,7 @@ const GetStarted = () => {
           />
           <div className="w-12 h-12" />
           <div className="text-center">
-            <h1 className="font-bold  text-5xl sm:text-7xl text-skin-on-primary leading-tight mt-4">
+            <h1 className="font-bold  text-5xl sm:text-7xl text-white leading-tight mt-4">
               سامانه مکان محور محیط زیست
             </h1>
             <h6 className="font-bold text-xl sm:text-2xl text-skin-primary leading-normal mt-2">

@@ -39,7 +39,7 @@ const MapNav = () => {
           name="name"
           type="text"
           placeholder="جست و جو"
-          className="text-sm sm:text-base relative w-full border-2 rounded-xl placeholder-gray-400 text-skin-base focus:border-skin-primary-relaxed focus:outline-none py-2 ps-2 pe-10"
+          className="text-sm bg-skin-card  border-skin-muted  focus:ring-2 focus:ring-yellow-200  outline-none  text-skin-muted  px-3 leading-8 transition-colors duration-200 ease-in-out  sm:text-base relative w-full border-2 rounded-xl placeholder-gray-400  focus:border-skin-primary-relaxed focus:outline-none py-2 ps-2 pe-10"
         />
       </div>
       {/* input */}

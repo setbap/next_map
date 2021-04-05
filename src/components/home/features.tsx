@@ -22,7 +22,7 @@ export const Features = () => {
               <IoTrashBinOutline size={32} />
             </div>
           </div>
-          <h3 className="text-2xl sm:text-xl text-muted font-semibold dark:text-white pt-6 ">
+          <h3 className="text-2xl sm:text-xl text-skin-base text-muted font-semibold dark:text-white pt-6 ">
             آموزش
           </h3>
           <p className="text-md  text-skin-muted dark:text-gray-300 pb-4 pt-2">
@@ -36,7 +36,7 @@ export const Features = () => {
               <IoTrashBinOutline size={32} />
             </div>
           </div>
-          <h3 className="text-2xl sm:text-xl text-muted font-semibold dark:text-white pt-6 ">
+          <h3 className="text-2xl sm:text-xl text-skin-base text-muted font-semibold dark:text-white pt-6 ">
             درمان درد های نا موجود در جامعه
           </h3>
           <p className="text-md  text-skin-muted dark:text-gray-300 pb-4 pt-2">
@@ -51,7 +51,7 @@ export const Features = () => {
               <IoTrashBinOutline size={32} />
             </div>
           </div>
-          <h3 className="text-2xl sm:text-xl text-muted font-semibold dark:text-white pt-6 ">
+          <h3 className="text-2xl sm:text-xl text-skin-base text-muted font-semibold dark:text-white pt-6 ">
             کاهش آلودگی
           </h3>
           <p className="text-md  text-skin-muted dark:text-gray-300 pb-4 pt-2">

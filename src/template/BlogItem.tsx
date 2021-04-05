@@ -21,7 +21,7 @@ const BlogItem = ({ id, title, short, date, image }: Props) => {
       >
         <motion.div
           layoutId={`main-${id}`}
-          className="h-full border-2 hover:border-skin-primary bg-skin-card  rounded-lg overflow-hidden"
+          className="h-full border-2 border-skin-muted hover:border-skin-primary bg-skin-card  rounded-lg overflow-hidden"
         >
           <motion.img
             layoutId={`img-${id}`}

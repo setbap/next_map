@@ -65,7 +65,7 @@ const ContactUs = () => {
                     type="text"
                     id="name"
                     name="name"
-                    className="w-full bg-skin-card rounded border border-gray-300 focus:border-skin-primary focus:ring-2 focus:ring-yellow-200 text-base outline-none  text-skin-muted py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    className="w-full bg-skin-card rounded border border-skin-muted focus:border-skin-primary focus:ring-2 focus:ring-yellow-200 text-base outline-none  text-skin-muted py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>
                 <div className="relative mb-4">
@@ -79,7 +79,7 @@ const ContactUs = () => {
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full bg-skin-card rounded border border-gray-300 focus:border-skin-primary focus:ring-2 focus:ring-yellow-200 text-base outline-none  text-skin-muted py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    className="w-full bg-skin-card rounded border border-skin-muted focus:border-skin-primary focus:ring-2 focus:ring-yellow-200 text-base outline-none  text-skin-muted py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>
                 <div className="relative mb-4">
@@ -92,10 +92,10 @@ const ContactUs = () => {
                   <textarea
                     id="message"
                     name="message"
-                    className="w-full bg-skin-card rounded border border-gray-300 focus:border-skin-primary focus:ring-2 focus:ring-yellow-200 text-base outline-none  text-skin-muted py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    className="w-full bg-skin-card rounded border border-skin-muted focus:border-skin-primary focus:ring-2 focus:ring-yellow-200 text-base outline-none  text-skin-muted py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   ></textarea>
                 </div>
-                <button className="text-skin-on-primary bg-skin-primary border-0 py-2 px-6 focus:outline-none hover:bg-skin-card-hover rounded text-lg">
+                <button className="text-skin-on-primary bg-skin-primary border-0 py-2 px-6 focus:outline-none hover:bg-skin-light-primary rounded text-lg">
                   ارسال
                 </button>
                 <p className="text-xs text-skin-muted mt-3">

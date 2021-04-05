@@ -23,13 +23,7 @@ const bing = new olSource.BingMaps({
 const osm = new olSource.OSM({});
 
 const Path = (props: any) => (
-  <motion.path
-    fill="transparent"
-    strokeWidth="3"
-    stroke="hsl(0, 0%, 18%)"
-    strokeLinecap="round"
-    {...props}
-  />
+  <motion.path strokeWidth="3" strokeLinecap="round" {...props} />
 );
 // const vectorSource = new Vector();
 
@@ -347,9 +341,14 @@ const Content = () => {
             open: { width: "100%", margin: "0.8 rem" },
             closed: { width: 40, margin: "0.5 rem" },
           }}
-          className="p-2 text-center w-full"
+          className="p-2 text-center  w-full"
         >
-          <svg width="23" height="23" viewBox="0 0 23 23">
+          <svg
+            width="23"
+            height="23"
+            style={{ fill: "blue", stroke: "var(--color-primary)" }}
+            viewBox="0 0 23 23"
+          >
             <Path
               initial={{ d: "M 3 16.5 L 17 2.5" }}
               variants={{
@@ -365,9 +364,11 @@ const Content = () => {
                 open: { opacity: 0 },
               }}
               transition={transition}
+              className="text-skin-primary bg-skin-primary"
             />
             <Path
               initial={{ d: "M 3 2.5 L 17 16.346" }}
+              className="text-skin-primary bg-skin-primary"
               variants={{
                 closed: { d: "M 2 16.346 L 20 16.346" },
                 open: { d: "M 3 2.5 L 17 16.346" },
