@@ -2,7 +2,7 @@ import { FiTwitter, FiInstagram, FiLinkedin, FiGithub } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <footer className="z-10 overflow-hidden relative bg-skin-card border-t-2 border-skin-base dark:bg-gray-800 w-full py-8">
+    <footer className="z-10  relative bg-skin-card border-t-2 border-skin-base dark:bg-gray-800 w-full py-8">
       <div className="absolute  top-0 left-0 bottom-0 right-0 footer_filter footer_image "></div>
 
       <div className="  top-0 left-0 bottom-0 right-0 z-50 max-w-screen-xl mx-auto px-4">
