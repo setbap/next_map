@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Link from 'next/link'
+import Link from "next/link";
 interface Props {
   to: string;
   id: string;
@@ -19,12 +19,9 @@ const AsideNavLink = ({ Icon, title, to, onClick }: Props) => {
         // activeClassName="text-orange-400 hover:bg-orange   "
         // id={id}
         href={to}
-
       >
-        <a
-          className="h-full transition-colors text-black hover:text-white  duration-300  flex justify-start items-center w-full hover:bg-gray-700  p-3"
-        >
-        <Icon className="me-4  md:mb-0 text-2xl" />
+        <a className="h-full transition-colors text-skin-base hover:text-skin-on-primary  duration-300  flex justify-start items-center w-full hover:bg-skin-primary-relaxed  p-3">
+          <Icon className="me-4  md:mb-0 text-2xl" />
           <div className="">{title}</div>
         </a>
       </Link>

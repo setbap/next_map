@@ -38,21 +38,21 @@ const Blog = ({}: Props) => {
           animate="enter"
           exit="exit"
         >
-          <section className="text-gray-600 body-font flex-1">
+          <section className="text-skin-muted body-font flex-1">
             <div className="container px-5 py-8 mx-auto">
               <div className="flex flex-col text-center w-full mb-4">
-                <h1 className="text-2xl font-medium text-green-700  mb-1">
+                <h1 className="text-2xl font-medium text-skin-primary  mb-1">
                   سامانه مکان محور مدیریت محیط زیست
                 </h1>
-                <h1 className="text-sm font-medium text-green-700  mb-1">
+                <h1 className="text-sm font-medium text-skin-primary  mb-1">
                   زیر مجموعه دانشگاه صنعتی نوشیروانی بابل و انجمن علمی GIS
                   مازندران
                 </h1>
 
-                <h2 className="sm:text-2xl text-xl mt-8 font-medium text-gray-900">
+                <h2 className="sm:text-2xl text-xl mt-8 font-medium text-skin-base">
                   درباره سامانه
                 </h2>
-                <h3 className="  mt-2 text-center px-4 font-medium text-gray-900">
+                <h3 className="  mt-2 text-center px-4 font-medium text-skin-muted">
                   سامانه جامع مکان محور محیط زیست با حمایت دانشگاه صنعتی
                   نوشیروانی بابل و انجمن علمی GIS مازندران با اهداف زیر طراحی و
                   پیاده سازی شده است:
@@ -60,9 +60,9 @@ const Blog = ({}: Props) => {
               </div>
               <div className="flex text-center flex-wrap justify-center sm:-m-4">
                 <div className="p-4 w-full md:w-5/12">
-                  <div className="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
+                  <div className="flex rounded-lg h-full bg-skin-card p-8 flex-col">
                     <div className="flex items-center justify-center mb-3">
-                      <div className=" text-3xl p-3 text-center inline-flex items-center justify-center rounded-full bg-yellow-500 text-white flex-shrink-0">
+                      <div className=" text-3xl p-3 text-center inline-flex items-center justify-center rounded-full bg-skin-primary text-skin-on-primary flex-shrink-0">
                         <GiTestTubes />
                       </div>
                     </div>
@@ -74,9 +74,10 @@ const Blog = ({}: Props) => {
                   </div>
                 </div>
                 <div className="p-4 w-full  md:w-5/12">
-                  <div className="flex items-center rounded-lg h-full bg-gray-100 p-8 flex-col">
+                  <div className="flex items-center rounded-lg h-full bg-skin-card p-8 flex-col">
                     <div className="flex items-center justify-center mb-3">
-                      <div className=" text-3xl p-3 text-center inline-flex items-center justify-center rounded-full bg-yellow-500 text-white flex-shrink-0">
+                      <div className=" text-3xl p-3 text-center inline-flex items-center justify-center rounded-full bg-skin-primary text-skin-on-primary flex-shrink-0">
+                        {" "}
                         <FaSearch />
                       </div>
                     </div>

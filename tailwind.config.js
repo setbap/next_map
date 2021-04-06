@@ -8,8 +8,45 @@ module.exports = {
       sans: ["Vazir", "sans-serif"],
       serif: ["Merriweather", "serif"],
     },
-
     extend: {
+      textColor: {
+        skin: {
+          base: "var(--color-text-base)",
+          muted: "var(--color-text-muted)",
+          primary: "var(--color-primary)",
+          "primary-relaxed": "var(--color-relaxed-primary)",
+          secondary: "var(--color-secondary)",
+          "light-primary": "var(--color-light-primary)",
+          "on-primary": "var(--color-text-on-primary)",
+        },
+      },
+
+      backgroundColor: {
+        skin: {
+          secondary: "var(--color-secondary)",
+          "primary-relaxed": "var(--color-relaxed-primary)",
+          base: "var(--color-background)",
+          card: "var(--color-card-background)",
+          "primary-relaxed": "var(--color-relaxed-primary)",
+          "light-primary": "var(--color-light-primary)",
+          "card-hover": "var(--color-primary-hover)",
+          primary: "var(--color-primary)",
+          muted: "var(--color-muted)",
+          // primary: "var(--color-card-background)",
+        },
+      },
+
+      borderColor: {
+        skin: {
+          secondary: "var(--color-secondary)",
+          base: "var(--color-background)",
+          muted: "var(--color-border-muted)",
+          "primary-relaxed": "var(--color-relaxed-primary)",
+          "light-primary": "var(--color-light-primary)",
+          primary: "var(--color-primary)",
+        },
+      },
+
       typography: (theme) => ({
         DEFAULT: {
           css: {

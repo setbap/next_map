@@ -3,8 +3,8 @@ import { RiUserSmileLine } from "react-icons/ri";
 const TeamMember = () => {
   return (
     <div className="container mx-auto my-12">
-      <div className="p-8 bg-white dark:bg-gray-800 rounded-lg shadow">
-        <p className="text-center text-3xl font-bold text-gray-800 dark:text-white">
+      <div className="p-8 bg-skin-card dark:bg-gray-800 rounded-lg shadow">
+        <p className="text-center text-3xl font-bold text-skin-base dark:text-white">
           اعضای تیم
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -37,14 +37,14 @@ const TeamMemberItem = ({ fullname, post }: ITeamMemberItemProps) => {
       <div className="flex-col  flex justify-center items-center">
         <div className="flex-shrink-0">
           <div className="block relative">
-            <RiUserSmileLine size={64} className="text-orange-400" />
+            <RiUserSmileLine size={64} className="text-skin-primary" />
           </div>
         </div>
         <div className="mt-2 text-center flex flex-col">
-          <span className="text-gray-600 dark:text-white text-lg font-medium">
+          <span className="text-skin-base dark:text-white text-lg font-medium">
             {fullname}
           </span>
-          <span className="text-gray-400 text-xs">{post}</span>
+          <span className="text-skin-muted text-xs">{post}</span>
         </div>
       </div>
     </div>

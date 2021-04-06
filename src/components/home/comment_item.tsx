@@ -6,7 +6,7 @@ interface Props {
 
 const CommentItem = ({ comment, name, title }: Props) => {
   return (
-    <div className="flex flex-col px-4 border border-gray-200 max-w-lg m-5 bg-white rounded-md shadow-md py-6 justify-center items-center text-center ">
+    <div className="flex flex-col px-4 border border-skin-muted max-w-lg m-5 bg-skin-card rounded-md shadow-md py-6 justify-center items-center text-center ">
       <div className="flex-shrink-0">
         <div className="inline-block relative">
           <div className="relative w-16 h-16 rounded-full overflow-hidden">
@@ -20,7 +20,7 @@ const CommentItem = ({ comment, name, title }: Props) => {
       </div>
 
       <p className="flex ">
-        <span className="text-gray-600 font-bold">{name}</span>
+        <span className="text-skin-muted font-bold">{name}</span>
       </p>
       <div className="flex items-center mt-1">
         <Star />
@@ -29,10 +29,10 @@ const CommentItem = ({ comment, name, title }: Props) => {
         <Star />
         <Star />
       </div>
-      <div className="flex items-center mt-4 text-gray-600"></div>
+      <div className="flex items-center mt-4 text-skin-muted"></div>
       <div className="mt-3">
-        <span className="font-bold">{title}</span>
-        <p className="mt-1">{comment}</p>
+        <span className="font-bold text-skin-base">{title}</span>
+        <p className="mt-1 text-skin-muted">{comment}</p>
       </div>
     </div>
   );
@@ -43,7 +43,7 @@ export default CommentItem;
 const Star = () => {
   return (
     <svg
-      className="w-4 h-4 fill-current text-yellow-600"
+      className="w-4 h-4 fill-current text-skin-primary"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
     >
