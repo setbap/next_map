@@ -37,9 +37,10 @@ const LandFill = () => {
           exit="exit"
         >
           <div className=" bg-green-300 w-full md:w-full h-heightParent py-2 space-y-6 relative">
-            <div className=" bg-green-100 h-mapHeight w-11/12 mx-auto text-center rounded-xl shadow-md">
+
+            <div className=" h-mapHeight w-11/12 mx-auto text-center rounded-xl shadow-md">
               <p className=" font-semibold flex items-center justify-center text-xl h-full">
-                Map View
+              <iframe className=" w-full h-full rounded-xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1642889.422987805!2d51.273040753513214!3d36.463152822196044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f84eec7feec6407%3A0x52436f1e076b159!2sMazandaran%20Province%2C%20Iran!5e0!3m2!1sen!2s!4v1617477736015!5m2!1sen!2s" loading="lazy"></iframe>
               </p>
             </div>
 
@@ -116,20 +117,26 @@ const LandFill = () => {
               </button>
             </div>
 
-            <div className=" h-96 md:h-64 xl:h-80 w-11/12 mx-auto text-center rounded-xl flex-grow  space-y-2 md:flex md:space-y-0 md:space-x-3">
-              <div className=" bg-green-100 w-full h-28 rounded-lg md:w-5/12 md:h-full flex flex-grow items-center justify-center font-bold shadow-lg">
-                Map View
+            <div className=" h-99 md:h-64 xl:h-80 w-11/12 mx-auto text-center rounded-xl flex-grow  space-y-2 md:flex md:space-y-0 md:space-x-3">
+
+              <div className=" w-full h-48 rounded-lg md:w-5/12 md:h-full flex flex-grow items-center justify-center font-bold shadow-lg">
+                <iframe className="w-full h-full rounded-xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3064.464658707638!2d52.693889550728535!3d36.30803777995501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDE4JzI4LjkiTiA1MsKwNDEnNDUuOSJF!5e1!3m2!1sen!2s!4v1617477248784!5m2!1sen!2s" loading="lazy"></iframe>
               </div>
+
               <div className="flex-1 w-4" />
-              <div className=" bg-green-100 w-full h-64 rounded-lg md:w-7/12 md:h-full flex flex-grow items-center justify-center font-extrabold shadow-lg">
-                Film View
+
+              <div className=" bg-green-100 w-full h-56 rounded-lg md:w-7/12 md:h-full flex flex-grow items-center justify-center font-extrabold shadow-lg">
+                <iframe className=" h-full w-full rounded-lg" src="https://www.aparat.com/video/video/embed/videohash/zHopl/vt/frame" title="انجیلسی" ></iframe>
               </div>
             </div>
 
             <div className=" h-99 md:h-99 w-11/12 mx-auto text-center rounded-xl flex-grow space-y-2 md:flex md:space-y-0 md:space-x-3">
               <div className=" w-full h-3/6 md:h-5/6 md:w-7/12">
                 <div className=" bg-green-100 w-full h-full rounded-lg flex flex-grow items-center justify-center font-bold shadow-lg">
-                  Chart View
+                  {/* Chart View */}
+
+                  <img className=" h-full w-full" src="/images/velo1.jpg" />
+
                 </div>
               </div>
               <div className="flex-1 w-4" />
@@ -138,11 +145,52 @@ const LandFill = () => {
                   Live View
                 </div>
                 <div className=" bg-green-100 w-full h-1/2 rounded-lg flex flex-grow items-center justify-center font-bold shadow-lg">
-                  Image View
+                  {/* Image View */}
+
+
+                  <a href="#img1" className=" no-underline">
+                    <img className="max-h-0 border-8 border-yellow-400" src="/images/thumbs/velo1_risultato.jpg" />
+                  </a>
+
+                  <div className=" fixed z-50 h-0 w-0 text-center top-0 left-0" id="img1">
+                    <a href="#img3" className=" border-4 border-black-400 px-4 py-0.5 rounded-sm no-underline cursor-pointer align-middle absolute top-1/2 z-50 no-underline">prev</a>
+                    <a href="#_" className=" absolute border-4 py-3 px-4 rounded-sm no-underline">X</a>
+                    <img src="/images/velo1.jpg" />
+                    <a href="#img2" className=" border-4 border-black-400 px-4 py-0.5 rounded-sm no-underline cursor-pointer align-middle absolute top-1/2 z-50 no-underline">next</a>
+                  </div>
+
+
+                  <a href="#img2" className=" no-underline">
+                    <img className="max-h-0 border-8 border-yellow-400" src="/images/thumbs/velo2_risultato.jpg" />
+                  </a>
+
+                  <div className=" fixed z-50 h-0 w-0 text-center top-0 left-0" id="img2">
+                    <a href="#img1" className=" border-4 border-black-400 px-4 py-0.5 rounded-sm no-underline cursor-pointer align-middle absolute top-1/2 z-50 no-underline">prev</a>
+                    <a href="#_" className=" absolute border-4 py-3 px-4 rounded-sm no-underline">X</a>
+                    <img src="/images/velo2.jpg" />
+                    <a href="#img3" className=" border-4 border-black-400 px-4 py-0.5 rounded-sm no-underline cursor-pointer align-middle absolute top-1/2 z-50 no-underline">next</a>
+                  </div>
+
+                  <a href="#img3" className=" no-underline" >
+                    <img className="max-h-0 border-8 border-yellow-400" src="/images/thumbs/velo3_risultato.jpg" />
+                  </a>
+
+                  <div className=" fixed z-50 h-0 w-0 text-center top-0 left-0" id="img3">
+                    <a href="#img2" className=" border-4 border-black-400 px-4 py-0.5 rounded-sm no-underline cursor-pointer align-middle absolute top-1/2 z-50 no-underline">prev</a>
+                    <a href="#_" className=" absolute border-4 py-3 px-4 rounded-sm no-underline">X</a>
+                    <img src="/images/velo3.jpg" />
+                    <a href="#img1" className=" border-4 border-black-400 px-4 py-0.5 rounded-sm no-underline cursor-pointer align-middle absolute top-1/2 z-50 no-underline">next</a>
+                  </div>
+
+
+
+
+
+
                 </div>
               </div>
             </div>
-
+            
             <div className="h-8" />
             <div className=" bg-green-100 h-48 w-10/12 mx-auto rounded-xl shadow-lg md:h-56  md:mb-4   lg:w-11/12  xl:w-10/12">
               <div className=" h-2/6 ps-10 pt-5 font-bold">🧭 Sari, Iran</div>
