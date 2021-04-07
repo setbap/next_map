@@ -2,23 +2,10 @@ import { motion } from "framer-motion";
 import Head from "next/head";
 import { getEncyclopediaTypeShort, EncyclopediaType } from "lib/encyclopedia";
 import Nav from "~/template/Nav";
-import BlogItem from "../template/BlogItem";
 import Footer from "../template/Footer";
 import EncyclopediaCard from "~/components/EncyclopediaCard";
 
 const Blog = ({ introductions, articles, documents }) => {
-  // const { id } = useParams<{ id?: string }>();
-  //TODO : test
-  const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
-
-  // const thumbnailVariants = {
-  //   initial: { opacity: 0 },
-  //   enter: { opacity: 1, transition },
-  //   exit: {
-  //     opacity: 0,
-  //     transition: { ...transition, duration: 0.3 },
-  //   },
-  // };
   return (
     <>
       <Head>

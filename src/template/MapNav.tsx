@@ -1,14 +1,10 @@
 import { motion } from "framer-motion";
-import { useContext } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-import { CgUserlane } from "react-icons/cg";
-import ThemeContext from "~/context/themeProvider";
 
 // interface Props {}
 
 const MapNav = () => {
   const transition = { duration: 0.2, ease: [0.43, 0.13, 0.23, 0.96] };
-  const { toggleDark } = useContext(ThemeContext);
 
   const variants = {
     initial: { y: "-100%", opacity: 0 },

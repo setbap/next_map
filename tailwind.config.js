@@ -26,7 +26,12 @@ module.exports = {
           secondary: "var(--color-secondary)",
           "primary-relaxed": "var(--color-relaxed-primary)",
           base: "var(--color-background)",
-          card: "var(--color-card-background)",
+          card: ({ opacityValue }) => {
+            if (opacityValue != undefined) {
+              return `rgba(var(--color-card-background),${opacityValue})`;
+            }
+            return `rgb(var(--color-card-background))`;
+          },
           "primary-relaxed": "var(--color-relaxed-primary)",
           "light-primary": "var(--color-light-primary)",
           "card-hover": "var(--color-primary-hover)",

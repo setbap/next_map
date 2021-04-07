@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [open, setOpen] = useState(false);
   const closeFn = () => setOpen(false);
   return (
-    <div lang="fa" dir="rtl">
+    <div className="min-h-screen" lang="fa" dir="rtl">
       <Head>
         <script
           dangerouslySetInnerHTML={{

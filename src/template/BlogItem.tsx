@@ -27,7 +27,7 @@ const BlogItem = ({ id, title, short, date, image, type }: Props) => {
         >
           <motion.img
             layoutId={`img-${id}`}
-            className="lg:h-48 md:h-36 w-full object-cover object-center"
+            className="lg:h-64 md:h-56 h-48  w-full object-cover object-center"
             src={image}
             alt={`${title} - image`}
           />
