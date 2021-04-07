@@ -12,8 +12,30 @@ enum EncyclopediaType {
   Introduction = "introduction",
 }
 
-const encyclopediaFoldersDir = (encyclopediaType: EncyclopediaType) =>
-  path.join(process.cwd(), ParentDir, encyclopediaType.toLocaleLowerCase());
+const encyclopediaIntroductionFoldersDir = path.join(
+  process.cwd(),
+  ParentDir,
+  EncyclopediaType.Introduction
+);
+const encyclopediaArticleFoldersDir = path.join(
+  process.cwd(),
+  ParentDir,
+  EncyclopediaType.article
+);
+const encyclopediaDocumentFoldersDir = path.join(
+  process.cwd(),
+  ParentDir,
+  EncyclopediaType.document
+);
+
+const encyclopediaFoldersDir = (encyclopediaType: EncyclopediaType) => {
+  if (encyclopediaType === EncyclopediaType.Introduction) {
+    return encyclopediaIntroductionFoldersDir;
+  } else if (encyclopediaType === EncyclopediaType.article) {
+    return encyclopediaArticleFoldersDir;
+  }
+  return encyclopediaDocumentFoldersDir;
+};
 
 const getEncyclopediaTypeShort = (encyclopediaType: EncyclopediaType) => {
   const fileNames = fs.readdirSync(encyclopediaFoldersDir(encyclopediaType));
