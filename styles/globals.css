@@ -58,6 +58,10 @@
     --color-primary: rgb(211 133 0);
   }
 
+  figcaption {
+    color: var(--color-text-muted);
+  }
+
   html {
     height: 100%;
   }
