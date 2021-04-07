@@ -326,7 +326,6 @@ const Content = () => {
             <div
               onClick={() => {
                 setMenuPage("mapsPage");
-                console.log(menuPage);
               }}
               className={`${
                 menuPage === "mapsPage" ? "bg-skin-card" : "bg-skin-base"

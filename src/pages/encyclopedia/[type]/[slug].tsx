@@ -162,7 +162,6 @@ export async function getStaticPaths() {
   );
   const articlePaths = getAllEncyclopediaOfType(EncyclopediaType.article);
   const documentPaths = getAllEncyclopediaOfType(EncyclopediaType.document);
-  console.log([...documentPaths, ...articlePaths, ...IntroductionPaths]);
   return {
     paths: [...documentPaths, ...articlePaths, ...IntroductionPaths],
     fallback: false,

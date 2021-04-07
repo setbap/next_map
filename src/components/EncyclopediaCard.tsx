@@ -19,7 +19,6 @@ const EncyclopediaCard = ({ data, subtitle, title }: Props) => {
         </h3>
       </div>
       <div className="flex flex-wrap ">
-        {console.log(data)}
         {data.map(({ postId, image, jdate, title, short, type }) => {
           return (
             <BlogItem
