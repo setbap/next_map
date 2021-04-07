@@ -6,6 +6,7 @@ import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import AsideMenu from "../template/AsideMenu";
 import { ThemeProvider } from "../context/themeProvider";
 import "../../styles/globals.css";
+import ThemeChanger from "~/components/ThemeChanger";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [open, setOpen] = useState(false);
@@ -83,11 +84,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           </div>
 
           <div
-            className="fixed top-2 start-5 w-12 h-10 z-50 border-2 transition-colors text-orange-600 duration-200 border-gray-300 hover:bg-gray-200 cursor-pointer bg-white rounded-md  flex items-center justify-center "
+            className="fixed top-2 start-5 w-12 h-10 z-50 border-2 transition-colors text-skin-primary duration-200 border-skin-muted hover:bg-skin-muted cursor-pointer bg-skin-base rounded-md  flex items-center justify-center "
             onClick={() => setOpen((val) => !val)}
           >
             <HiOutlineMenuAlt3 size={24} />
           </div>
+
+          <ThemeChanger />
         </AnimateSharedLayout>
       </ThemeProvider>
     </div>

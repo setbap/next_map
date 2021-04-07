@@ -25,10 +25,8 @@ const MapNav = () => {
       initial="initial"
       animate="enter"
       variants={variants}
-      className=" absolute top-0 z-20 w-full   bg-transparent justify-evenly text-skin-on-primary px-4 py-2 flex items-center min-w-0 h-14"
+      className=" absolute top-0 z-20 w-full   bg-transparent justify-center text-skin-on-primary px-4 py-2 flex items-center min-w-0 h-14"
     >
-      <h1 className="font-semibold text-lg flex-1"> </h1>
-
       {/* input */}
       <div className="relative h-11">
         <div className="absolute cursor-pointer flex border border-transparent end-1 h-9 top-1  w-9">
@@ -46,15 +44,6 @@ const MapNav = () => {
         />
       </div>
       {/* input */}
-
-      <div className="flex-1 text-end">
-        <button
-          onClick={toggleDark}
-          className=" border rounded-full p-1    text-center leading-none text-skin-primary  bg-skin-card focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-        >
-          <CgUserlane size={28} className="m-px" />
-        </button>
-      </div>
     </motion.nav>
   );
 };
