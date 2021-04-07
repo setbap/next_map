@@ -1,6 +1,6 @@
 const Resualt = () => {
   return (
-    <div className="pt-6 pb-12  w-full flex flex-col md:flex-row justify-center items-center">
+    <div className="pt-6 pb-12 container mx-auto  w-full flex flex-col md:flex-row justify-center items-center">
       <div className="shadow-lg rounded-xl w-full md:w-5/12 p-4 bg-skin-card dark:bg-gray-800 text-skin-muted relative overflow-hidden">
         <div className="w-full h-full block">
           <div className="w-full">
