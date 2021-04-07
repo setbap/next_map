@@ -7,13 +7,13 @@ import TeamMember from "./team_members";
 const Home = () => {
   return (
     <div
-      className="w-full"
-      style={{
-        backgroundImage: "url('/tree.svg')",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-        backgroundPosition: "center",
-      }}
+      className="w-full relative z-10"
+      // style={{
+      //   backgroundImage: "url('/tree.svg')",
+      //   backgroundSize: "cover",
+      //   backgroundAttachment: "fixed",
+      //   backgroundPosition: "center",
+      // }}
     >
       {/*Nav*/}
       {/*Hero*/}
@@ -38,6 +38,7 @@ const Home = () => {
         />
       </div>
       <TeamMember />
+      <div className="absolute top-0 bottom-0 left-0 right-0 footer_image footer_filter " />
     </div>
   );
 };

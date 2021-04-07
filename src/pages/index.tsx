@@ -26,7 +26,10 @@ const Home = () => {
         <meta property="og:title" content={"خانه"} />
         <meta property="og:url" content={`https://www.nitenviro.com`} />
         <meta property="og:image" content={"/og/home.png"} />
-        <meta property="og:description" content={"خانه "} />
+        <meta
+          property="og:description"
+          content={"NITEnviro مکانی برای ارح نهادن به محیط زیست و آینده "}
+        />
 
         <meta property="og:locale " content="fa_IR" />
       </Head>
