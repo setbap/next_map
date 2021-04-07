@@ -1,10 +1,8 @@
-import { EncyclopediaType } from "lib/encyclopedia";
-
 const index = () => "/";
 
 const map = () => "/map";
 
-const landfills = () => "/landfills";
+const landfills = () => "/landfill";
 
 const about = () => "/about";
 

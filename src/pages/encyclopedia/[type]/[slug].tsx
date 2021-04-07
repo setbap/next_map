@@ -10,8 +10,15 @@ import {
 import Head from "next/head";
 import Link from "next/link";
 import { BiTimeFive } from "react-icons/bi";
+import { pagesLinks } from "~/utils/links";
 
-const Blog = ({ postData, lastThreePost }) => {
+const Blog = ({
+  postData,
+  lastThreePost,
+}: {
+  postData: any;
+  lastThreePost: any;
+}) => {
   const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
 
   const thumbnailVariants = {
@@ -115,20 +122,27 @@ const Blog = ({ postData, lastThreePost }) => {
                           >
                             آخرین مقالات{" "}
                           </h3>
-                          {lastThreePost.map(({ title, postId, jdate }) => {
-                            return (
-                              <div key={postId} className="mt-4">
-                                <Link href={`/blog/${postId}`}>
-                                  <a className="text-base hover:text-skin-primary">
-                                    {title}
-                                  </a>
-                                </Link>
-                                <div className="text-xs mt-2 text-skin-secondary">
-                                  {jdate}
+                          {lastThreePost.map(
+                            ({ title, postId, jdate, type }) => {
+                              return (
+                                <div key={postId} className="mt-4">
+                                  <Link
+                                    href={pagesLinks.encyclopediaItem({
+                                      type: type,
+                                      item: postId,
+                                    })}
+                                  >
+                                    <a className="text-base hover:text-skin-primary">
+                                      {title}
+                                    </a>
+                                  </Link>
+                                  <div className="text-xs mt-2 text-skin-secondary">
+                                    {jdate}
+                                  </div>
                                 </div>
-                              </div>
-                            );
-                          })}
+                              );
+                            }
+                          )}
                         </div>
                       </div>
                     </div>
