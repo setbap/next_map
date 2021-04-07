@@ -4,6 +4,7 @@ import { BiHome, BiMapAlt } from "react-icons/bi";
 import { BsInfoCircle } from "react-icons/bs";
 import { MdContactMail } from "react-icons/md";
 import { RiArticleLine } from "react-icons/ri";
+import { pagesLinks } from "~/utils/links";
 import AsideNavLink from "./AsideNavLink";
 
 interface Props {
@@ -41,14 +42,14 @@ const AsideMenu = ({ open, closeFn }: Props) => {
           <AsideNavLink
             onClick={closeFn}
             id="home-page-aside"
-            to="/"
+            to={pagesLinks.index()}
             Icon={BiHome}
             title={"خانه"}
           />
           <AsideNavLink
             onClick={closeFn}
             id="map-page-aside"
-            to="/map"
+            to={pagesLinks.map()}
             Icon={BiMapAlt}
             title={"نقشه"}
           />
@@ -56,28 +57,28 @@ const AsideMenu = ({ open, closeFn }: Props) => {
           <AsideNavLink
             onClick={closeFn}
             id="landfill-page-aside"
-            to="/landfill"
+            to={pagesLinks.landfills()}
             Icon={AiFillPayCircle}
             title={"لندفیل"}
           />
           <AsideNavLink
             onClick={closeFn}
             id="about-page-aside"
-            to="/blog"
+            to={pagesLinks.encyclopedia()}
             Icon={RiArticleLine}
-            title={"مقاله ها"}
+            title={"دانشنامه"}
           />
           <AsideNavLink
             onClick={closeFn}
             id="about-page-aside"
-            to="/about"
+            to={pagesLinks.about()}
             Icon={BsInfoCircle}
-            title={"دریاره ما"}
+            title={"درباره ما"}
           />
           <AsideNavLink
             onClick={closeFn}
             id="contactus-page-aside"
-            to="/contact_us"
+            to={pagesLinks.contact_us()}
             Icon={MdContactMail}
             title={"ارتباط با ما"}
           />

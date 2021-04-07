@@ -1,7 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Nav from "~/template/Nav";
-import Footer from "../../template/Footer";
-import { getAllPostIds, getSinglePostData, getPostsShort } from "lib/posts";
+import Footer from "../../../template/Footer";
+import {
+  EncyclopediaType,
+  getAllEncyclopediaOfType,
+  getEncyclopediaTypeShort,
+  getSingleEncyclopediaData,
+} from "lib/encyclopedia";
 import Head from "next/head";
 import Link from "next/link";
 import { BiTimeFive } from "react-icons/bi";
@@ -142,8 +147,8 @@ const Blog = ({ postData, lastThreePost }) => {
 export default Blog;
 
 export async function getStaticProps({ params }) {
-  const postData = await getSinglePostData(params.slug);
-  const lastThreePost = getPostsShort().slice(0, 3);
+  const postData = await getSingleEncyclopediaData(params.slug, params.type);
+  const lastThreePost = getEncyclopediaTypeShort(params.type).slice(0, 3);
   return {
     props: {
       postData,
@@ -151,11 +156,15 @@ export async function getStaticProps({ params }) {
     },
   };
 }
-
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
+  const IntroductionPaths = getAllEncyclopediaOfType(
+    EncyclopediaType.Introduction
+  );
+  const articlePaths = getAllEncyclopediaOfType(EncyclopediaType.article);
+  const documentPaths = getAllEncyclopediaOfType(EncyclopediaType.document);
+  console.log([...documentPaths, ...articlePaths, ...IntroductionPaths]);
   return {
-    paths,
+    paths: [...documentPaths, ...articlePaths, ...IntroductionPaths],
     fallback: false,
   };
 }

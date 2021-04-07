@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import Head from "next/head";
-import { getPostsShort } from "~/../lib/posts";
+import { getEncyclopediaTypeShort, EncyclopediaType } from "lib/encyclopedia";
 import Nav from "~/template/Nav";
 import BlogItem from "../template/BlogItem";
 import Footer from "../template/Footer";
+import EncyclopediaCard from "~/components/EncyclopediaCard";
 
-const Blog = ({ allPostsData }) => {
+const Blog = ({ introductions, articles, documents }) => {
   // const { id } = useParams<{ id?: string }>();
   //TODO : test
   const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
@@ -39,23 +40,23 @@ const Blog = ({ allPostsData }) => {
           // animate="enter"
           // exit="exit"
         >
-          <section className="text-skin-muted">
-            <div className="container p-5  mx-auto">
-              <div className="flex flex-wrap -m-4">
-                {allPostsData.map(({ postId, image, jdate, title, short }) => {
-                  return (
-                    <BlogItem
-                      image={image}
-                      key={postId}
-                      short={short}
-                      date={jdate}
-                      id={postId}
-                      title={title}
-                    />
-                  );
-                })}
-              </div>
-            </div>
+          <section className="text-skin-muted pb-12">
+            <EncyclopediaCard
+              data={introductions}
+              title={"معرفی"}
+              subtitle={"معرفی موضوعات پیرامون محیط زیست"}
+            />
+
+            <EncyclopediaCard
+              data={documents}
+              title={"مستندات"}
+              subtitle={"مستندات موضوعات پیرامون محیط زیست"}
+            />
+            <EncyclopediaCard
+              data={articles}
+              title={"مقالات"}
+              subtitle={"گلچینی از مقالات پیرامون موضوعات محیط زیستی"}
+            />
           </section>
           <Footer />
         </motion.div>
@@ -67,10 +68,16 @@ const Blog = ({ allPostsData }) => {
 export default Blog;
 
 export async function getStaticProps() {
-  const allPostsData = getPostsShort();
+  const allIntroductionsData = getEncyclopediaTypeShort(
+    EncyclopediaType.Introduction
+  );
+  const allArticlesData = getEncyclopediaTypeShort(EncyclopediaType.article);
+  const allDocumentsData = getEncyclopediaTypeShort(EncyclopediaType.document);
   return {
     props: {
-      allPostsData,
+      introductions: allIntroductionsData,
+      articles: allArticlesData,
+      documents: allDocumentsData,
     },
   };
 }

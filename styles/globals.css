@@ -12,9 +12,14 @@
     background-position: bottom center;
     z-index: -1;
   }
+
+  .backdrop_custom {
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    overflow: hidden;
+  }
   .footer_filter {
     opacity: 0.2;
-
     filter: blur(18px);
   }
 }

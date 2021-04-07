@@ -4,15 +4,17 @@ import { motion } from "framer-motion";
 import { AiOutlineEye } from "react-icons/ai";
 import { BsChat } from "react-icons/bs";
 import { BiTimeFive } from "react-icons/bi";
+import { pagesLinks } from "~/utils/links";
 interface Props {
   id: string;
   title: string;
   short: string;
   date: string;
   image: string;
+  type: string;
 }
 
-const BlogItem = ({ id, title, short, date, image }: Props) => {
+const BlogItem = ({ id, title, short, date, image, type }: Props) => {
   return (
     <>
       <motion.div
@@ -30,7 +32,7 @@ const BlogItem = ({ id, title, short, date, image }: Props) => {
             alt={`${title} - image`}
           />
           <motion.div layoutId={`category-${id}`} className="p-6">
-            <Link href={`/blog/${id}`}>
+            <Link href={pagesLinks.encyclopediaItem({ item: id, type: type })}>
               <a>
                 <h1 className=" font-bold  text-lg  text-skin-secondary mb-3">
                   {title}
@@ -50,7 +52,9 @@ const BlogItem = ({ id, title, short, date, image }: Props) => {
               layoutId={`link-${id}`}
               className="flex items-center flex-wrap "
             >
-              <Link href={`/blog/${id}`}>
+              <Link
+                href={pagesLinks.encyclopediaItem({ item: id, type: type })}
+              >
                 <a className="text-skin-primary inline-flex items-center md:mb-2 lg:mb-0">
                   <span>بیشتر</span>
                 </a>
