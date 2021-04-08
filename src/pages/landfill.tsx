@@ -133,10 +133,7 @@ const LandFill = () => {
             <div className=" h-99 md:h-99 w-11/12 mx-auto text-center rounded-xl flex-grow space-y-2 md:flex md:space-y-0 md:space-x-3">
               <div className=" w-full h-3/6 md:h-5/6 md:w-7/12">
                 <div className=" bg-green-100 w-full h-full rounded-lg flex flex-grow items-center justify-center font-bold shadow-lg">
-                  {/* Chart View */}
-
-                  <img className=" h-full w-full" src="/images/velo1.jpg" />
-
+                  Chart View
                 </div>
               </div>
               <div className="flex-1 w-4" />
@@ -145,48 +142,7 @@ const LandFill = () => {
                   Live View
                 </div>
                 <div className=" bg-green-100 w-full h-1/2 rounded-lg flex flex-grow items-center justify-center font-bold shadow-lg">
-                  {/* Image View */}
-
-
-                  <a href="#img1" className=" no-underline">
-                    <img className="max-h-0 border-8 border-yellow-400" src="/images/thumbs/velo1_risultato.jpg" />
-                  </a>
-
-                  <div className=" fixed z-50 h-0 w-0 text-center top-0 left-0" id="img1">
-                    <a href="#img3" className=" border-4 border-black-400 px-4 py-0.5 rounded-sm no-underline cursor-pointer align-middle absolute top-1/2 z-50 no-underline">prev</a>
-                    <a href="#_" className=" absolute border-4 py-3 px-4 rounded-sm no-underline">X</a>
-                    <img src="/images/velo1.jpg" />
-                    <a href="#img2" className=" border-4 border-black-400 px-4 py-0.5 rounded-sm no-underline cursor-pointer align-middle absolute top-1/2 z-50 no-underline">next</a>
-                  </div>
-
-
-                  <a href="#img2" className=" no-underline">
-                    <img className="max-h-0 border-8 border-yellow-400" src="/images/thumbs/velo2_risultato.jpg" />
-                  </a>
-
-                  <div className=" fixed z-50 h-0 w-0 text-center top-0 left-0" id="img2">
-                    <a href="#img1" className=" border-4 border-black-400 px-4 py-0.5 rounded-sm no-underline cursor-pointer align-middle absolute top-1/2 z-50 no-underline">prev</a>
-                    <a href="#_" className=" absolute border-4 py-3 px-4 rounded-sm no-underline">X</a>
-                    <img src="/images/velo2.jpg" />
-                    <a href="#img3" className=" border-4 border-black-400 px-4 py-0.5 rounded-sm no-underline cursor-pointer align-middle absolute top-1/2 z-50 no-underline">next</a>
-                  </div>
-
-                  <a href="#img3" className=" no-underline" >
-                    <img className="max-h-0 border-8 border-yellow-400" src="/images/thumbs/velo3_risultato.jpg" />
-                  </a>
-
-                  <div className=" fixed z-50 h-0 w-0 text-center top-0 left-0" id="img3">
-                    <a href="#img2" className=" border-4 border-black-400 px-4 py-0.5 rounded-sm no-underline cursor-pointer align-middle absolute top-1/2 z-50 no-underline">prev</a>
-                    <a href="#_" className=" absolute border-4 py-3 px-4 rounded-sm no-underline">X</a>
-                    <img src="/images/velo3.jpg" />
-                    <a href="#img1" className=" border-4 border-black-400 px-4 py-0.5 rounded-sm no-underline cursor-pointer align-middle absolute top-1/2 z-50 no-underline">next</a>
-                  </div>
-
-
-
-
-
-
+                  Image View
                 </div>
               </div>
             </div>
