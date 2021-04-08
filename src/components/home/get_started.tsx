@@ -29,8 +29,8 @@ const GetStarted = () => {
 
           <div className="w-12 h-12" />
           <div className="flex justify-center flex-col text-center items-center">
-            <div className="sm:p-2 p-1 sm:h-32 sm:w-32 h-16 w-16  rounded-xl bg-white">
-              <img src="/title_image.png" className="" />
+            <div className="sm:p-2 p-4 sm:h-16 sm:w-44 h-20 flex justify-center items-center w-56  rounded-xl bg-white">
+              <img src="/bonyad.png" className="sm:h-12 sm:w-40 h-16 w-44" />
             </div>
             <div className="flex">
               <h1 className="font-bold  text-4xl sm:text-7xl text-white leading-tight mt-4">
@@ -39,7 +39,7 @@ const GetStarted = () => {
             </div>
 
             <h6 className="font-bold text-xl sm:text-2xl text-skin-primary leading-normal mt-2">
-              تحت نظارت بنیاد ملی نخبگان
+              طرح احمدی روشن - بنیاد ملی نخبگان
             </h6>
           </div>
         </div>
