@@ -66,6 +66,13 @@
         "linkedin": "test"
     },
     {
+        "image": "/persons/فرید مصطفوی.jpeg",
+        "name": "فرید مصطفوی",
+        "work": "مسئول طراحی سایت و تولید محتوی",
+        "linkedin": "test"
+    }
+    ,
+    {
         "image": "/persons/میلاد حسنعلی زاده.jpg",
         "name": "میلادحسنعلی زاده",
         "work": "توسعه دهنده سامانه WebGIS",
