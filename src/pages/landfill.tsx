@@ -126,7 +126,8 @@ const LandFill = () => {
               <div className="flex-1 w-4" />
 
               <div className=" bg-green-100 w-full h-56 rounded-lg md:w-7/12 md:h-full flex flex-grow items-center justify-center font-extrabold shadow-lg">
-                <iframe className=" h-full w-full rounded-lg" src="https://www.aparat.com/video/video/embed/videohash/zHopl/vt/frame" title="انجیلسی" ></iframe>
+<!--                 <iframe className=" h-full w-full rounded-lg" src="https://www.aparat.com/video/video/embed/videohash/zHopl/vt/frame" title="انجیلسی" ></iframe> -->
+                <iframe className=" h-full w-full rounded-lg" src="https://www.aparat.com/video/video/embed/videohash/WOKbB/vt/frame" title="انجیلسی" ></iframe>
               </div>
             </div>
 
