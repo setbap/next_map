@@ -83,7 +83,7 @@ const TeamMemberItem = ({
 
           <a
             target="_blank"
-            href="https://www.linkedin.com/"
+            href={`https://www.linkedin.com/in/${linkedin}`}
             className={`text-skin-muted text-center  ${
               primary ? "hover:text-skin-primary" : "hover:text-skin-secondary"
             }`}
