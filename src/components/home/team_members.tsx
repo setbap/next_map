@@ -6,10 +6,10 @@ const TeamMember = () => {
   return (
     <div className="container mx-auto my-12">
       <div className="p-8 bg-skin-card dark:bg-gray-800 rounded-lg shadow">
-        <p className="text-center text-3xl font-bold text-skin-base dark:text-white">
-          اعضای تیم
-        </p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <h6 className="text-center text-3xl font-bold text-skin-base dark:text-white">
+          اساتید راهنما
+        </h6>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {persons.slice(0, 4).map((data, index) => {
             return (
               <TeamMemberItem
@@ -23,6 +23,13 @@ const TeamMember = () => {
               />
             );
           })}
+        </div>
+      </div>
+      <div className="p-8 bg-skin-card dark:bg-gray-800 rounded-lg shadow">
+        <h6 className="text-center text-3xl font-bold text-skin-base dark:text-white">
+          اعضای تیم
+        </h6>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {persons.slice(4, persons.length).map((data, index) => {
             return (
               <TeamMemberItem
@@ -66,14 +73,14 @@ const TeamMemberItem = ({
             <div
               className={`${
                 primary ? "border-skin-primary" : "border-skin-secondary"
-              } rounded-full border-4  w-20 h-20 shadow-2xl `}
+              } rounded-full border-4  w-24 h-24 shadow-2xl `}
             >
               <Image
                 src={image}
                 className="rounded-full"
                 alt="Our time picture"
-                width={72}
-                height={72}
+                width={88}
+                height={88}
               />
             </div>
           </div>
