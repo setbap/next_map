@@ -37,10 +37,13 @@ const LandFill = () => {
           exit="exit"
         >
           <div className=" bg-green-300 w-full md:w-full h-heightParent py-2 space-y-6 relative">
-
             <div className=" h-mapHeight w-11/12 mx-auto text-center rounded-xl shadow-md">
               <p className=" font-semibold flex items-center justify-center text-xl h-full">
-              <iframe className=" w-full h-full rounded-xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1642889.422987805!2d51.273040753513214!3d36.463152822196044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f84eec7feec6407%3A0x52436f1e076b159!2sMazandaran%20Province%2C%20Iran!5e0!3m2!1sen!2s!4v1617477736015!5m2!1sen!2s" loading="lazy"></iframe>
+                <iframe
+                  className=" w-full h-full rounded-xl"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1642889.422987805!2d51.273040753513214!3d36.463152822196044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f84eec7feec6407%3A0x52436f1e076b159!2sMazandaran%20Province%2C%20Iran!5e0!3m2!1sen!2s!4v1617477736015!5m2!1sen!2s"
+                  loading="lazy"
+                ></iframe>
               </p>
             </div>
 
@@ -118,16 +121,23 @@ const LandFill = () => {
             </div>
 
             <div className=" h-99 md:h-64 xl:h-80 w-11/12 mx-auto text-center rounded-xl flex-grow  space-y-2 md:flex md:space-y-0 md:space-x-3">
-
               <div className=" w-full h-48 rounded-lg md:w-5/12 md:h-full flex flex-grow items-center justify-center font-bold shadow-lg">
-                <iframe className="w-full h-full rounded-xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3064.464658707638!2d52.693889550728535!3d36.30803777995501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDE4JzI4LjkiTiA1MsKwNDEnNDUuOSJF!5e1!3m2!1sen!2s!4v1617477248784!5m2!1sen!2s" loading="lazy"></iframe>
+                <iframe
+                  className="w-full h-full rounded-xl"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3064.464658707638!2d52.693889550728535!3d36.30803777995501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDE4JzI4LjkiTiA1MsKwNDEnNDUuOSJF!5e1!3m2!1sen!2s!4v1617477248784!5m2!1sen!2s"
+                  loading="lazy"
+                ></iframe>
               </div>
 
               <div className="flex-1 w-4" />
 
               <div className=" bg-green-100 w-full h-56 rounded-lg md:w-7/12 md:h-full flex flex-grow items-center justify-center font-extrabold shadow-lg">
-<!--                 <iframe className=" h-full w-full rounded-lg" src="https://www.aparat.com/video/video/embed/videohash/zHopl/vt/frame" title="انجیلسی" ></iframe> -->
-                <iframe className=" h-full w-full rounded-lg" src="https://www.aparat.com/video/video/embed/videohash/WOKbB/vt/frame" title="انجیلسی" ></iframe>
+                {/* <iframe className=" h-full w-full rounded-lg" src="https://www.aparat.com/video/video/embed/videohash/zHopl/vt/frame" title="انجیلسی" ></iframe> */}
+                <iframe
+                  className=" h-full w-full rounded-lg"
+                  src="https://www.aparat.com/video/video/embed/videohash/WOKbB/vt/frame"
+                  title="انجیلسی"
+                ></iframe>
               </div>
             </div>
 
@@ -147,7 +157,7 @@ const LandFill = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="h-8" />
             <div className=" bg-green-100 h-48 w-10/12 mx-auto rounded-xl shadow-lg md:h-56  md:mb-4   lg:w-11/12  xl:w-10/12">
               <div className=" h-2/6 ps-10 pt-5 font-bold">🧭 Sari, Iran</div>
