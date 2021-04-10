@@ -72,7 +72,7 @@ const UniMap: FC = () => {
               ایمیل:
             </h2>
             <a className="text-skin-primary leading-relaxed pt-1">
-              shomalGIS@gmail.com
+              NITEnviro@gmail.com
             </a>
           </div>
           <div className="w-full ">

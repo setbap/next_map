@@ -3,25 +3,29 @@
         "image": "/persons/دکتر پیروی.jpeg",
         "name": "دکتر مجید پیروی",
         "work": " استاد خبره طرح و مسئول گروه بازیافت",
-        "linkedin": ""
+        "linkedin": "",
+        "scholar":"https://scholar.google.com/citations?hl=en&user=7QtwreYAAAAJ"
     },
     {
         "image": "/persons/67824.jpg",
         "name": "دکتر عزیر عابسی",
         "work": " مشاور اجرایی طرح مسئول گروه عمران& GIS",
-        "linkedin": ""
+        "linkedin": "ozeair-abessi-97010237",
+        "scholar":"https://scholar.google.com/citations?user=8aBiQRMAAAAJ&hl=en&oi=sra"
     },
     {
         "image": "/persons/دکتر عمادی.jpeg",
         "name": "دکتر مهدی عمادی",
         "work": "مسئول گروه IT& WebGIS",
-        "linkedin": ""
+        "linkedin": "",
+        "scholar":"https://scholar.google.com/citations?user=ftKNIQ0AAAAJ&hl=en&oi=ao"
     },
     {
         "image": "/persons/یاسر ابراهیمیان.jpg",
         "name": "دکتر یاسر ابراهیمیان قاجاری",
         "work": "مشاور گروه GIS",
-        "linkedin": ""
+        "linkedin": "",
+        "scholar":"https://scholar.google.com/citations?user=qyyTw5QAAAAJ&hl=en&oi=sra"
     },
     {
         "image": "/persons/مریم مهدویان.jpg",
@@ -33,7 +37,7 @@
         "image": "/persons/عابدین رنجبر.jpeg",
         "name": "عابدین رنجبر",
         "work": "مسئول سیستم های ابزار دقیق",
-        "linkedin": ""
+        "linkedin": "abedin-ranjbar-a3a776119"
     },
     {
         "image": "/persons/سعیده رستگار.jpeg",
@@ -51,7 +55,7 @@
         "image": "/persons/نیکی سلیمانی.jpg",
         "name": "نیکی سلیمانی امیری",
         "work": "عضو تیم عمران- GIS",
-        "linkedin": ""
+        "linkedin": "niki-soleimani-amiri"
     },
     {
         "image": "/persons/Profile-1.jpg",
@@ -74,8 +78,8 @@
     ,
     {
         "image": "/persons/میلاد حسنعلی زاده.jpg",
-        "name": "میلادحسنعلی زاده",
-        "work": "توسعه دهنده سامانه WebGIS",
+        "name": "میلاد حسنعلی زاده",
+        "work": "مسئول طراحی، پیاده سازی و توسعه سامانه WebGIS",
         "linkedin": "milad-hasanalizadeh-25bb221ba"
     }
     ,
@@ -83,14 +87,14 @@
         "image": "/persons/محمد امین زاده.jpeg",
         "name": "محمد امین زاده",
         "work": "عضو گروه عمران- GIS",
-        "linkedin": ""
+        "linkedin": "mohammad-aminzadeh"
     }
     ,
     {
         "image": "/persons/مهرداد آهنگر.jpg",
         "name": "مهرداد آهنگرکانی",
         "work": "مسئول تحلیل و پیاده سازی سامانه WebGIS",
-        "linkedin": ""
+        "linkedin": "mehrdad-ahangarkani-302501bb"
     }
     ,
     {

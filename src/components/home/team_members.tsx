@@ -1,4 +1,5 @@
 import { FiLinkedin } from "react-icons/fi";
+import { SiGooglescholar } from "react-icons/si";
 import Image from "next/image";
 import persons from "~/utils/persons.json";
 const TeamMember = () => {
@@ -14,6 +15,7 @@ const TeamMember = () => {
               <TeamMemberItem
                 key={index}
                 primary
+                scholar={data.scholar}
                 fullname={data.name}
                 post={data.work}
                 image={data.image}
@@ -45,6 +47,7 @@ interface ITeamMemberItemProps {
   image: string;
   linkedin: string;
   primary?: boolean;
+  scholar?: string;
 }
 
 const TeamMemberItem = ({
@@ -53,6 +56,7 @@ const TeamMemberItem = ({
   image,
   linkedin,
   primary,
+  scholar,
 }: ITeamMemberItemProps) => {
   return (
     <div className="p-4">
@@ -81,15 +85,37 @@ const TeamMemberItem = ({
 
           <span className="text-skin-muted my-3 text-xs">{post}</span>
 
-          <a
-            target="_blank"
-            href={`https://www.linkedin.com/in/${linkedin}`}
-            className={`text-skin-muted text-center  ${
-              primary ? "hover:text-skin-primary" : "hover:text-skin-secondary"
-            }`}
-          >
-            <FiLinkedin size={24} />
-          </a>
+          <div className="flex  flex-row justify-center items-center w-full">
+            <a
+              target="_blank"
+              href={`https://www.linkedin.com/in/${linkedin}`}
+              className={`text-skin-muted text-center  ${
+                primary
+                  ? "hover:text-skin-primary"
+                  : "hover:text-skin-secondary"
+              }`}
+            >
+              <FiLinkedin size={24} />
+            </a>
+            {primary ? (
+              <>
+                <div className="p-2" />
+                <a
+                  target="_blank"
+                  href={scholar}
+                  className={`text-skin-muted text-center  ${
+                    primary
+                      ? "hover:text-skin-primary"
+                      : "hover:text-skin-secondary"
+                  }`}
+                >
+                  <SiGooglescholar size={24} />
+                </a>
+              </>
+            ) : (
+              <div />
+            )}
+          </div>
         </div>
       </div>
     </div>
