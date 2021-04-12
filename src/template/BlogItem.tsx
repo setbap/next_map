@@ -12,9 +12,10 @@ interface Props {
   date: string;
   image: string;
   type: string;
+  href: string;
 }
 
-const BlogItem = ({ id, title, short, date, image, type }: Props) => {
+const BlogItem = ({ id, title, short, date, image, type, href }: Props) => {
   return (
     <>
       <motion.div
@@ -32,7 +33,7 @@ const BlogItem = ({ id, title, short, date, image, type }: Props) => {
             alt={`${title} - image`}
           />
           <motion.div layoutId={`category-${id}`} className="p-6">
-            <Link href={pagesLinks.encyclopediaItem({ item: id, type: type })}>
+            <Link href={href}>
               <a>
                 <h1 className=" font-bold  text-lg  text-skin-secondary mb-3">
                   {title}
@@ -52,9 +53,7 @@ const BlogItem = ({ id, title, short, date, image, type }: Props) => {
               layoutId={`link-${id}`}
               className="flex items-center flex-wrap "
             >
-              <Link
-                href={pagesLinks.encyclopediaItem({ item: id, type: type })}
-              >
+              <Link href={href}>
                 <a className="text-skin-primary inline-flex items-center md:mb-2 lg:mb-0">
                   <span>بیشتر</span>
                 </a>

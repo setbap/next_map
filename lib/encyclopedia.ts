@@ -14,16 +14,19 @@ enum EncyclopediaType {
 
 const encyclopediaIntroductionFoldersDir = path.join(
   process.cwd(),
+  "cms",
   ParentDir,
   EncyclopediaType.Introduction
 );
 const encyclopediaArticleFoldersDir = path.join(
   process.cwd(),
+  "cms",
   ParentDir,
   EncyclopediaType.article
 );
 const encyclopediaDocumentFoldersDir = path.join(
   process.cwd(),
+  "cms",
   ParentDir,
   EncyclopediaType.document
 );

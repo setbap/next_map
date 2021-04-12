@@ -63,7 +63,14 @@ const AsideMenu = ({ open, closeFn }: Props) => {
           />
           <AsideNavLink
             onClick={closeFn}
-            id="about-page-aside"
+            id="tutorial-page-aside"
+            to={pagesLinks.tutorial()}
+            Icon={RiArticleLine}
+            title={"آموزش"}
+          />
+          <AsideNavLink
+            onClick={closeFn}
+            id="encyclopedia-page-aside"
             to={pagesLinks.encyclopedia()}
             Icon={RiArticleLine}
             title={"دانشنامه"}
