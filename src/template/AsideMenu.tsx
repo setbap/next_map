@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { AiFillPayCircle } from "react-icons/ai";
 import { BiHome, BiMapAlt } from "react-icons/bi";
 import { BsInfoCircle } from "react-icons/bs";
+import { FaChalkboardTeacher } from "react-icons/fa";
 import { MdContactMail } from "react-icons/md";
 import { RiArticleLine } from "react-icons/ri";
 import { pagesLinks } from "~/utils/links";
@@ -65,7 +66,7 @@ const AsideMenu = ({ open, closeFn }: Props) => {
             onClick={closeFn}
             id="tutorial-page-aside"
             to={pagesLinks.tutorial()}
-            Icon={RiArticleLine}
+            Icon={FaChalkboardTeacher}
             title={"آموزش"}
           />
           <AsideNavLink
