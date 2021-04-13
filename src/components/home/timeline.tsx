@@ -60,7 +60,7 @@ const TimeLineItemTime: FC = ({ children }) => {
     <h2
       style={{ width: "fit-content" }}
       className="timeline__item timeline__item--year 
-      p-2 border-2 md:p-4 md:border-4 border-skin-secondary relative mt-4 ms-auto mb-4 me-12 
+      p-4 border-2 md:p-4 md:border-4 border-skin-secondary relative mt-4 ms-auto mb-4 me-12 
       clear-both rounded-lg  md:m-4 md:rounded-lg text-end 
        md:mx-auto text-skin-base text-xl bg-skin-card leading-4  "
     >
@@ -77,7 +77,7 @@ const TimeLineContent: FC<{ title: string; subTitle?: string }> = ({
     <div
       className="
     timeline__item
-    p-2 border-2 md:p-4 md:border-4 border-skin-primary relative mt-4 ms-auto mb-4 me-12 
+    p-4 md:border-4 border-2 border-skin-light-primary relative mt-4 ms-auto mb-4 me-12 
     clear-both rounded-lg  md:m-4 md:rounded-lg text-skin-base
     "
     >
