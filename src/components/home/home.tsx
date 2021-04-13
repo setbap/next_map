@@ -3,6 +3,7 @@ import { Features } from "./features";
 import Profit from "./profit";
 import Resualt from "./resualt";
 import TeamMember from "./team_members";
+import TimrLine from "./timeline";
 
 const Home = () => {
   return (
@@ -38,6 +39,7 @@ const Home = () => {
         />
       </div>
       <TeamMember />
+      <TimrLine />
       <div className="absolute top-0 bottom-0 left-0 right-0 footer_image footer_filter " />
     </div>
   );
