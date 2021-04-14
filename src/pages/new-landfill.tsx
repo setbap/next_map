@@ -4,6 +4,7 @@ import Nav from "~/template/Nav";
 import chartData from "~/../public/chart_data.json";
 import ChartBox from "~/components/ChartBox";
 import Footer from "~/template/Footer";
+import ChartBoxAIO from "~/components/ChartBoxAIO";
 const LandFill = () => {
   const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
 
@@ -167,6 +168,19 @@ const LandFill = () => {
                   title="نمودار میزان دما در طی ماه های سال"
                   data={chartData}
                   areaDataKey="temp"
+                  xAxisDataKey="month"
+                />
+              </div>
+
+              <div className=" bg-skin-base w-full h-80 rounded-lg flex flex-grow items-center justify-center font-bold shadow-lg">
+                <ChartBoxAIO
+                  title="نمودار  ماه های سال"
+                  data={chartData}
+                  areaDataKey={[
+                    { name: "temp", persina: "دما" },
+                    { name: "eva", persina: "تبخیر" },
+                    { name: "rain", persina: "بارش" },
+                  ]}
                   xAxisDataKey="month"
                 />
               </div>
