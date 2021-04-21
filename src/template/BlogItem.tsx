@@ -26,12 +26,14 @@ const BlogItem = ({ id, title, short, date, image, type, href }: Props) => {
           layoutId={`main-${id}`}
           className="h-full border-2 shadow-sm hover:shadow-lg border-skin-muted hover:border-skin-primary bg-skin-card  rounded-lg overflow-hidden"
         >
-          <motion.img
-            layoutId={`img-${id}`}
-            className="lg:h-64 md:h-56 h-48  w-full object-cover object-center"
-            src={image}
-            alt={`${title} - image`}
-          />
+          <Link href={href}>
+            <motion.img
+              layoutId={`img-${id}`}
+              className="lg:h-64 md:h-56 h-48 cursor-pointer  w-full object-cover object-center"
+              src={image}
+              alt={`${title} - image`}
+            />
+          </Link>
           <motion.div layoutId={`category-${id}`} className="p-6">
             <Link href={href}>
               <a>

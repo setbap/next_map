@@ -6,7 +6,7 @@ date: "2021.03.25"
 jdate: "1400.01.18"
 ---
 
-<style>.h_iframe-aparat_embed_frame{position:relative;}.h_iframe-aparat_embed_frame .ratio{display:block;width:100%;height:auto;}.h_iframe-aparat_embed_frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;}</style><div class="h_iframe-aparat_embed_frame"><span style="display: block;padding-top: 57%"></span><iframe src="https://www.aparat.com/video/video/embed/videohash/8frYM/vt/frame" title="زباله های ویژه" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe></div>
+<style>.h_iframe-aparat_embed_frame{position:relative;}.h_iframe-aparat_embed_frame .ratio{display:block;width:100%;height:auto;}.h_iframe-aparat_embed_frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;}</style><div class="h_iframe-aparat_embed_frame"><span style="display: block;padding-top: 57%"></span><iframe src="https://www.aparat.com/video/video/embed/videohash/6QTA8/vt/frame" title="انواع پسماندها" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe></div>
 
 <p>
 پسماندهای خانگی، به زائدات ایجاد شده از منابع خانگی اطلاق می شود. این دسته از زائدات به تنهایی بیش از دوسوم کل جریان پسماند شهری را شامل می شوند که بخش اعظم آن در محل های دفن زباله شهری دفع می گردد. ترکیب پسماند در کشورها، شهرها و حتی در مناطق مختلف یک شهر می تواند متفاوت باشد. عواملی نظیر فرهنگ، اقتصاد، پیشرفتگی، اقلیم و منابع انرژی روی ترکیب پسماند اثر خواهد گذاشت؛ نیاز به جمع آوری پسماند، تکرر برنامه جمع آوری و دفع پسماند متأثر از ترکیب پسماند تولیدی هر جامعه است. 

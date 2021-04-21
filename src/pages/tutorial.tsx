@@ -3,8 +3,7 @@ import Head from "next/head";
 import { getTutorialTypeShort } from "lib/tutorial";
 import Nav from "~/template/Nav";
 import Footer from "../template/Footer";
-import EncyclopediaCard from "~/components/EncyclopediaCard";
-import TutorialCard from "~/components/EncyclopediaCard";
+import TutorialCard from "~/components/TutorialCard";
 
 const Blog = ({ tutorial }) => {
   return (

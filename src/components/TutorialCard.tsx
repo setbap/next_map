@@ -8,7 +8,7 @@ interface Props {
   subtitle: string;
 }
 
-const EncyclopediaCard = ({ data, subtitle, title }: Props) => {
+const TutorialCard = ({ data, subtitle, title }: Props) => {
   return (
     <div className="container sm:pt-8 pt-2 mx-auto">
       <div className=" mb-2 px-1  py-3 sm:px-2 rounded-2xl sm:mb-1 sticky top-2 overflow-hidden  backdrop_custom bg-opacity-40 bg-skin-card">
@@ -20,11 +20,11 @@ const EncyclopediaCard = ({ data, subtitle, title }: Props) => {
         </h3>
       </div>
       <div className="flex flex-wrap ">
-        {data.map(({ postId, image, jdate, title, short, type }) => {
+        {data.map(({ postId, image, jdate, title, short }) => {
           return (
             <BlogItem
-              href={pagesLinks.encyclopediaItem({ item: postId, type: type })}
-              type={type}
+              href={pagesLinks.tutorialItem({ slug: postId })}
+              type={""}
               image={image}
               key={postId}
               short={short}
@@ -39,4 +39,4 @@ const EncyclopediaCard = ({ data, subtitle, title }: Props) => {
   );
 };
 
-export default EncyclopediaCard;
+export default TutorialCard;
