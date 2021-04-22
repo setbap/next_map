@@ -42,9 +42,11 @@
     --color-background: #e5e7eb;
     --color-card-background: 255, 255, 255;
     --color-primary: #f59e0b;
+    --color-landfill: #f2efe9;
   }
 
   .dark {
+    --color-landfill: #f2efe9;
     --color-text-base: #fff;
     --color-text-muted: rgb(255 255 255 / 81%);
     --color-text-on-primary: rgb(0 0 0);

@@ -4,8 +4,6 @@ const map = () => "/map";
 
 const landfills = () => "/landfill";
 
-const about = () => "/about";
-
 const contact_us = () => "/contact_us";
 
 const encyclopedia = () => "/encyclopedia";
@@ -20,7 +18,6 @@ const tutorialItem = ({ slug }: { slug: string }) => `/tutorial/${slug}`;
 const pagesLinks = {
   index,
   map,
-  about,
   contact_us,
   encyclopedia,
   tutorial,

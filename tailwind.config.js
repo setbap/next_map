@@ -23,6 +23,7 @@ module.exports = {
 
       backgroundColor: {
         skin: {
+          landfill: "var(--color-landfill)",
           secondary: "var(--color-secondary)",
           "primary-relaxed": "var(--color-relaxed-primary)",
           base: "var(--color-background)",
@@ -50,6 +51,10 @@ module.exports = {
           "light-primary": "var(--color-light-primary)",
           primary: "var(--color-primary)",
         },
+      },
+
+      colors: {
+        landfill: "var(--color-landfill)",
       },
 
       typography: (theme) => ({
@@ -84,5 +89,9 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require("tailwindcss-rtl"), require("@tailwindcss/typography")],
+  plugins: [
+    require("tailwindcss-rtl"),
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/aspect-ratio"),
+  ],
 };

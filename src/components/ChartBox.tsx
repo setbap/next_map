@@ -22,10 +22,11 @@ const ChartBox = ({ areaDataKey, xAxisDataKey, data, title }: Props) => {
       const payloadData = payload[0]["payload"][payload[0]["name"]];
       return (
         <div
-          className="px-3 py-2 shadow-xl rounded-md"
+          className=" py-2 shadow-xl rounded-md"
           style={{
             backgroundColor: "var(--color-text-base)",
             color: "var(--color-text-on-primary)",
+            minWidth: 80,
           }}
         >
           <h4 className="text-xs sm:text-sm pb-2">{label}</h4>
@@ -37,13 +38,17 @@ const ChartBox = ({ areaDataKey, xAxisDataKey, data, title }: Props) => {
   };
 
   return (
-    <div className="w-full text-center h-80 py-1 justify-start flex flex-col items-center">
-      <h3 className="p-2 mb-4">{title}</h3>
-      <ResponsiveContainer width={"99%"} className="w-full h-full" height={240}>
+    <div className="w-full  text-center h-80 py-1 justify-start flex flex-col items-center">
+      <h3 className="py-2  mb-4">{title}</h3>
+      <ResponsiveContainer
+        width={"90%"}
+        className="w-full  h-full overflow-hidden"
+        height={240}
+      >
         <AreaChart
           data={data}
           syncId={`${areaDataKey}-${xAxisDataKey}`}
-          className="mt-1  ms-6 mb-2"
+          className="mt-1 mb-2"
         >
           <defs>
             <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
@@ -63,8 +68,14 @@ const ChartBox = ({ areaDataKey, xAxisDataKey, data, title }: Props) => {
             style={{ stroke: "var(--color-text-base)", opacity: 0.25 }}
             strokeDasharray="3 3"
           />
-          <XAxis color="red" dataKey={xAxisDataKey} />
-          <YAxis />
+          <XAxis
+            tickCount={12}
+            tickSize={3}
+            tickMargin={6}
+            fontSize={14}
+            dataKey={xAxisDataKey}
+          />
+          <YAxis width={10} />
           {/* @ts-ignore */}
           <Tooltip content={<CustomTooltip />} />
           <Area

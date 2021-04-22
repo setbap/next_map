@@ -76,13 +76,7 @@ const AsideMenu = ({ open, closeFn }: Props) => {
             Icon={RiArticleLine}
             title={"دانشنامه"}
           />
-          <AsideNavLink
-            onClick={closeFn}
-            id="about-page-aside"
-            to={pagesLinks.about()}
-            Icon={BsInfoCircle}
-            title={"درباره ما"}
-          />
+
           <AsideNavLink
             onClick={closeFn}
             id="contactus-page-aside"

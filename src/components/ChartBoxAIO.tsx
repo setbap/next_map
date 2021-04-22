@@ -12,7 +12,7 @@ import {
 
 interface Props {
   xAxisDataKey: string;
-  areaDataKey: { name: string; persina: string }[];
+  areaDataKey: { name: string; persian: string }[];
   title: string;
   data: any[];
 }
@@ -40,7 +40,7 @@ const ChartBoxAIO = ({ areaDataKey, xAxisDataKey, data, title }: Props) => {
                 style={{ color: colors[index] }}
                 className="text-xs sm:text-sm"
               >
-                {`${payloadData} :${areaDataKey[index].persina} `}
+                {`${payloadData} :${areaDataKey[index].persian} `}
               </p>
             );
           })}
@@ -53,11 +53,11 @@ const ChartBoxAIO = ({ areaDataKey, xAxisDataKey, data, title }: Props) => {
   return (
     <div className="w-full text-center h-80 py-1 justify-start flex flex-col items-center">
       <h3 className="p-2 mb-4">{title}</h3>
-      <ResponsiveContainer width={"99%"} className="w-full h-full" height={240}>
+      <ResponsiveContainer width={"90%"} className="w-full h-full" height={240}>
         <AreaChart
           data={data}
           syncId={`${areaDataKey}-${xAxisDataKey}`}
-          className="mt-1  ms-6 mb-2"
+          className="mt-1   mb-2"
         >
           <defs>
             <linearGradient id="color1" x1="0" y1="0" x2="0" y2="1">
@@ -102,15 +102,21 @@ const ChartBoxAIO = ({ areaDataKey, xAxisDataKey, data, title }: Props) => {
             style={{ stroke: "var(--color-text-base)", opacity: 0.25 }}
             strokeDasharray="3 3"
           />
-          <XAxis color="red" dataKey={xAxisDataKey} />
-          <YAxis />
+          <XAxis
+            tickCount={12}
+            tickSize={3}
+            tickMargin={6}
+            fontSize={14}
+            dataKey={xAxisDataKey}
+          />
+          <YAxis width={10} />
           {/* @ts-ignore */}
           <Tooltip content={<CustomTooltip />} />
           <Legend
             iconType="circle"
             formatter={(value, entry, index) => (
               <span className="px-1" style={{ color: colors[index] }}>
-                {areaDataKey[index].persina}
+                {areaDataKey[index].persian}
               </span>
             )}
             verticalAlign="bottom"
