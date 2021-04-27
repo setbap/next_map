@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-
+import Img from "next/image";
 import Head from "next/head";
 import Nav from "~/template/Nav";
 import chartData from "~/../public/chart_data.json";
@@ -61,8 +61,8 @@ const LandFill = () => {
           animate="enter"
           exit="exit"
         >
-          <div className=" max-w-7xl   mx-auto w-full  pt-2 space-y-6 relative">
-            <div className="p-3  w-full  text-center ">
+          <div className=" max-w-7xl   mx-auto w-full  -mt-3 space-y-6 relative">
+            <div className="  w-full  text-center ">
               <img
                 src="/mazandaran.png"
                 // width={472}
@@ -84,6 +84,16 @@ const LandFill = () => {
             </div>
 
             <div className=" w-full mx-auto text-center rounded-xl flex-wrap md:flex-nowrap flex-row space-y-2 flex md:space-y-0 md:space-x-3">
+              <div className="w-full  h-64 rounded-lg shadow-lg">
+                <iframe
+                  className=" h-full w-full rounded-lg"
+                  src="https://www.aparat.com/video/video/embed/videohash/zHq5a/vt/frame"
+                  title="لندفیلهای مازندران"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+            <div className=" w-full mx-auto text-center rounded-xl flex-wrap md:flex-nowrap flex-row space-y-2 flex md:space-y-0 md:space-x-3">
               <div className="  h-64 rounded-lg md:w-5/12 w-full flex   font-bold shadow-lg">
                 <iframe
                   className="w-full h-full rounded-xl"
@@ -95,12 +105,12 @@ const LandFill = () => {
               <div className="flex-1 w-4" />
 
               <div className=" bg-green-100 w-full h-64 rounded-lg md:w-7/12   font-extrabold shadow-lg">
-                {/* <iframe className=" h-full w-full rounded-lg" src="https://www.aparat.com/video/video/embed/videohash/zHopl/vt/frame" title="انجیلسی" ></iframe> */}
+                {/* <iframe  src="https://www.aparat.com/video/video/embed/videohash/zHopl/vt/frame" title="انجیلسی" ></iframe> */}
                 <iframe
-                  allowFullScreen
+                  src="https://www.aparat.com/video/video/embed/videohash/BtvlS/vt/frame"
+                  title="محل دفن زباله های بابل- سایت انجیلسی"
                   className=" h-full w-full rounded-lg"
-                  src="https://www.aparat.com/video/video/embed/videohash/WOKbB/vt/frame"
-                  title="انجیلسی"
+                  allowFullScreen
                 ></iframe>
               </div>
             </div>
@@ -235,7 +245,7 @@ const LandFill = () => {
                       </InfoCard>
                     </div>
 
-                    <div className="col-span-4 md:col-span-2 overflow-hidden">
+                    <div className="col-span-4 md:col-span-4 overflow-hidden">
                       <InfoCard key2={"1y"}>
                         <iframe
                           allowFullScreen
@@ -246,16 +256,31 @@ const LandFill = () => {
                       </InfoCard>
                     </div>
                     <div className="col-span-4 md:col-span-2 overflow-hidden">
-                      <InfoCard key2={"1y"}>
-                        <iframe
-                          width={"100%"}
-                          height={"100%"}
-                          src="https://www.youtube.com/embed/t_eZx-C3a9o"
-                          title="YouTube video player"
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        ></iframe>
+                      <InfoCard
+                        className="w-full relative overflow-hidden"
+                        key2={"1y"}
+                      >
+                        <Img
+                          className="h-full  rounded-lg overflow-hidden"
+                          layout="fill"
+                          objectFit="fill"
+                          loading="lazy"
+                          src="/landfill/live.gif"
+                        />
+                      </InfoCard>
+                    </div>
+                    <div className="col-span-4 md:col-span-2 overflow-hidden">
+                      <InfoCard
+                        className="w-full relative overflow-hidden"
+                        key2={"123y"}
+                      >
+                        <Img
+                          className="h-full  rounded-lg overflow-hidden"
+                          layout="fill"
+                          objectFit="fill"
+                          loading="lazy"
+                          src="/landfill/plate_recog.gif"
+                        />
                       </InfoCard>
                     </div>
                   </motion.div>

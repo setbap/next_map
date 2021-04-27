@@ -1,52 +1,43 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 const TimrLine = () => {
   return (
     <div className="container mx-auto my-12">
       <div className=" bg-skin-card dark:bg-gray-800 py-8 rounded-lg shadow">
         <h3 className="font-bold text-3xl py-8 text-center">
-          {" "}
           مسیر زمانی پروژه
         </h3>
         <div className="timeline relative mx-auto max-w-7xl md:p-4 ps-4">
-          <TimeLineItemTime> 1399 مهر</TimeLineItemTime>
-          <TimeLineContent title="شکل گیری ایده اولیه" />
+          <TimeLineItemTime> 1399</TimeLineItemTime>
           <TimeLineContent
-            title="ثبت نام"
-            subTitle="شروع کار برای بنیاد"
-          />{" "}
-          <TimeLineItemTime> 1399 آبان</TimeLineItemTime>
-          <TimeLineContent title="شکل گیری ایده اولیه" />
+            title="9 آذر"
+            subTitle="هسته پژوهشی ما با حمایت مستفیم بنیاد ملی نخبگان استان مازندران تحت عنوان طرح شهید احمدی روشن متولد شد."
+          />
           <TimeLineContent
-            title="ثبت نام"
-            subTitle="شروع کار برای بنیاد"
+            title="6 آذر"
+            subTitle="هسته پژوهشی NITEnviro در آذر ماه سال 1399 با حضور اعضای این هسته در دانشگاه صنعتی نوشیروانی بابل شکل گرفت و اعضای خود را شناخت. این اولین جلسه حضوری هسته برای آشنایی اعضا با یکدیگر و آشنایی با اهداف گروه بود."
           />{" "}
-          <TimeLineItemTime> 1399 آذر</TimeLineItemTime>
-          <TimeLineContent title="شکل گیری ایده اولیه" />
           <TimeLineContent
-            title="ثبت نام"
-            subTitle="شروع کار برای بنیاد"
-          />{" "}
-          <TimeLineItemTime> 1399 دی</TimeLineItemTime>
-          <TimeLineContent title="شکل گیری ایده اولیه" />
-          <TimeLineItemTime> 1399 بهمن</TimeLineItemTime>
-          <TimeLineContent title="شکل گیری ایده اولیه" />{" "}
-          <TimeLineContent title="شکل گیری ایده اولیه" />{" "}
-          <TimeLineContent title="شکل گیری ایده اولیه" />{" "}
-          <TimeLineContent title="شکل گیری ایده اولیه" />
-          <TimeLineContent title="ثبت نام" subTitle="شروع کار برای بنیاد" />
-          <TimeLineItemTime> 1399 اسفند</TimeLineItemTime>
-          <TimeLineContent title="شکل گیری ایده اولیه" />{" "}
-          <TimeLineContent title="شکل گیری ایده اولیه" />{" "}
-          <TimeLineContent title="شکل گیری ایده اولیه" />{" "}
-          <TimeLineContent title="شکل گیری ایده اولیه" />
-          <TimeLineContent title="ثبت نام" subTitle="شروع کار برای بنیاد" />
-          <TimeLineItemTime> 1400 فروردین</TimeLineItemTime>
-          <TimeLineContent title="شکل گیری ایده اولیه" />{" "}
-          <TimeLineContent title="شکل گیری ایده اولیه" />{" "}
-          <TimeLineContent title="شکل گیری ایده اولیه" />{" "}
-          <TimeLineContent title="شکل گیری ایده اولیه" />
-          <TimeLineContent title="ثبت نام" subTitle="شروع کار برای بنیاد" />
+            title="27 آذر "
+            subTitle="اولین اقدام بعد از گروه بندی و انتخاب استاد مشاور برای هر گروه، برگزاری کارگاه آموزشی مجازی برای آشنایی اعضای هسته با داستان مدیریت زباله و محل‌های دفن در استان بود."
+          />
+          <TimeLineContent
+            title="25 دی "
+            subTitle="بعد از جلسه های هفتگی و ارائه برنامه های کابردی هر گروه، اولین قدم در توسعه سامانه Enviro در 25 دی ماه  1399 برداشته شد"
+          />
+          <TimeLineContent
+            title="14 اسفند "
+            subTitle="انتخاب نام برای هسته و ثبت دامنه برای سایت. این روز را باید روز تولد سایت NITEnviro دانست. برای ارائه دسترسی مناسب به سایت سرور و امکانات فنی مناسب تدارک دیده شد. "
+          />
+          <TimeLineItemTime> 1400</TimeLineItemTime>
+          <TimeLineContent
+            title="19 فروردین"
+            subTitle="با تولدت و ثبت دامنه سایت بارگزاری اطلاعات مرتبط با لندفیلهای استان انجام گرفت. هسته NITEnviro در جستجوی اطلاعات به هر مقاله، گزارش و محل دفن زباله ای در استان سر زده تا داده های مستند را پیدا و در بانک اطلاعاتی خود ثبت و ارائه کند"
+          />
+          <TimeLineContent
+            title="1 اردیبهشت"
+            subTitle="آغاز توسعه اپلیکیشن Enviro توسط هسته پژوهشی برای تفکیک زباله از مبدا در استان مازندارن "
+          />
         </div>
       </div>
     </div>

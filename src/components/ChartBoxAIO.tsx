@@ -100,7 +100,7 @@ const ChartBoxAIO = ({ areaDataKey, xAxisDataKey, data, title }: Props) => {
           </defs>
           <CartesianGrid
             style={{ stroke: "var(--color-text-base)", opacity: 0.25 }}
-            strokeDasharray="3 3"
+            strokeDasharray="4 4"
           />
           <XAxis
             tickCount={12}
@@ -109,6 +109,8 @@ const ChartBoxAIO = ({ areaDataKey, xAxisDataKey, data, title }: Props) => {
             fontSize={14}
             dataKey={xAxisDataKey}
           />
+          <YAxis yAxisId="1" dataKey="temp" orientation="right" width={10} />
+
           <YAxis width={10} />
           {/* @ts-ignore */}
           <Tooltip content={<CustomTooltip />} />
