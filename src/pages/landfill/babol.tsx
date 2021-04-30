@@ -66,20 +66,17 @@ const LandFill = () => {
           exit="exit"
         >
           <div className=" max-w-7xl   mx-auto w-full  space-y-6 relative">
-            <div className="  w-full aspect-w-16 aspect-h-8  text-center ">
-              <img src="/landfill/babol/babol.jpg" className="object-fill" />
-            </div>
-
-            <div className=" h-36 sm:h-32 w-full mx-auto text-center rounded-xl flex flex-wrap items-center justify-center">
-              <CityButton cityName="sari" name="ساری" />
-              <CityButton cityName="babol" name="بابل" />
-              <CityButton cityName="amol" name="آمل" />
-              <CityButton cityName="qaemshahr" name="قائمشهر" />
-            </div>
-
-            <div className=" w-full mx-auto text-center rounded-xl flex-wrap md:flex-nowrap flex-row  flex ">
-              <div className="w-full md:w-2/3 mx-2 text-center rounded-xl">
-                <div className="aspect-w-16 aspect-h-9 rounded-lg shadow-lg">
+            <div className=" w-full mt-4 mx-auto text-center rounded-xl flex-wrap md:flex-nowrap flex-row  flex ">
+              <div className="w-full md:w-1/2 mx-2 text-center rounded-xl">
+                <div className="aspect-w-16 aspect-h-9  overflow-hidden bg-black  rounded-lg shadow-lg">
+                  <img
+                    src="/landfill/babol/babol.jpg"
+                    className="object-fill"
+                  />
+                </div>
+              </div>
+              <div className="w-full md:w-1/2 mx-2 text-center rounded-xl my-2 md:my-0 ">
+                <div className="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-lg">
                   <Img
                     src="/landfill/babol/babol.gif"
                     layout="fill"
@@ -87,17 +84,17 @@ const LandFill = () => {
                   />
                 </div>
               </div>
-              <div className="hidden md:block   me-2  md:w-1/3">
-                <div className=" aspect-w-8 aspect-h-9 bg-black  rounded-lg shadow-lg">
-                  <img
-                    src="/landfill/babol/gallery/1.jpg"
-                    className="object-fill"
-                  />
-                </div>
-              </div>
             </div>
+
+            <div className=" w-full mx-auto text-center rounded-xl flex flex-wrap items-center justify-center">
+              <CityButton cityName="sari" name="ساری" />
+              <CityButton cityName="babol" name="بابل" />
+              <CityButton cityName="amol" name="آمل" />
+              <CityButton cityName="qaemshahr" name="قائمشهر" />
+            </div>
+
             <div className=" w-full mx-auto text-center rounded-xl flex-wrap md:flex-nowrap flex-row  flex ">
-              <div className="w-full md:w-4/12  mx-2 text-center rounded-xl">
+              <div className="w-full md:w-4/12 md:mb-0 mb-4  mx-2 text-center rounded-xl">
                 <div className="aspect-w-8 aspect-h-9  rounded-lg shadow-lg">
                   <iframe
                     className=" rounded-xl"
@@ -161,24 +158,26 @@ const LandFill = () => {
                       text-justify prose-sm flex-col justify-center items-center   p-4 "
                     >
                       <h2>معرفی لندفیل انجیلسی بابل </h2>
-                      <p
-                        className="
-                      "
-                      >
-                        شهرستان انجیلسی بابل با مساحت 3185 کیلومتر‌مربع و جمعیتی
-                        بالغ بر 450000 نفر دارای شش شهر انجیلسی بابل، رینه،
-                        گزنک، دابودشت، بابکان و امام‌زاده عبدالله و پنج بخش
-                        مرکزی، لاریجان، دابودشت، دشت سر و امامزاده عبدالله است.
-                        شهر انجیلسی بابل مرکز شهرستان با ارتفاع 76 متر از سطح
-                        دریا دارای جمعیت بیش از 200000 نفر است. فاصله انجیلسی
-                        بابل تا مرکز استان 70 کیلومتر بوده و بیش از 30 سال است
-                        که زباله شهرستان‌های انجیلسی بابل، نور، محمودآباد،
-                        فریدونکنار و روستا‌های اطراف به محل دفن عمارت واقع در ۳۰
-                        کیلومتری جنوب شهرستان انجیلسی بابل منتقل می کردد. در حال
-                        حاضر میلیونها تن زباله در این محل تجمع یافته است که کوهی
-                        به بلندای 30 زباله ایجاد نموده است. این کوه با آبگیری سد
-                        منگل هراز در کنار دریاچه سد قرار گرفته و این به یکی از
-                        بزرگترین مشکلات محیط زیستی این شهر تبدیل شده است.
+                      <p className="">
+                        شهرستان بابل با جمعیت 250 هزار نفر در سطح شهر بابل و
+                        افزون بر 500 هزار نفر در سطح شهرستان پرجمعیت ترین
+                        شهرستان مازندران است. شهرستان بابل به مركزیت شهر بابل
+                        دارای 7 شهر به نامهای بابل، امیركلا، زرگرشهر، گتاب،
+                        خوشرودپی، گلوگاه ، مرزیكلا بوده كه هر یک دارای شهرداری
+                        مستقل میباشند. از سال 1380 زباله های این شهرها و
+                        روستاهای اطراف در سایت انجیلسی دپو و امحا می گردد. به
+                        این ترتیب طی 20 سال گذشته قریب به 1.5 میلیون تن زباله
+                        شهرستان بابل در مرکز آنجیلسی دپو و دفن شده است. مرکز
+                        آنجیلسی به مساحت قریب به 29هکتار که در منطقه جنگلی در
+                        فاصله 32 کیلومتری از محدوده شهر و فاصله 35 کیلومتر از
+                        مرکز دانشگاه واقع شده است. ارتفاع این سایت از سطح دریای
+                        آزاد در بالاترین نقطه 440 متر و در پایینترین نقطه، 350
+                        متر است. جنس خاک منطقه از نوع رسی و شیب عمومی محل دفن در
+                        حدود 30% است. مدیریت زباله به روش تولید کمپوست و تلبمار
+                        سطحی و ترانشه ای انجام می گیرد. در حال حاضر، از مجموع
+                        حدود 280 تن زبالهای كه به سایت انجیلسی وارد میشود، 185
+                        تن مربوط به شهر بابل، 65 تن مربوط به شهرداریهای 6 گانه
+                        شهرستان و 30 تن مربوط به روستاهای اطراف می باشد.
                       </p>
                     </motion.div>
 
@@ -208,7 +207,7 @@ const LandFill = () => {
                           >
                             <img
                               className=" overflow-hidden  rounded-lg "
-                              src="https://w.bookcdn.com/weather/picture/1_w262797_1_1_137AE9_240_ffffff_333333_08488D_1_ffffff_333333_0_6.png?scode=2&domid=w209&anc_id=81720"
+                              src="https://w.bookcdn.com/weather/picture/2_w262798_1_1_009fde_250_ffffff_333333_08488D_1_ffffff_333333_0_6.png?scode=124&domid=w209&anc_id=99031"
                               alt="booked.net"
                             />
                           </a>
@@ -359,10 +358,14 @@ const LandFill = () => {
 const CityButton = ({ name, cityName }: { name: string; cityName: string }) => {
   return (
     <Link scroll={true} href={pagesLinks.landfillsItem({ city: cityName })}>
-      <a>
+      <a className="m-2">
         <button type="button" className="shadow-lg">
           <div>
-            <div className=" w-16 h-12 bg-green-100 text-skin-primary flex flex-grow items-center justify-center shadow-lg me-1 rounded-md">
+            <div
+              className=" w-16 h-12 bg-green-100 
+            text-skin-primary flex flex-grow items-center justify-center
+            shadow-lg  rounded-md"
+            >
               {name}
             </div>
           </div>

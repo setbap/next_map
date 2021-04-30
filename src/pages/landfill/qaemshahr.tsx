@@ -65,24 +65,18 @@ const LandFill = () => {
           animate="enter"
           exit="exit"
         >
-          <div className=" max-w-7xl   mx-auto w-full  -mt-3 space-y-6 relative">
-            <div className="  w-full aspect-w-16 aspect-h-8  text-center ">
-              <img
-                src="/landfill/qaemshahr/qaemshahr.jpg"
-                className="object-fill"
-              />
-            </div>
-
-            <div className=" h-36 sm:h-32 w-full mx-auto text-center rounded-xl flex flex-wrap items-center justify-center">
-              <CityButton cityName="sari" name="ساری" />
-              <CityButton cityName="babol" name="بابل" />
-              <CityButton cityName="amol" name="آمل" />
-              <CityButton cityName="qaemshahr" name="قائمشهر" />
-            </div>
-
-            <div className=" w-full mx-auto text-center rounded-xl flex-wrap md:flex-nowrap flex-row  flex ">
-              <div className="w-full md:w-2/3 mx-2 text-center rounded-xl">
-                <div className="aspect-w-16 aspect-h-9 rounded-lg shadow-lg">
+          <div className=" max-w-7xl   mx-auto w-full   space-y-6 relative">
+            <div className=" w-full mt-4 mx-auto text-center rounded-xl flex-wrap md:flex-nowrap flex-row  flex ">
+              <div className="w-full md:w-1/2 mx-2 text-center rounded-xl">
+                <div className="aspect-w-16 aspect-h-9  overflow-hidden bg-black  rounded-lg shadow-lg">
+                  <img
+                    src="/landfill/qaemshahr/qaemshahr.jpg"
+                    className="object-fill"
+                  />
+                </div>
+              </div>
+              <div className="w-full md:w-1/2 mx-2 text-center rounded-xl my-2 md:my-0 ">
+                <div className="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-lg">
                   <Img
                     src="/landfill/qaemshahr/qaemshahr.gif"
                     layout="fill"
@@ -90,21 +84,21 @@ const LandFill = () => {
                   />
                 </div>
               </div>
-              <div className="hidden md:block   me-2  md:w-1/3">
-                <div className=" aspect-w-8 aspect-h-9 bg-black  rounded-lg shadow-lg">
-                  <img
-                    src="/landfill/qaemshahr/gallery/1.jpg"
-                    className="object-fill"
-                  />
-                </div>
-              </div>
             </div>
+
+            <div className="w-full mx-auto text-center rounded-xl flex flex-wrap items-center justify-center">
+              <CityButton cityName="sari" name="ساری" />
+              <CityButton cityName="babol" name="بابل" />
+              <CityButton cityName="amol" name="آمل" />
+              <CityButton cityName="qaemshahr" name="قائمشهر" />
+            </div>
+
             <div className=" w-full mx-auto text-center rounded-xl flex-wrap md:flex-nowrap flex-row  flex ">
-              <div className="w-full md:w-4/12  mx-2 text-center rounded-xl">
+              <div className="w-full md:w-4/12 md:mb-0 mb-4  mx-2 text-center rounded-xl">
                 <div className="aspect-w-8 aspect-h-9  rounded-lg shadow-lg">
                   <iframe
                     className=" rounded-xl"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3064.464658707638!2d52.693889550728535!3d36.30803777995501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDE4JzI4LjkiTiA1MsKwNDEnNDUuOSJF!5e1!3m2!1sen!2s!4v1617477248784!5m2!1sen!2s"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3130.8591110999396!2d52.816658063426665!3d36.49022946137594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2s!4v1619803130750!5m2!1sen!2s"
                     loading="lazy"
                   ></iframe>
                 </div>
@@ -359,10 +353,14 @@ const LandFill = () => {
 const CityButton = ({ name, cityName }: { name: string; cityName: string }) => {
   return (
     <Link scroll={true} href={pagesLinks.landfillsItem({ city: cityName })}>
-      <a>
+      <a className="m-2">
         <button type="button" className="shadow-lg">
           <div>
-            <div className=" w-16 h-12 bg-green-100 text-skin-primary flex flex-grow items-center justify-center shadow-lg me-1 rounded-md">
+            <div
+              className=" w-16 h-12 bg-green-100 
+            text-skin-primary flex flex-grow items-center justify-center
+            shadow-lg  rounded-md"
+            >
               {name}
             </div>
           </div>
