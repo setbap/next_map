@@ -10,7 +10,7 @@ const Profit = () => {
               </h2>
               <p className="mb-8 leading-loose  text-skin-muted ">
                 در ادامه با برخی از مزایای عضویت در nitEnviro و استفاده از آن
-                اشنا خواهیم شد
+                آشنا خواهیم شد
               </p>
               <div className="w-1/2 md:w-1/3">
                 <button
@@ -69,7 +69,7 @@ const Profit = () => {
                     بهبود در زندگی
                   </h3>
                   <p className="text-skin-muted leading-loose">
-                    به محز استفاده از nitEnviro معجزه آن را حس خواهید کرد. درد
+                    به محض استفاده از nitEnviro معجزه آن را حس خواهید کرد. درد
                     زانو های کمتر شده و ادم سرحال تری خواهید شد.
                   </p>
                 </div>

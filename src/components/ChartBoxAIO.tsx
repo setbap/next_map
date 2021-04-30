@@ -51,9 +51,13 @@ const ChartBoxAIO = ({ areaDataKey, xAxisDataKey, data, title }: Props) => {
   };
 
   return (
-    <div className="w-full text-center h-80 py-1 justify-start flex flex-col items-center">
+    <div className="w-full text-center py-1 justify-start flex flex-col items-center">
       <h3 className="p-2 mb-4">{title}</h3>
-      <ResponsiveContainer width={"90%"} className="w-full h-full" height={240}>
+      <ResponsiveContainer
+        width={"90%"}
+        className="w-full h-full"
+        height={"85%"}
+      >
         <AreaChart
           data={data}
           syncId={`${areaDataKey}-${xAxisDataKey}`}

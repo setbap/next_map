@@ -31,7 +31,7 @@ const Blog = ({ tutorial }) => {
             <TutorialCard
               data={tutorial}
               title={"آموزش"}
-              subtitle={"آموزش بازیاف و نگداری از محیط زیست"}
+              subtitle={"آموزش بازیافت و نگهداری از محیط زیست"}
             />
           </section>
           <Footer />
