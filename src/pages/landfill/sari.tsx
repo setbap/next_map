@@ -9,6 +9,8 @@ import ChartBoxAIO from "~/components/ChartBoxAIO";
 import { FC, MutableRefObject, useRef, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+import Link from "next/link";
+import { pagesLinks } from "~/utils/links";
 
 enum LandFillInfoState {
   Moarefi = 0,
@@ -33,7 +35,7 @@ const LandFill = () => {
   const myRef = useRef<HTMLDivElement>(null);
   const scrollTo = (ref: MutableRefObject<HTMLDivElement>) => {
     console.log(ref.current.offsetTop);
-    window.scrollTo({ top: ref.current.offsetTop, behavior: "smooth" });
+
     return;
   };
 
@@ -69,15 +71,10 @@ const LandFill = () => {
             </div>
 
             <div className=" h-36 sm:h-32 w-full mx-auto text-center rounded-xl flex flex-wrap items-center justify-center">
-              <CityButton name="نکا" />
-              <CityButton name="ساری" />
-              <CityButton name="بابل" />
-              <CityButton name="بهشهر" />
-              <CityButton name="بابل" />
-              <CityButton name="تنکابن" />
-              <CityButton name="بابلسر" />
-              <CityButton name="ساری" />
-              <CityButton name="بابلسر" />
+              <CityButton cityName="sari" name="ساری" />
+              <CityButton cityName="babol" name="بابل" />
+              <CityButton cityName="amol" name="آمل" />
+              <CityButton cityName="qaemshahr" name="قائمشهر" />
             </div>
 
             <div className=" w-full mx-auto text-center rounded-xl flex-wrap md:flex-nowrap flex-row  flex ">
@@ -385,15 +382,19 @@ const LandFill = () => {
   );
 };
 
-const CityButton = ({ name }: { name: string; link?: string }) => {
+const CityButton = ({ name, cityName }: { name: string; cityName: string }) => {
   return (
-    <button type="button" className="shadow-lg">
-      <div>
-        <div className=" w-12 h-12 bg-green-100 text-skin-primary flex flex-grow items-center justify-center shadow-lg me-1 rounded-md">
-          {name}
-        </div>
-      </div>
-    </button>
+    <Link scroll={true} href={pagesLinks.landfillsItem({ city: cityName })}>
+      <a>
+        <button type="button" className="shadow-lg">
+          <div>
+            <div className=" w-16 h-12 bg-green-100 text-skin-primary flex flex-grow items-center justify-center shadow-lg me-1 rounded-md">
+              {name}
+            </div>
+          </div>
+        </button>
+      </a>
+    </Link>
   );
 };
 

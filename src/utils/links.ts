@@ -10,6 +10,8 @@ const encyclopedia = () => "/encyclopedia";
 
 const tutorial = () => "/tutorial";
 
+const landfillsItem = ({ city }: { city: string }) => `/landfill/${city}`;
+
 const encyclopediaItem = ({ item, type }: { item: string; type: string }) =>
   `/encyclopedia/${type}/${item}`;
 
@@ -23,6 +25,7 @@ const pagesLinks = {
   tutorial,
   encyclopediaItem,
   landfills,
+  landfillsItem,
   tutorialItem,
 };
 

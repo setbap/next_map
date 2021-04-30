@@ -1,16 +1,27 @@
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import AsideMenu from "../template/AsideMenu";
 import { ThemeProvider } from "../context/themeProvider";
 import "../../styles/globals.css";
 import ThemeChanger from "~/components/ThemeChanger";
+import Router from "next/router";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [open, setOpen] = useState(false);
   const closeFn = () => setOpen(false);
+
+  useEffect(() => {
+    Router.events.on("routeChangeComplete", () => {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+    });
+  }, []);
   return (
     <div className="min-h-screen" lang="fa" dir="rtl">
       <Head>
