@@ -369,6 +369,18 @@ const LandFill = () => {
                         xAxisDataKey="month"
                       />
                     </InfoCard>
+
+                    <InfoCard
+                      className="aspect-w-9 w-full aspect-h-2 md:col-span-2 col-span-1 rounded-lg overflow-hidden  "
+                      key2={"1wy"}
+                    >
+                      <Img
+                        className="  rounded-lg overflow-hidden"
+                        layout="fill"
+                        loading="lazy"
+                        src="/landfill/mohasebe.png"
+                      />
+                    </InfoCard>
                   </motion.div>
                 )}
               </AnimatePresence>

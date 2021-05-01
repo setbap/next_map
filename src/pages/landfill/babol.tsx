@@ -348,6 +348,18 @@ const LandFill = () => {
                         xAxisDataKey="month"
                       />
                     </InfoCard>
+
+                    <InfoCard
+                      className="w-full aspect-w-9 aspect-h-2 md:col-span-2 col-span-1 rounded-lg overflow-hidden  "
+                      key2={"1wy"}
+                    >
+                      <Img
+                        className="aspect-w-9 aspect-h-2 rounded-lg overflow-hidden"
+                        layout="fill"
+                        loading="lazy"
+                        src="/landfill/mohasebe.png"
+                      />
+                    </InfoCard>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -382,17 +394,15 @@ const CityButton = ({ name, cityName }: { name: string; cityName: string }) => {
   );
 };
 
-const InfoCard: FC<{ key2: string; height?: number; className?: string }> = ({
+const InfoCard: FC<{ key2: string; className?: string }> = ({
   children,
   key2,
   className,
-  height,
 }) => {
   const thumbnailVariants = {
-    initial: { scale: 0.9, opacity: 0, height: 0 },
-    enter: { scale: 1, height: height, opacity: 1, transition },
+    initial: { scale: 0.9, opacity: 0 },
+    enter: { scale: 1, opacity: 1, transition },
     exit: {
-      height: 0,
       opacity: 0,
       transition: { ...transition, duration: 0.3 },
     },

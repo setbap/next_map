@@ -105,7 +105,7 @@ const LandFill = () => {
                 <div className="aspect-w-8 aspect-h-9  rounded-lg shadow-lg">
                   <iframe
                     className=" rounded-xl"
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3130.8591110999396!2d52.816658063426665!3d36.49022946137594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2s!4v1619803130750!5m2!1sen!2s"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3714.42281012479!2d52.81776836183384!3d36.489565270088676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2snl!4v1619826639694!5m2!1sen!2snl"
                     loading="lazy"
                   ></iframe>
                 </div>
@@ -341,6 +341,18 @@ const LandFill = () => {
                           { name: "rain", persian: "بارش" },
                         ]}
                         xAxisDataKey="month"
+                      />
+                    </InfoCard>
+
+                    <InfoCard
+                      className="aspect-w-9 aspect-h-2 md:col-span-2 col-span-1 rounded-lg overflow-hidden  "
+                      key2={"1wy"}
+                    >
+                      <Img
+                        className="aspect-w-9 aspect-h-2 w-full  rounded-lg overflow-hidden"
+                        layout="fill"
+                        loading="lazy"
+                        src="/landfill/mohasebe.png"
                       />
                     </InfoCard>
                   </motion.div>
