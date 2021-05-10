@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import Head from "next/head";
 import Nav from "~/template/Nav";
 import Footer from "~/template/Footer";
-import Link from "next/link";
-import { pagesLinks } from "~/utils/links";
+import CitiesButtons from "~/components/landfill/CitiesButton";
 
 const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
 
@@ -59,19 +58,7 @@ const LandFill = () => {
                 </div>
               </div>
             </div>
-            <div className=" w-full text-center rounded-xl flex flex-wrap items-center justify-center">
-              <CityButton cityName="sari" name="ساری" />
-              <CityButton cityName="babol" name="بابل" />
-              <CityButton cityName="amol" name="آمل" />
-              <CityButton cityName="qaemshahr" name="قائمشهر" />
-              <CityButton cityName="babol" name="جویبار" />
-              <CityButton cityName="babol" name="بهشهر" />
-              <CityButton cityName="babol" name="نکا" />
-              <CityButton cityName="babol" name="نوشهر" />
-              <CityButton cityName="babol" name="چالوس" />
-              <CityButton cityName="babol" name="نور" />
-              <CityButton cityName="babol" name="محمودآباد" />
-            </div>
+            <CitiesButtons />
             <div className="     w-full text-center rounded-xl flex-wrap md:flex-nowrap flex-row  ">
               <div className=" text-center md:shadow-none rounded-xl">
                 <div className=" md:aspect-h-2    aspect-w-16 aspect-h-9   rounded-lg ">
@@ -91,26 +78,6 @@ const LandFill = () => {
         </motion.div>
       </div>
     </>
-  );
-};
-
-const CityButton = ({ name, cityName }: { name: string; cityName: string }) => {
-  return (
-    <Link scroll={true} href={pagesLinks.landfillsItem({ city: cityName })}>
-      <a className="m-2">
-        <button type="button" className="shadow-lg">
-          <div>
-            <div
-              className=" w-16 h-12 bg-green-100 
-            text-skin-primary flex flex-grow items-center justify-center
-            shadow-lg  rounded-md"
-            >
-              {name}
-            </div>
-          </div>
-        </button>
-      </a>
-    </Link>
   );
 };
 

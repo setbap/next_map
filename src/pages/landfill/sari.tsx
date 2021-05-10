@@ -9,8 +9,7 @@ import ChartBoxAIO from "~/components/ChartBoxAIO";
 import { FC, MutableRefObject, useRef, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import Link from "next/link";
-import { pagesLinks } from "~/utils/links";
+import CitiesButtons from "~/components/landfill/CitiesButton";
 
 enum LandFillInfoState {
   Moarefi = 0,
@@ -83,19 +82,7 @@ const LandFill = () => {
               </div>
             </div>
 
-            <div className="  w-full mx-auto text-center rounded-xl flex flex-wrap items-center justify-center">
-              <CityButton cityName="sari" name="ساری" />
-              <CityButton cityName="babol" name="بابل" />
-              <CityButton cityName="amol" name="آمل" />
-              <CityButton cityName="qaemshahr" name="قائمشهر" />
-              <CityButton cityName="babol" name="جویبار" />
-              <CityButton cityName="babol" name="بهشهر" />
-              <CityButton cityName="babol" name="نکا" />
-              <CityButton cityName="babol" name="نوشهر" />
-              <CityButton cityName="babol" name="چالوس" />
-              <CityButton cityName="babol" name="نور" />
-              <CityButton cityName="babol" name="محمودآباد" />
-            </div>
+            <CitiesButtons />
 
             <div className=" w-full mx-auto text-center rounded-xl flex-wrap md:flex-nowrap flex-row  flex ">
               <div className="w-full md:w-4/12 md:mb-0 mb-4 mx-2 text-center rounded-xl">
@@ -392,26 +379,6 @@ const LandFill = () => {
         </motion.div>
       </div>
     </>
-  );
-};
-
-const CityButton = ({ name, cityName }: { name: string; cityName: string }) => {
-  return (
-    <Link scroll={true} href={pagesLinks.landfillsItem({ city: cityName })}>
-      <a className="m-2">
-        <button type="button" className="shadow-lg">
-          <div>
-            <div
-              className=" w-16 h-12 bg-green-100 
-            text-skin-primary flex flex-grow items-center justify-center
-            shadow-lg  rounded-md"
-            >
-              {name}
-            </div>
-          </div>
-        </button>
-      </a>
-    </Link>
   );
 };
 
