@@ -236,7 +236,6 @@ const LandFill = () => {
                             className=" rounded-lg "
                             infiniteLoop
                             swipeable
-                            autoFocus
                             interval={1500}
                             useKeyboardArrows={true}
                             showThumbs={false}

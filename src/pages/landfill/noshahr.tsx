@@ -6,7 +6,7 @@ import chartData from "~/../public/chart_data.json";
 import ChartBox from "~/components/ChartBox";
 import Footer from "~/template/Footer";
 import ChartBoxAIO from "~/components/ChartBoxAIO";
-import { FC, MutableRefObject, useRef, useState } from "react";
+import { FC, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import CitiesButtons from "~/components/landfill/CitiesButton";
@@ -31,12 +31,6 @@ const LandFill = () => {
   const [infoState, setInfoState] = useState<LandFillInfoState>(
     LandFillInfoState.Moarefi
   );
-  const myRef = useRef<HTMLDivElement>(null);
-  const scrollTo = (ref: MutableRefObject<HTMLDivElement>) => {
-    console.log(ref.current.offsetTop);
-
-    return;
-  };
 
   return (
     <>
@@ -120,14 +114,12 @@ const LandFill = () => {
                 } h-full px-3 mt-1 outline-none focus:outline-none border-b-4 
                 `}
                 onClick={() => {
-                  scrollTo(myRef);
                   return setInfoState(LandFillInfoState.Moarefi);
                 }}
               >
                 معرفی
               </button>
               <div className="md:mx-24 sm:hidden md:block" />
-
               <button
                 className={`${
                   infoState === LandFillInfoState.Nemodar
@@ -136,21 +128,20 @@ const LandFill = () => {
                 } h-full px-3 mt-1 outline-none focus:outline-none border-b-4 
               `}
                 onClick={() => {
-                  scrollTo(myRef);
                   return setInfoState(LandFillInfoState.Nemodar);
                 }}
               >
                 جزییات
               </button>
             </div>
-            <div ref={myRef} />
+            <div />
             <motion.div className="w-full mx-auto ">
               <AnimatePresence>
                 {infoState === LandFillInfoState.Moarefi && (
                   <motion.div className=" w-full ">
-                    <motion.div
+                    <div
                       className="my-4 bg-skin-base rounded-lg font-bold shadow-lg
-                      text-justify prose-sm flex-col justify-center items-center   p-4 "
+                      text-justify  flex-col justify-center items-center   p-4 "
                     >
                       <h2>معرفی لندفیل نوشهر </h2>
                       <p className="">
@@ -162,7 +153,7 @@ const LandFill = () => {
                         سال 1399 با افتتاح زباله سوز نوشهر بخشی از زباله های
                         تولیدی به این کارخانه هدایت می شوند.
                       </p>
-                    </motion.div>
+                    </div>
 
                     <motion.div className=" w-full mx-auto grid md:grid-cols-4 grid-cols-1 space-y-2 md:space-y-0  md:gap-4">
                       <div className="col-span-4 md:col-span-2 overflow-hidden">
@@ -209,7 +200,6 @@ const LandFill = () => {
                             className=" rounded-lg "
                             infiniteLoop
                             swipeable
-                            autoFocus
                             interval={1500}
                             useKeyboardArrows={true}
                             showThumbs={false}
@@ -325,7 +315,6 @@ const LandFill = () => {
                         xAxisDataKey="month"
                       />
                     </InfoCard>
-
                     <InfoCard
                       className="w-full aspect-w-9 aspect-h-2 md:col-span-2 col-span-1 rounded-lg overflow-hidden  "
                       key2={"1wy"}
