@@ -93,5 +93,6 @@ module.exports = {
     require("tailwindcss-rtl"),
     require("@tailwindcss/typography"),
     require("@tailwindcss/aspect-ratio"),
+    require("@tailwindcss/forms"),
   ],
 };
