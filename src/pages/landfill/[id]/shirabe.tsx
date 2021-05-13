@@ -166,11 +166,17 @@ const Shirabe = () => {
   return (
     <>
       <Head>
-        <title>{"صفحه مقالات"}</title>
-        <meta property="og:title" content={"مقالات"} />
-        <meta property="og:url" content={`https://www.nitenviro.com/blog`} />
+        <title>{"محاسبه شیرابه"}</title>
+        <meta property="og:title" content={"محاسبه شیرابه"} />
+        <meta
+          property="og:url"
+          content={`https://www.nitenviro.com/babol/shirabe`}
+        />
         <meta property="og:image" content={"/og/article.png"} />
-        <meta property="og:description" content={"صفحه ی مقالات "} />
+        <meta
+          property="og:description"
+          content={"صفحه محاسبه شیرابه بر اساس اطلاعات ورودی "}
+        />
         <meta property="og:locale " content="fa_IR" />
       </Head>
       <Nav />
