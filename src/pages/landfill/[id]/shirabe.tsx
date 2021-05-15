@@ -198,7 +198,7 @@ const Shirabe = () => {
           <div className="mx-auto max-w-4xl  ">
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="grid gap-4 sm:grid-cols-2 grid-cols-1 items-center justify-between flex-wrap "
+              className="grid gap-2 sm:grid-cols-2 my-6 grid-cols-1 items-center justify-between flex-wrap "
               onReset={handleReset}
             >
               <FormItem
@@ -516,7 +516,7 @@ const FormItem: FC<{
   const [popperElement, setPopperElement] = useState<any>();
   const { styles, attributes } = usePopper(referenceElement, popperElement);
   return (
-    <div className="py-4  mx-auto">
+    <div className="  mx-auto">
       <div className="flex flex-col  w-72 h-24   justify-start text-start  items-center">
         <label
           className="relative mb-2 text-start w-full text-sm"
@@ -528,7 +528,7 @@ const FormItem: FC<{
           {!!tooltip && (
             <Popover className="relative inline-block z-40">
               <Popover.Button ref={setReferenceElement}>
-                <AiOutlineQuestionCircle />
+                <AiOutlineQuestionCircle size={20} />
               </Popover.Button>
               <Popover.Panel
                 ref={setPopperElement}
