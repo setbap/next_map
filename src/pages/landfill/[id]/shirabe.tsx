@@ -11,18 +11,18 @@ import { InfoCard } from "~/components/landfill/InfoCard";
 import Footer from "~/template/Footer";
 
 const shirabeData = [
-  { month: "شهریور", rain_monthly: 111.95, tabkhir: 97.35, dayPerMonth: 31 },
-  { month: "مرداد", rain_monthly: 66.6, tabkhir: 122.2, dayPerMonth: 31 },
-  { month: "تیر", rain_monthly: 71.05, tabkhir: 106.3, dayPerMonth: 31 },
-  { month: "خرداد", rain_monthly: 60.1, tabkhir: 107.35, dayPerMonth: 31 },
-  { month: "اردیبهشت", rain_monthly: 71.55, tabkhir: 85.6, dayPerMonth: 31 },
-  { month: "فروردین", rain_monthly: 72.9, tabkhir: 67.75, dayPerMonth: 31 },
-  { month: "اسفند", rain_monthly: 93.3, tabkhir: 42.95, dayPerMonth: 29 },
-  { month: "بهمن", rain_monthly: 86.6, tabkhir: 29.4, dayPerMonth: 30 },
-  { month: "دی", rain_monthly: 73.75, tabkhir: 28.85, dayPerMonth: 30 },
-  { month: "آذر", rain_monthly: 97.35, tabkhir: 34.4, dayPerMonth: 30 },
-  { month: "آبان", rain_monthly: 98.75, tabkhir: 47.05, dayPerMonth: 30 },
   { month: "مهر", rain_monthly: 137.85, tabkhir: 68, dayPerMonth: 30 },
+  { month: "آبان", rain_monthly: 98.75, tabkhir: 47.05, dayPerMonth: 30 },
+  { month: "آذر", rain_monthly: 97.35, tabkhir: 34.4, dayPerMonth: 30 },
+  { month: "دی", rain_monthly: 73.75, tabkhir: 28.85, dayPerMonth: 30 },
+  { month: "بهمن", rain_monthly: 86.6, tabkhir: 29.4, dayPerMonth: 30 },
+  { month: "اسفند", rain_monthly: 93.3, tabkhir: 42.95, dayPerMonth: 29 },
+  { month: "فروردین", rain_monthly: 72.9, tabkhir: 67.75, dayPerMonth: 31 },
+  { month: "اردیبهشت", rain_monthly: 71.55, tabkhir: 85.6, dayPerMonth: 31 },
+  { month: "خرداد", rain_monthly: 60.1, tabkhir: 107.35, dayPerMonth: 31 },
+  { month: "تیر", rain_monthly: 71.05, tabkhir: 106.3, dayPerMonth: 31 },
+  { month: "مرداد", rain_monthly: 66.6, tabkhir: 122.2, dayPerMonth: 31 },
+  { month: "شهریور", rain_monthly: 111.95, tabkhir: 97.35, dayPerMonth: 31 },
 ];
 interface FormType {
   masahat_faal: number;
@@ -35,6 +35,8 @@ interface FormType {
   zarfiat_jazb: number;
   darsad_nofoz_baresh: number;
   darsad_tabdil_rotobat: number;
+  debi_miangin_mahane: number;
+  zarib_tabdil_tabkhir_vaqei: number;
 }
 
 const Shirabe = () => {
@@ -76,7 +78,7 @@ const Shirabe = () => {
         fromData.masahat_poshide *
         (fromData.darsad_nofoz_baresh / 100);
 
-      const shirabeNashiAzLajan = 0;
+      const shirabeNashiAzLajan = fromData.debi_miangin_mahane;
       const shirabeAvalieNashiAzZobaleAvaleMah =
         (fromData.darsad_rotobat_zobale / 100) *
         fromData.mizane_zobale_vorodi *
@@ -95,16 +97,20 @@ const Shirabe = () => {
         fromData.mizane_zobale_vorodi *
         month.dayPerMonth;
 
-      const abeKhorojiYaGasTolidi =
-        tabkhirVaqeiAE * (fromData.masahat_faal + fromData.masahate_hozche);
+      const tabkhirSathAzAb =
+        tabkhirVaqeiAE *
+        fromData.masahat_faal *
+        fromData.zarib_tabdil_tabkhir_vaqei;
 
-      const shirabeNashiAzBaresh =
-        shirabeMajmo > zarfiat_jazb + abeKhorojiYaGasTolidi
-          ? shirabeMajmo - (zarfiat_jazb + abeKhorojiYaGasTolidi)
-          : 0;
+      console.log(shirabeMajmo);
+
+      // const shirabeNashiAzBaresh =
+      //   shirabeMajmo > zarfiat_jazb + abeKhorojiYaGasTolidi
+      //     ? shirabeMajmo - (zarfiat_jazb + abeKhorojiYaGasTolidi)
+      //     : 0;
 
       const shirabeTolidiDarMah = parseFloat(
-        (shirabeAvalieNashiAzZobaleAvaleMah + shirabeNashiAzBaresh).toFixed(2)
+        (shirabeMajmo - (tabkhirSathAzAb + zarfiat_jazb)).toFixed(2)
       );
       const shirabeTolidiDarRoz = parseFloat(
         (shirabeTolidiDarMah / month.dayPerMonth).toFixed(2)
@@ -197,9 +203,9 @@ const Shirabe = () => {
             >
               <FormItem
                 defaultValue={30000}
-                label="مساحت فعال و باز محل دفن (Ac)"
+                label="مساحت فعال و باز محل دفن"
                 placeholder="مثلا 30000"
-                tooltip={<div className="w-32">مساحت به متر مربع </div>}
+                apendix={"متر مربع"}
                 error={errors["masahat_faal"]}
                 register={register("masahat_faal", {
                   valueAsNumber: true,
@@ -209,10 +215,10 @@ const Shirabe = () => {
               />
               <FormItem
                 defaultValue={10000}
-                label="مساحت پوشیده شده محل دفن (AL)"
+                label="مساحت پوشیده شده محل دفن"
                 placeholder="مثلا 1000"
                 error={errors["masahat_poshide"]}
-                tooltip={<div className="w-32">مساحت به متر مربع </div>}
+                apendix={"متر مربع"}
                 register={register("masahat_poshide", {
                   valueAsNumber: true,
                   required: requiredValueMassege(),
@@ -221,9 +227,9 @@ const Shirabe = () => {
               />
               <FormItem
                 defaultValue={200}
-                label="مساحت حوضچه شیرابه (Ap)"
+                label="مساحت حوضچه شیرابه"
                 placeholder="مثلا 200"
-                tooltip={<div className="w-32">مساحت به متر مربع </div>}
+                apendix={"متر مربع"}
                 error={errors["masahate_hozche"]}
                 register={register("masahate_hozche", {
                   valueAsNumber: true,
@@ -235,11 +241,11 @@ const Shirabe = () => {
                 label="میزان زباله روزانه ورودی "
                 placeholder="مثلا 160"
                 defaultValue={160}
-                tooltip={<div className="w-32">بر حسب تن بر روز</div>}
+                apendix={"تن بر روز"}
                 error={errors["mizane_zobale_vorodi"]}
                 register={register("mizane_zobale_vorodi", {
                   valueAsNumber: true,
-                  min: minValueMassege(1),
+                  min: minValueMassege(0),
                   required: requiredValueMassege(),
                 })}
               />
@@ -248,22 +254,24 @@ const Shirabe = () => {
                 placeholder="مثلا 0.5"
                 defaultValue={0.5}
                 error={errors["chegali_zobale"]}
-                tooltip={
-                  <div className="w-40">
-                    درحالت متراکم500-800 <br /> غیرمتراکم200-300
-                  </div>
-                }
+                // tooltip={
+                //   <div className="w-40">
+                //     درحالت متراکم500-800 <br /> غیرمتراکم200-300
+                //   </div>
+                // }
+                apendix={"تن بر متر مکعب"}
                 register={register("chegali_zobale", {
                   valueAsNumber: true,
                   required: requiredValueMassege(),
-                  min: minValueMassege(0),
+                  min: minValueMassege(0.2),
+                  max: maxValueMassege(0.8),
                 })}
               />
               <FormItem
-                label="درصد رطوبت زباله %"
+                label="درصد رطوبت زباله"
                 placeholder="مثلا 55"
                 defaultValue={55}
-                tooltip={<div className="w-32">بین 15-55 درصد</div>}
+                apendix={"%"}
                 error={errors["darsad_rotobat_zobale"]}
                 register={register("darsad_rotobat_zobale", {
                   valueAsNumber: true,
@@ -285,8 +293,8 @@ const Shirabe = () => {
                 register={register("zarib_tabdil_tabkhir", {
                   valueAsNumber: true,
                   required: requiredValueMassege(),
-                  min: minValueMassege(0),
-                  max: maxValueMassege(1),
+                  min: minValueMassege(0.5),
+                  max: maxValueMassege(0.8),
                 })}
               />
               <FormItem
@@ -298,6 +306,7 @@ const Shirabe = () => {
                     0.025for1 Ton/m3 and0.1for 0.65Ton/m3
                   </div>
                 }
+                apendix={"مترمکعب بر مترمکعب"}
                 error={errors["zarfiat_jazb"]}
                 register={register("zarfiat_jazb", {
                   valueAsNumber: true,
@@ -310,6 +319,7 @@ const Shirabe = () => {
                 label="درصد نفود بارش به زباله درقسمت پوشیده  %"
                 placeholder="مثلا 55"
                 defaultValue={55}
+                apendix={"%"}
                 tooltip={
                   <div className="w-48 aspect-w-5 aspect-h-13">
                     <img src="/landfill/tabel1.png" />
@@ -319,15 +329,15 @@ const Shirabe = () => {
                 register={register("darsad_nofoz_baresh", {
                   valueAsNumber: true,
                   required: requiredValueMassege(),
-                  min: minValueMassege(0),
-                  max: maxValueMassege(100),
+                  min: minValueMassege(5),
+                  max: maxValueMassege(70),
                 })}
               />
               <FormItem
                 label="درصد تبدیل رطوبت زباله به شیرابه  %"
                 placeholder="مثلا 60"
                 defaultValue={60}
-                tooltip={<div className="w-32">بین 60-80 درصد</div>}
+                apendix={"%"}
                 error={errors["darsad_tabdil_rotobat"]}
                 register={register("darsad_tabdil_rotobat", {
                   valueAsNumber: true,
@@ -336,14 +346,38 @@ const Shirabe = () => {
                   max: maxValueMassege(80),
                 })}
               />
+              <FormItem
+                label="دبی میانگین ماهانه تخلیه لجن یا پسماندهای مایع "
+                placeholder="مثلا 10"
+                defaultValue={10}
+                apendix={"مترمکعب بر ثانیه "}
+                error={errors["debi_miangin_mahane"]}
+                register={register("debi_miangin_mahane", {
+                  valueAsNumber: true,
+                  min: minValueMassege(0),
+                  required: requiredValueMassege(),
+                })}
+              />
+              <FormItem
+                label="ضریب تبدیل تبخیر واقعی به تبخیر از سطح زباله "
+                placeholder="0.1"
+                defaultValue={0.1}
+                error={errors["zarib_tabdil_tabkhir_vaqei"]}
+                register={register("zarib_tabdil_tabkhir_vaqei", {
+                  valueAsNumber: true,
+                  min: minValueMassege(0.05),
+                  required: requiredValueMassege(),
+                  max: maxValueMassege(0.3),
+                })}
+              />
               <input
                 type="submit"
                 disabled={Object.keys(errors).length > 0}
                 value="محاسبه شیرابه"
-                className={`w-40 h-12 ms-auto my-4 rounded-lg shadow-lg  ${
+                className={` w-40 h-12 text-center mx-auto md:ms-auto my-4 rounded-lg shadow-lg  ${
                   Object.keys(errors).length > 0
-                    ? "bg-skin-muted"
-                    : "bg-skin-secondary"
+                    ? "bg-skin-muted text-black"
+                    : "bg-[#5cb85b] text-white"
                 }`}
               />
 
@@ -351,7 +385,7 @@ const Shirabe = () => {
                 type="reset"
                 value="پاک کردن همه"
                 disabled={Object.keys(errors).length > 0}
-                className={`bg-red-400 w-40 h-12 me-auto my-4 rounded-lg shadow-lg `}
+                className={`bg-red-400 mx-auto  w-40 h-12 md:me-auto my-4 rounded-lg shadow-lg `}
               />
             </form>
           </div>
@@ -402,7 +436,7 @@ const ShirabeChart: FC<{
           </thead>
           <thead>
             <tr className="border-b bg-green-400 text-white border-green-400">
-              <th className="text-start py-3 px-2">{"     "}</th>
+              <th className="text-start py-3 px-2"> </th>
               {calculatedShirabeData.map((e) => {
                 return (
                   <th className="text-start py-3 px-2" key={e.month}>
@@ -425,7 +459,7 @@ const ShirabeChart: FC<{
               })}
             </tr>
             <tr className="bg-gray-100 hover:bg-gray-300 font-bold  ">
-              <td className="py-3 px-2">{"شیرابه تولیدی (m3/day)"}</td>
+              <td className="py-3 px-2">{"شیرابه تولیدی مترمکعب بر روز"}</td>
               {calculatedShirabeData.map((e) => {
                 return (
                   <td className="py-3 px-2" key={e.shirabeTolidiDarRoz}>
@@ -439,7 +473,7 @@ const ShirabeChart: FC<{
       </div>
       <InfoCard className="aspect-w-16 aspect-h-10 col-span-1" key2="1x ">
         <ChartBox
-          title="شیرابه تولیدی ماهانه"
+          title="شیرابه تولیدی ماهانه  ( متر مکعب بر روز )"
           areaDataKey="shirabeTolidiDarMah"
           xAxisDataKey="month"
           data={calculatedShirabeData}
@@ -447,7 +481,7 @@ const ShirabeChart: FC<{
       </InfoCard>
       <InfoCard key2={"2x"} className="aspect-w-16 aspect-h-10 col-span-1">
         <ChartBox
-          title="شیرابه تولیدی در روز بر اساس در ماه های سال"
+          title="شیرابه تولیدی روزانه ( متر مکعب بر روز )"
           areaDataKey="shirabeTolidiDarRoz"
           xAxisDataKey="month"
           data={calculatedShirabeData}
@@ -465,13 +499,17 @@ const FormItem: FC<{
   defaultValue?: number;
   placeholder: string;
   error: FieldError;
+  apendix?: string;
+  step?: number;
 }> = ({
   label,
+  apendix,
   defaultValue,
   register,
   tooltip,
   type = "number",
   placeholder,
+  step = 0.001,
   error,
 }) => {
   const [referenceElement, setReferenceElement] = useState<any>();
@@ -481,14 +519,14 @@ const FormItem: FC<{
     <div className="py-4  mx-auto">
       <div className="flex flex-col  w-72 h-24   justify-start text-start  items-center">
         <label
-          className="mb-2 text-start w-full text-sm"
+          className="relative mb-2 text-start w-full text-sm"
           htmlFor={register.name}
         >
           {label}
           <span className="text-red-400"> *</span>
           <span>:</span>
           {!!tooltip && (
-            <Popover className="relative inline-block">
+            <Popover className="relative inline-block z-40">
               <Popover.Button ref={setReferenceElement}>
                 <AiOutlineQuestionCircle />
               </Popover.Button>
@@ -506,14 +544,24 @@ const FormItem: FC<{
           )}
         </label>
         <div className="w-full ">
-          <input
-            {...register}
-            id={register.name}
-            defaultValue={defaultValue}
-            placeholder={placeholder}
-            type={type}
-            className=" rounded text-skin-base bg-skin-base"
-          />
+          <div className="relative">
+            <input
+              {...register}
+              id={register.name}
+              defaultValue={defaultValue}
+              placeholder={placeholder}
+              step={step}
+              type={type}
+              className="w-full rounded text-skin-base bg-skin-base"
+            />
+            {apendix && (
+              <div className="absolute flex border border-transparent left-0 top-0 h-full ">
+                <div className="flex px-2 items-center justify-center rounded-tl rounded-bl z-10 bg-skin-card text-gray-600 text-lg h-full w-full">
+                  {apendix}
+                </div>
+              </div>
+            )}
+          </div>
           <div className="text-red-500 text-sm mt-2">
             <div className="h-5">{error && error.message}</div>
           </div>

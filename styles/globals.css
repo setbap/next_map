@@ -79,6 +79,10 @@
   }
 }
 
+.calendarContainer {
+  background-color: var(--color-background) !important;
+}
+
 .ol-popup {
   min-width: 280px;
 }
