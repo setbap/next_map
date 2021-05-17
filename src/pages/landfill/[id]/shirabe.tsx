@@ -4,6 +4,7 @@ import Nav from "~/template/Nav";
 import { AnimatePresence, motion } from "framer-motion";
 import { FieldError, useForm, UseFormRegisterReturn } from "react-hook-form";
 import { AiOutlineInfoCircle } from "react-icons/ai";
+import { IoWarningOutline } from "react-icons/io5";
 import { Popover } from "@headlessui/react";
 import { usePopper } from "react-popper";
 import ChartBox from "~/components/ChartBox";
@@ -392,10 +393,22 @@ const Shirabe = () => {
               </div>
             </form>
 
-            <div className="mx-auto flex-1 max-w-xl lg:col-span-2 md:col-span-1 p-2 py-8  ">
+            <div className="mx-auto flex-1 max-w-xl  p-2 py-8  ">
               <AnimatePresence>
-                {calculatedShirabeData != null && (
+                {calculatedShirabeData != null ? (
                   <ShirabeChart calculatedShirabeData={calculatedShirabeData} />
+                ) : (
+                  <>
+                    <div className=" flex flex-col sticky top-16 text-orange-400 border-orange-400 shadow-md  items-center justify-center  rounded-lg   border-skin-muted w-full border-2">
+                      <div className="pb-6 pt-12 ">
+                        <IoWarningOutline size={56} />
+                      </div>
+                      <span className="text-3xl pb-12    px-8 text-skin-muted  leading-10 text-center">
+                        برای مشاهده میزان شیرابه اطلاعات لازم را وارد نمایید و
+                        دکمه محاسبه را فشار دهید.
+                      </span>
+                    </div>
+                  </>
                 )}
               </AnimatePresence>
             </div>
