@@ -3,7 +3,7 @@ import React, { FC, useLayoutEffect, useRef, useState } from "react";
 import Nav from "~/template/Nav";
 import { AnimatePresence, motion } from "framer-motion";
 import { FieldError, useForm, UseFormRegisterReturn } from "react-hook-form";
-import { AiOutlineQuestionCircle } from "react-icons/ai";
+import { AiOutlineInfoCircle } from "react-icons/ai";
 import { Popover } from "@headlessui/react";
 import { usePopper } from "react-popper";
 import ChartBox from "~/components/ChartBox";
@@ -189,16 +189,16 @@ const Shirabe = () => {
       <div className="flex flex-1 overflow-hidden bg-skin-card ">
         <motion.div
           layout
-          className="w-full overflow-auto"
+          className="relative w-full overflow-auto"
           variants={thumbnailVariants}
           initial="exit"
           animate="enter"
           exit="exit"
         >
-          <div className="mx-auto max-w-4xl  ">
+          <div className="mx-auto max-w-6xl flex justify-center md:items-start items-center flex-col md:flex-row">
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="grid gap-2 sm:grid-cols-2 my-6 grid-cols-1 items-center justify-between flex-wrap "
+              className="grid mx-auto   my-6 w-80  items-center justify-between flex-wrap "
               onReset={handleReset}
             >
               <FormItem
@@ -370,31 +370,35 @@ const Shirabe = () => {
                   max: maxValueMassege(0.3),
                 })}
               />
-              <input
-                type="submit"
-                disabled={Object.keys(errors).length > 0}
-                value="محاسبه شیرابه"
-                className={` w-40 h-12 text-center mx-auto md:ms-auto my-4 rounded-lg shadow-lg  ${
-                  Object.keys(errors).length > 0
-                    ? "bg-skin-muted text-black"
-                    : "bg-[#5cb85b] text-white"
-                }`}
-              />
 
-              <input
-                type="reset"
-                value="پاک کردن همه"
-                disabled={Object.keys(errors).length > 0}
-                className={`bg-red-400 mx-auto  w-40 h-12 md:me-auto my-4 rounded-lg shadow-lg `}
-              />
+              <div className="sticky bottom-0 flex bg-skin-card left-1/2 z-50  -translate-x-1/2">
+                <input
+                  type="submit"
+                  disabled={Object.keys(errors).length > 0}
+                  value="محاسبه شیرابه"
+                  className={` w-32 h-12 text-center mx-auto md:ms-auto my-4 rounded-lg shadow-lg  ${
+                    Object.keys(errors).length > 0
+                      ? "bg-skin-muted text-black"
+                      : "bg-[#5cb85b] text-white"
+                  }`}
+                />
+                <div className="ml-3" />
+                <input
+                  type="reset"
+                  value="پاک کردن همه"
+                  disabled={Object.keys(errors).length > 0}
+                  className={`border-red-400 border-2 bg-transparent  mx-auto  w-32 h-12 md:me-auto my-4 rounded-lg shadow-lg `}
+                />
+              </div>
             </form>
-          </div>
-          <div className="mx-auto max-w-6xl md:p-8 px-2 py-8  ">
-            <AnimatePresence>
-              {calculatedShirabeData != null && (
-                <ShirabeChart calculatedShirabeData={calculatedShirabeData} />
-              )}
-            </AnimatePresence>
+
+            <div className="mx-auto flex-1 max-w-xl lg:col-span-2 md:col-span-1 p-2 py-8  ">
+              <AnimatePresence>
+                {calculatedShirabeData != null && (
+                  <ShirabeChart calculatedShirabeData={calculatedShirabeData} />
+                )}
+              </AnimatePresence>
+            </div>
           </div>
           <Footer />
         </motion.div>
@@ -421,9 +425,9 @@ const ShirabeChart: FC<{
   return (
     <motion.div
       ref={ref}
-      className=" w-full mx-auto grid md:grid-cols-2 grid-cols-1  gap-4"
+      className=" w-full mx-auto grid md:grid-cols-1 grid-cols-1  gap-4"
     >
-      <div className="rounded-lg md:col-span-2 col-span-1 overflow-x-auto cursor-pointer ">
+      <div className="rounded-lg md:col-span-1 col-span-1 overflow-x-auto cursor-pointer ">
         <table className="w-full  text-sm shadow-xl">
           <thead>
             <tr className="border-b bg-green-400 text-white border-green-400">
@@ -435,39 +439,27 @@ const ShirabeChart: FC<{
             </tr>
           </thead>
           <thead>
-            <tr className="border-b bg-green-400 text-white border-green-400">
-              <th className="text-start py-3 px-2"> </th>
-              {calculatedShirabeData.map((e) => {
-                return (
-                  <th className="text-start py-3 px-2" key={e.month}>
-                    {e.month}
-                  </th>
-                );
-              })}
-            </tr>
+            <td className="py-3 px-2"> </td>
+            <td className="py-3 px-2">{"شیرابه تولیدی (متر مکعب بر ماه)"}</td>
+            <td className="py-3 px-2">{"شیرابه تولیدی (مترمکعب بر روز)"}</td>
           </thead>
 
           <tbody className="text-black">
-            <tr className=" hover:bg-gray-300 bg-gray-200">
-              <td className="py-3 px-2">{"شیرابه تولیدی (متر مکعب بر ماه)"}</td>
-              {calculatedShirabeData.map((e) => {
-                return (
-                  <td className="py-3 px-2" key={e.shirabeTolidiDarMah}>
-                    {e.shirabeTolidiDarMah}
-                  </td>
-                );
-              })}
-            </tr>
-            <tr className="bg-gray-100 hover:bg-gray-300 font-bold  ">
-              <td className="py-3 px-2">{"شیرابه تولیدی (مترمکعب بر روز)"}</td>
-              {calculatedShirabeData.map((e) => {
-                return (
-                  <td className="py-3 px-2" key={e.shirabeTolidiDarRoz}>
-                    {e.shirabeTolidiDarRoz}
-                  </td>
-                );
-              })}
-            </tr>
+            {calculatedShirabeData.map((e, i) => {
+              return (
+                <tr
+                  className={`${
+                    i % 2 == 0
+                      ? "hover:bg-gray-300 bg-gray-200"
+                      : "bg-gray-100 hover:bg-gray-300 font-bold  "
+                  } `}
+                >
+                  <td className="py-3 px-2">{e.month}</td>
+                  <td className="py-3 px-2">{e.shirabeTolidiDarMah}</td>
+                  <td className="py-3 px-2">{e.shirabeTolidiDarRoz}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
@@ -517,7 +509,7 @@ const FormItem: FC<{
   const { styles, attributes } = usePopper(referenceElement, popperElement);
   return (
     <div className="  mx-auto">
-      <div className="flex flex-col  w-72 h-24   justify-start text-start  items-center">
+      <div className="flex flex-col  w-72 mx-4 h-24   justify-start text-start  items-center">
         <label
           className="relative mb-2 text-start w-full text-sm"
           htmlFor={register.name}
@@ -538,7 +530,7 @@ const FormItem: FC<{
                 </div>
               </Popover.Panel>
               <Popover.Button className="" ref={setReferenceElement}>
-                <AiOutlineQuestionCircle size={20} />
+                <AiOutlineInfoCircle size={20} />
               </Popover.Button>
             </Popover>
           )}
