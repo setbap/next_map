@@ -277,7 +277,7 @@ const Shirabe = () => {
                   valueAsNumber: true,
                   min: minValueMassege(15),
                   required: requiredValueMassege(),
-                  max: maxValueMassege(55),
+                  max: maxValueMassege(85),
                 })}
               />
               <FormItem
@@ -341,7 +341,7 @@ const Shirabe = () => {
                 error={errors["darsad_tabdil_rotobat"]}
                 register={register("darsad_tabdil_rotobat", {
                   valueAsNumber: true,
-                  min: minValueMassege(60),
+                  min: minValueMassege(40),
                   required: requiredValueMassege(),
                   max: maxValueMassege(80),
                 })}
@@ -449,7 +449,7 @@ const ShirabeChart: FC<{
 
           <tbody className="text-black">
             <tr className=" hover:bg-gray-300 bg-gray-200">
-              <td className="py-3 px-2">{"شیرابه تولیدی (m3/month)"}</td>
+              <td className="py-3 px-2">{"شیرابه تولیدی (متر مکعب بر ماه)"}</td>
               {calculatedShirabeData.map((e) => {
                 return (
                   <td className="py-3 px-2" key={e.shirabeTolidiDarMah}>
@@ -459,7 +459,7 @@ const ShirabeChart: FC<{
               })}
             </tr>
             <tr className="bg-gray-100 hover:bg-gray-300 font-bold  ">
-              <td className="py-3 px-2">{"شیرابه تولیدی مترمکعب بر روز"}</td>
+              <td className="py-3 px-2">{"شیرابه تولیدی (مترمکعب بر روز)"}</td>
               {calculatedShirabeData.map((e) => {
                 return (
                   <td className="py-3 px-2" key={e.shirabeTolidiDarRoz}>
@@ -473,7 +473,7 @@ const ShirabeChart: FC<{
       </div>
       <InfoCard className="aspect-w-16 aspect-h-10 col-span-1" key2="1x ">
         <ChartBox
-          title="شیرابه تولیدی ماهانه  ( متر مکعب بر روز )"
+          title="شیرابه تولیدی ماهانه  ( متر مکعب بر ماه )"
           areaDataKey="shirabeTolidiDarMah"
           xAxisDataKey="month"
           data={calculatedShirabeData}
@@ -526,20 +526,20 @@ const FormItem: FC<{
           <span className="text-red-400"> *</span>
           <span>:</span>
           {!!tooltip && (
-            <Popover className="relative inline-block z-40">
-              <Popover.Button ref={setReferenceElement}>
-                <AiOutlineQuestionCircle size={20} />
-              </Popover.Button>
+            <Popover className=" inline-block z-20">
               <Popover.Panel
                 ref={setPopperElement}
                 style={styles.popper}
                 {...attributes.popper}
-                className="absolute z-10"
+                className=" z-30"
               >
-                <div className="rounded-lg bg-skin-card mt-2  p-4 border-2 border-skin-light-primary shadow-2xl">
+                <div className=" z-40 rounded-lg bg-skin-card mt-2  p-4 border-2 border-skin-light-primary shadow-2xl">
                   {tooltip}
                 </div>
               </Popover.Panel>
+              <Popover.Button className="" ref={setReferenceElement}>
+                <AiOutlineQuestionCircle size={20} />
+              </Popover.Button>
             </Popover>
           )}
         </label>
