@@ -473,7 +473,7 @@ const ShirabeChart: FC<{
       </div>
       <InfoCard className="aspect-w-16 aspect-h-10 col-span-1" key2="1x ">
         <ChartBox
-          title="شیرابه تولیدی ماهانه  ( متر مکعب بر ماه )"
+          title="شیرابه تولیدی ماهانه  بر حسب متر مکعب بر ماه"
           areaDataKey="shirabeTolidiDarMah"
           xAxisDataKey="month"
           data={calculatedShirabeData}
@@ -481,7 +481,7 @@ const ShirabeChart: FC<{
       </InfoCard>
       <InfoCard key2={"2x"} className="aspect-w-16 aspect-h-10 col-span-1">
         <ChartBox
-          title="شیرابه تولیدی روزانه ( متر مکعب بر روز )"
+          title="شیرابه تولیدی روزانه بر حسب متر مکعب بر روز"
           areaDataKey="shirabeTolidiDarRoz"
           xAxisDataKey="month"
           data={calculatedShirabeData}
