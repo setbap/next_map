@@ -372,12 +372,12 @@ const Shirabe = () => {
                 })}
               />
 
-              <div className="sticky bottom-0 flex bg-skin-card left-1/2 z-50  -translate-x-1/2">
+              <div className="sticky bottom-0 flex bg-skin-card left-1/2 z-10  -translate-x-1/2">
                 <input
                   type="submit"
                   disabled={Object.keys(errors).length > 0}
                   value="محاسبه شیرابه"
-                  className={` w-32 h-12 text-center mx-auto md:ms-auto my-4 rounded-lg shadow-lg  ${
+                  className={` w-32 h-12 text-center mx-auto md:ms-auto my-4 hover:shadow-xl cursor-pointer rounded-lg shadow-md  ${
                     Object.keys(errors).length > 0
                       ? "bg-skin-muted text-black"
                       : "bg-[#5cb85b] text-white"
@@ -388,18 +388,26 @@ const Shirabe = () => {
                   type="reset"
                   value="پاک کردن همه"
                   disabled={Object.keys(errors).length > 0}
-                  className={`border-red-400 border-2 bg-transparent  mx-auto  w-32 h-12 md:me-auto my-4 rounded-lg shadow-lg `}
+                  className={`border-red-400 cursor-pointer border-2 bg-transparent hover:shadow-xl  mx-auto  w-32 h-12 md:me-auto my-4 rounded-lg shadow-md `}
                 />
               </div>
             </form>
 
             <div className="mx-auto flex-1 max-w-xl  p-2 py-8  ">
-              <AnimatePresence>
-                {calculatedShirabeData != null ? (
+              <AnimatePresence exitBeforeEnter>
+                {calculatedShirabeData != null && (
                   <ShirabeChart calculatedShirabeData={calculatedShirabeData} />
-                ) : (
+                )}
+              </AnimatePresence>
+              <AnimatePresence exitBeforeEnter>
+                {calculatedShirabeData == null && (
                   <>
-                    <div className=" flex flex-col sticky top-16 text-orange-400 border-orange-400 shadow-md  items-center justify-center  rounded-lg   border-skin-muted w-full border-2">
+                    <motion.div
+                      exit={{ opacity: 0 }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className=" flex flex-col sticky top-16 text-orange-400 border-orange-400 shadow-md  items-center justify-center  rounded-lg   border-skin-muted w-full border-2"
+                    >
                       <div className="pb-6 pt-12 ">
                         <IoWarningOutline size={56} />
                       </div>
@@ -407,7 +415,7 @@ const Shirabe = () => {
                         برای مشاهده میزان شیرابه اطلاعات لازم را وارد نمایید و
                         دکمه محاسبه را فشار دهید.
                       </span>
-                    </div>
+                    </motion.div>
                   </>
                 )}
               </AnimatePresence>
@@ -437,6 +445,9 @@ const ShirabeChart: FC<{
 
   return (
     <motion.div
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       ref={ref}
       className=" w-full mx-auto grid md:grid-cols-1 grid-cols-1  gap-4"
     >
@@ -528,7 +539,7 @@ const FormItem: FC<{
           htmlFor={register.name}
         >
           {label}
-          <span className="text-red-400"> *</span>
+          <span className="text-red-400"> * </span>
           <span>:</span>
           {!!tooltip && (
             <Popover className=" inline-block z-20">
