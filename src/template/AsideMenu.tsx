@@ -11,14 +11,12 @@ import AsideNavLink from "./AsideNavLink";
 
 interface Props {
   open: boolean;
-  closeFn: VoidFunction;
 }
 
-const AsideMenu = ({ open, closeFn }: Props) => {
+const AsideMenu = ({ open }: Props) => {
   const router = useRouter();
-  console.log(router.route);
   return (
-    <motion.div>
+    <>
       <aside
         className={`z-50 h-full absolute start-0 overflow-auto   transition-all duration-200 ${
           open ? "sm:w-48 lg:w-48 w-full" : "w-0"
@@ -28,7 +26,6 @@ const AsideMenu = ({ open, closeFn }: Props) => {
           <li className="h-14  block">
             <div
               id="page-icon"
-              onClick={closeFn}
               className="h-full w-full hover:bg-skin-primary block p-3"
             >
               <div className=" flex flex-col justify-center items-center ">
@@ -48,7 +45,6 @@ const AsideMenu = ({ open, closeFn }: Props) => {
               router.route.startsWith(pagesLinks.index()) &&
               router.route.endsWith(pagesLinks.index())
             }
-            onClick={closeFn}
             id="home-page-aside"
             to={pagesLinks.index()}
             Icon={BiHome}
@@ -56,7 +52,6 @@ const AsideMenu = ({ open, closeFn }: Props) => {
           />
           <AsideNavLink
             isActive={router.route.startsWith(pagesLinks.map())}
-            onClick={closeFn}
             id="map-page-aside"
             to={pagesLinks.map()}
             Icon={BiMapAlt}
@@ -65,7 +60,6 @@ const AsideMenu = ({ open, closeFn }: Props) => {
 
           <AsideNavLink
             isActive={router.route.startsWith(pagesLinks.landfills())}
-            onClick={closeFn}
             id="landfill-page-aside"
             to={pagesLinks.landfills()}
             Icon={AiFillPayCircle}
@@ -73,7 +67,6 @@ const AsideMenu = ({ open, closeFn }: Props) => {
           />
           <AsideNavLink
             isActive={router.route.startsWith(pagesLinks.tutorial())}
-            onClick={closeFn}
             id="tutorial-page-aside"
             to={pagesLinks.tutorial()}
             Icon={FaChalkboardTeacher}
@@ -81,7 +74,6 @@ const AsideMenu = ({ open, closeFn }: Props) => {
           />
           <AsideNavLink
             isActive={router.route.startsWith(pagesLinks.encyclopedia())}
-            onClick={closeFn}
             id="encyclopedia-page-aside"
             to={pagesLinks.encyclopedia()}
             Icon={RiArticleLine}
@@ -90,7 +82,6 @@ const AsideMenu = ({ open, closeFn }: Props) => {
 
           <AsideNavLink
             isActive={router.route.startsWith(pagesLinks.contact_us())}
-            onClick={closeFn}
             id="contactus-page-aside"
             to={pagesLinks.contact_us()}
             Icon={MdContactMail}
@@ -98,7 +89,7 @@ const AsideMenu = ({ open, closeFn }: Props) => {
           />
         </ul>
       </aside>
-    </motion.div>
+    </>
   );
 };
 

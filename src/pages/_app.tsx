@@ -1,27 +1,15 @@
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { Fragment } from "react";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import AsideMenu from "../template/AsideMenu";
 import { ThemeProvider } from "../context/themeProvider";
 import "../../styles/globals.css";
 import ThemeChanger from "~/components/ThemeChanger";
-import Router from "next/router";
+import { Popover, Transition } from "@headlessui/react";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [open, setOpen] = useState(false);
-  const closeFn = () => setOpen(false);
-
-  useEffect(() => {
-    Router.events.on("routeChangeComplete", () => {
-      window.scroll({
-        top: 0,
-        left: 0,
-        behavior: "smooth",
-      });
-    });
-  }, []);
   return (
     <div className="min-h-screen" lang="fa" dir="rtl">
       <Head>
@@ -80,11 +68,34 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <ThemeProvider>
         <AnimateSharedLayout type="switch">
+          <Popover as={Fragment}>
+            {({ open }) => (
+              <>
+                <Popover.Panel>
+                  <Transition
+                    show={open}
+                    enter="transition duration-100 ease-out"
+                    enterFrom="transform scale-95 opacity-0"
+                    enterTo="transform scale-100 opacity-100"
+                    leave="transition duration-75 ease-out"
+                    leaveFrom="transform scale-100 opacity-100"
+                    leaveTo="transform scale-95 opacity-0"
+                  >
+                    <AsideMenu open={open} />
+                  </Transition>
+                </Popover.Panel>
+                <>
+                  <Popover.Button className="fixed top-2 start-5 w-12 h-10 z-50 border-2 transition-colors text-skin-primary duration-200 border-skin-muted hover:bg-skin-muted cursor-pointer bg-skin-base rounded-md  flex items-center justify-center ">
+                    <HiOutlineMenuAlt3 size={24} />
+                  </Popover.Button>
+                </>
+              </>
+            )}
+          </Popover>
           <div
             style={{ height: "100%" }}
             className="sm:relative fixed top-0 bottom-0"
           >
-            <AsideMenu closeFn={closeFn} open={open} />
             <section className="h-full sm:h-screen w-screen bg-skin-base flex flex-col-reverse sm:flex-row min-h-0 min-w-0 overflow-hidden">
               <main className="sm:h-full flex-1 flex flex-col min-h-0 min-w-0 overflow-hidden">
                 <AnimatePresence exitBeforeEnter initial={false}>
@@ -92,13 +103,6 @@ function MyApp({ Component, pageProps }: AppProps) {
                 </AnimatePresence>
               </main>
             </section>
-          </div>
-
-          <div
-            className="fixed top-2 start-5 w-12 h-10 z-50 border-2 transition-colors text-skin-primary duration-200 border-skin-muted hover:bg-skin-muted cursor-pointer bg-skin-base rounded-md  flex items-center justify-center "
-            onClick={() => setOpen((val) => !val)}
-          >
-            <HiOutlineMenuAlt3 size={24} />
           </div>
 
           <ThemeChanger />

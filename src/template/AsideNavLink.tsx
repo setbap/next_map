@@ -1,18 +1,18 @@
 import { FC } from "react";
 import Link from "next/link";
+import { Popover } from "@headlessui/react";
 interface Props {
   to: string;
   id: string;
   title: string;
   isActive: boolean;
   Icon: FC<{ className: string; size?: number }>;
-  onClick: VoidFunction;
 }
 
-const AsideNavLink = ({ Icon, title, to, onClick, isActive }: Props) => {
+const AsideNavLink = ({ Icon, title, to, isActive }: Props) => {
   return (
-    <li
-      onClick={onClick}
+    <Popover.Button
+      as={"li"}
       className=" min-w-max  overflow-hidden  flex-1 sm:w-full"
       title={title}
     >
@@ -30,7 +30,7 @@ const AsideNavLink = ({ Icon, title, to, onClick, isActive }: Props) => {
           <div className="">{title}</div>
         </a>
       </Link>
-    </li>
+    </Popover.Button>
   );
 };
 
