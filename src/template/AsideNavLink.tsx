@@ -4,11 +4,12 @@ interface Props {
   to: string;
   id: string;
   title: string;
+  isActive: boolean;
   Icon: FC<{ className: string; size?: number }>;
   onClick: VoidFunction;
 }
 
-const AsideNavLink = ({ Icon, title, to, onClick }: Props) => {
+const AsideNavLink = ({ Icon, title, to, onClick, isActive }: Props) => {
   return (
     <li
       onClick={onClick}
@@ -20,7 +21,11 @@ const AsideNavLink = ({ Icon, title, to, onClick }: Props) => {
         // id={id}
         href={to}
       >
-        <a className="h-full transition-colors text-skin-base hover:text-skin-on-primary  duration-300  flex justify-start items-center w-full hover:bg-skin-primary-relaxed  p-3">
+        <a
+          className={`h-full ${
+            isActive ? "bg-skin-primary" : ""
+          } transition-colors text-skin-base hover:text-skin-on-primary  duration-300  flex justify-start items-center w-full hover:bg-skin-primary-relaxed  p-3`}
+        >
           <Icon className="me-4  md:mb-0 text-2xl" />
           <div className="">{title}</div>
         </a>

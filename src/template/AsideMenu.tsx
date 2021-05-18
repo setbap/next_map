@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 import { AiFillPayCircle } from "react-icons/ai";
 import { BiHome, BiMapAlt } from "react-icons/bi";
 import { BsInfoCircle } from "react-icons/bs";
@@ -14,6 +15,8 @@ interface Props {
 }
 
 const AsideMenu = ({ open, closeFn }: Props) => {
+  const router = useRouter();
+  console.log(router.route);
   return (
     <motion.div>
       <aside
@@ -41,6 +44,10 @@ const AsideMenu = ({ open, closeFn }: Props) => {
             </div>
           </li>
           <AsideNavLink
+            isActive={
+              router.route.startsWith(pagesLinks.index()) &&
+              router.route.endsWith(pagesLinks.index())
+            }
             onClick={closeFn}
             id="home-page-aside"
             to={pagesLinks.index()}
@@ -48,6 +55,7 @@ const AsideMenu = ({ open, closeFn }: Props) => {
             title={"خانه"}
           />
           <AsideNavLink
+            isActive={router.route.startsWith(pagesLinks.map())}
             onClick={closeFn}
             id="map-page-aside"
             to={pagesLinks.map()}
@@ -56,6 +64,7 @@ const AsideMenu = ({ open, closeFn }: Props) => {
           />
 
           <AsideNavLink
+            isActive={router.route.startsWith(pagesLinks.landfills())}
             onClick={closeFn}
             id="landfill-page-aside"
             to={pagesLinks.landfills()}
@@ -63,6 +72,7 @@ const AsideMenu = ({ open, closeFn }: Props) => {
             title={"لندفیل"}
           />
           <AsideNavLink
+            isActive={router.route.startsWith(pagesLinks.tutorial())}
             onClick={closeFn}
             id="tutorial-page-aside"
             to={pagesLinks.tutorial()}
@@ -70,6 +80,7 @@ const AsideMenu = ({ open, closeFn }: Props) => {
             title={"آموزش"}
           />
           <AsideNavLink
+            isActive={router.route.startsWith(pagesLinks.encyclopedia())}
             onClick={closeFn}
             id="encyclopedia-page-aside"
             to={pagesLinks.encyclopedia()}
@@ -78,6 +89,7 @@ const AsideMenu = ({ open, closeFn }: Props) => {
           />
 
           <AsideNavLink
+            isActive={router.route.startsWith(pagesLinks.contact_us())}
             onClick={closeFn}
             id="contactus-page-aside"
             to={pagesLinks.contact_us()}

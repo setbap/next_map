@@ -10,6 +10,7 @@ import { FC, MutableRefObject, useRef, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import CitiesButtons from "~/components/landfill/CitiesButton";
+import Shirabe from "~/components/landfill/shirabe";
 
 enum LandFillInfoState {
   Moarefi = 0,
@@ -57,7 +58,6 @@ const LandFill = () => {
       <Nav />
       <div className="flex  overflow-hidden ">
         <motion.div
-          layout
           className="w-full bg-skin-landfill   overflow-auto"
           variants={thumbnailVariants}
           initial="exit"
@@ -335,15 +335,10 @@ const LandFill = () => {
                     </InfoCard>
 
                     <InfoCard
-                      className="w-full aspect-w-9 aspect-h-2 md:col-span-2 col-span-1 rounded-lg overflow-hidden  "
+                      className="w-full   md:col-span-2 col-span-1 rounded-lg overflow-hidden  "
                       key2={"1wy"}
                     >
-                      <Img
-                        className="aspect-w-9 aspect-h-2 rounded-lg overflow-hidden"
-                        layout="fill"
-                        loading="lazy"
-                        src="/landfill/mohasebe.png"
-                      />
+                      <Shirabe />
                     </InfoCard>
                   </motion.div>
                 )}
@@ -380,7 +375,7 @@ const InfoCard: FC<{ key2: string; className?: string }> = ({
       initial="exit"
       animate="enter"
       exit="exit"
-      className={`bg-skin-base   rounded-lg  font-bold shadow-lg ${className}`}
+      className={`bg-skin-card   rounded-lg  font-bold shadow-lg ${className}`}
     >
       {children}
     </motion.div>
