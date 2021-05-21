@@ -243,11 +243,11 @@ const LandFill = () => {
                           className="aspect-w-16 rounded-lg overflow-hidden  aspect-h-10"
                           key2={"1y"}
                         >
-                          <video
+                          <iframe
+                            allowFullScreen
                             className="  rounded-lg overflow-hidden"
-                            autoPlay
-                            loop
-                            src="/landfill/babol/timelaps_babol.mp4"
+                            src="https://www.aparat.com/video/video/embed/videohash/suP4m/vt/frame"
+                            title="تایم لپس محل دفن زباله های بابل"
                           />
                         </InfoCard>
                       </div>

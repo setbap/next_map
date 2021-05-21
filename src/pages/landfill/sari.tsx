@@ -164,7 +164,10 @@ const LandFill = () => {
                         300 تن می رسد در منطقه پشت کوه چهاردانگه ساری دفن می
                         شود. دفن غیراصولی زباله و فاصله زیاد این محل از شهر ساری
                         مشکلات بسیار زیادی را برای اهالی منطقه و مسیرهای تردد
-                        این ناحیه به وجود آورده است.
+                        این ناحیه به وجود آورده است. این محل در ۱۱۰ کیلومتری شهر
+                        ساری و در ۴۰ کیلومتری کیاسر (مرکز بخش چهار دانگه) و ۱۰۵
+                        کیلومتری سمنان، واقع شده است. مساحت این محل در حدود 10
+                        هکتار است.
                       </p>
                     </motion.div>
 
@@ -239,11 +242,12 @@ const LandFill = () => {
                           className="aspect-w-16 rounded-lg overflow-hidden  aspect-h-10"
                           key2={"1y"}
                         >
-                          <Img
+                          <iframe
                             className="  rounded-lg overflow-hidden"
-                            layout="fill"
+                            allowFullScreen
                             loading="lazy"
-                            src="/landfill/sari/timelaps_sari_kiasar.gif"
+                            src="https://www.aparat.com/video/video/embed/videohash/bTjiU/vt/frame"
+                            title="تایم لپس محل دفن زباله های ساری در کیاسر"
                           />
                         </InfoCard>
                       </div>
@@ -265,11 +269,12 @@ const LandFill = () => {
                           className="aspect-w-16 rounded-lg overflow-hidden  aspect-h-10"
                           key2={"1y"}
                         >
-                          <Img
+                          <iframe
                             className="  rounded-lg overflow-hidden"
-                            layout="fill"
+                            allowFullScreen
                             loading="lazy"
-                            src="/landfill/sari/timelaps_sari_tat.gif"
+                            src="https://www.aparat.com/video/video/embed/videohash/mbfi7/vt/frame"
+                            title="تایم لپس محل دفن قدیمی زباله های ساری"
                           />
                         </InfoCard>
                       </div>

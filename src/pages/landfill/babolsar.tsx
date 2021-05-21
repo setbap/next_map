@@ -100,13 +100,12 @@ const LandFill = () => {
 
               <div className=" bg-skin-card w-full  rounded-lg md:w-8/12   font-extrabold shadow-lg">
                 <div className="aspect-w-16 aspect-h-9  rounded-lg shadow-lg">
-                  <video
-                    src="/landfill/babolsar/babolsar.mp4"
-                    title="محل دفن زباله های بابلسر"
-                    controls
-                    muted
+                  <iframe
+                    src="https://www.aparat.com/video/video/embed/videohash/imvAs/vt/frame"
+                    title="نمایی از محل دفن زباله های بابلسر"
+                    allowFullScreen
                     className="rounded-lg"
-                  ></video>
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -154,13 +153,18 @@ const LandFill = () => {
                     >
                       <h2>معرفی لندفیل بابلسر </h2>
                       <p className="">
-                        بابلسر با جمعیت افزون بر 50000 نفر در جنوب دریای خزر و
-                        شرق استان مازندارن واقع شده است. بابلسر با مساحت 1718
-                        کیلومتر مربع دارای دو بخش و 4 دهستان است. زباله های
-                        بابلسر که افزون بر 70 تن در روز می باشد در زمینی در عرصه
-                        های جنگلی جنوب شهرستان به صورت سطحی تلمبار می شود. از
-                        سال 1399 با افتتاح زباله سوز بابلسر بخشی از زباله های
-                        تولیدی به این کارخانه هدایت می شوند.
+                        شهر بابلسر مرکز شهرستان بابلسر بوده و با مساحتی در حدود
+                        1350 هکتار، جمعیتی بالغ بر 125000 نفر دارد. این شهر در
+                        کنار دریا و دهانه رودخانه بابل رود واقع شده و همه ساله
+                        پذیرای صدها هزار توریست و مسافر می باشد. بیش از 40 سال
+                        است که زباله های شهر بابلسر و روستاهای اطراف در نزدیکی
+                        ساحل و کنار شهرک گل‌های بابلسر مابین پارکینگ 8 و 9 منطقه
+                        ساحلی بابلسر به صورت غیربهداشتی دپو شده و زیرخاک پنهان
+                        می گردد. در این مکان روزانه حداقل 80 تن زباله تخلیه و
+                        دفن می شود که در فصل مسافر پذیر به 120 تن در روز هم می
+                        رسد. شیرابه تولیدی در این مکان مرطوب و پربارش متاسفانه
+                        با نفوذ به زمین نهایت به آبهای زیرزمینی ای که به دریا
+                        منتهی می شوند می پیوندد.
                       </p>
                     </motion.div>
 
@@ -170,13 +174,12 @@ const LandFill = () => {
                           className="aspect-w-16 aspect-h-9"
                           key2={" 1y"}
                         >
-                          <video
-                            src="/landfill/babolsar/babolsar.mp4"
+                          <iframe
+                            src="https://www.aparat.com/video/video/embed/videohash/OhuUi/vt/frame"
                             title="محل دفن زباله های بابلسر"
-                            controls
-                            muted
+                            allowFullScreen
                             className="rounded-lg"
-                          ></video>
+                          />
                         </InfoCard>
                       </div>
                       <div className="col-span-4 md:col-span-2 overflow-hidden">
@@ -247,9 +250,10 @@ const LandFill = () => {
                           className="aspect-w-16 rounded-lg overflow-hidden  aspect-h-10"
                           key2={"1y"}
                         >
-                          <Img
-                            src="/landfill/babolsar/babolsar2_bahn.gif"
-                            layout="fill"
+                          <iframe
+                            src="https://www.aparat.com/video/video/embed/videohash/2LRda/vt/frame"
+                            title="محل دفن زباله های بهنمیر- نقشه سه بعدی"
+                            allowFullScreen
                             className="object-fill"
                           />
                         </InfoCard>

@@ -94,13 +94,12 @@ const LandFill = () => {
 
               <div className=" bg-skin-card w-full  rounded-lg md:w-8/12   font-extrabold shadow-lg">
                 <div className="aspect-w-16 aspect-h-9  rounded-lg shadow-lg">
-                  <video
-                    src="/landfill/noshahr/noshahr.mp4"
-                    title="محل دفن زباله های نوشهر"
-                    autoPlay
-                    loop
+                  <iframe
+                    src="https://www.aparat.com/video/video/embed/videohash/qx0b6/vt/frame"
+                    title="محل دفن زباله های نوشهر- نقشه سه بعدی"
                     className="rounded-lg"
-                  ></video>
+                    allowFullScreen
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -161,13 +160,12 @@ const LandFill = () => {
                           className="aspect-w-16 aspect-h-9"
                           key2={" 1y"}
                         >
-                          <video
-                            src="/landfill/noshahr/noshahr.mp4"
-                            title="محل دفن زباله های نوشهر"
-                            autoPlay
-                            loop
+                          <iframe
+                            src="https://www.aparat.com/video/video/embed/videohash/qx0b6/vt/frame"
+                            title="محل دفن زباله های نوشهر- نقشه سه بعدی"
                             className="rounded-lg"
-                          ></video>
+                            allowFullScreen
+                          ></iframe>
                         </InfoCard>
                       </div>
                       <div className="col-span-4 md:col-span-2 overflow-hidden">
@@ -225,12 +223,12 @@ const LandFill = () => {
                           className="aspect-w-16 rounded-lg overflow-hidden  aspect-h-10"
                           key2={"1y"}
                         >
-                          {/* <video
+                          <iframe
+                            src="https://www.aparat.com/video/video/embed/videohash/J5wvo/vt/frame"
+                            title="تایم لپس محل دفن زباله های نوشهر"
                             className="  rounded-lg overflow-hidden"
-                            autoPlay
-                            loop
-                            src="/landfill/noshahr/timelaps_noshahr.mp4"
-                          /> */}
+                            allowFullScreen
+                          ></iframe>
                         </InfoCard>
                       </div>
                       <div className="col-span-4 md:col-span-2 ">

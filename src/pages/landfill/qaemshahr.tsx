@@ -99,11 +99,11 @@ const LandFill = () => {
               </div>
 
               <div className=" bg-green-100 w-full  rounded-lg md:w-8/12   font-extrabold shadow-lg">
-                <div className="aspect-w-16 aspect-h-9  rounded-lg shadow-lg">
+                <div className="aspect-w-16 aspect-h-9 overflow-hidden  rounded-lg shadow-lg">
                   <iframe
                     src="https://www.aparat.com/video/video/embed/videohash/6PbRu/vt/frame"
                     title="محل دفن زباله های قائمشهر"
-                    className="rounded-lg"
+                    className="rounded-lg overflow-hidden"
                     allowFullScreen
                   ></iframe>
                 </div>
@@ -178,7 +178,7 @@ const LandFill = () => {
                         >
                           <iframe
                             allowFullScreen
-                            className=""
+                            className="rounded-lg"
                             src="https://www.aparat.com/video/video/embed/videohash/6PbRu/vt/frame"
                             title="محل دفن زباله های قائمشهر                            "
                           ></iframe>
@@ -239,12 +239,12 @@ const LandFill = () => {
                           className="aspect-w-16 rounded-lg overflow-hidden  aspect-h-10"
                           key2={"1y"}
                         >
-                          <Img
+                          <iframe
+                            src="https://www.aparat.com/video/video/embed/videohash/SLlad/vt/frame"
+                            title="تایم لپس محل دفن زباله های "
                             className="  rounded-lg overflow-hidden"
-                            layout="fill"
-                            loading="lazy"
-                            src="/landfill/qaemshahr/timelaps_qaemshahr.gif"
-                          />
+                            allowFullScreen
+                          ></iframe>
                         </InfoCard>
                       </div>
                       <div className="col-span-4 md:col-span-2 ">

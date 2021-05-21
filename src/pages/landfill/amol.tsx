@@ -154,7 +154,9 @@ const LandFill = () => {
                         میلیونها تن زباله در این محل تجمع یافته است که کوهی به
                         بلندای 30 زباله ایجاد نموده است. این کوه با آبگیری سد
                         منگل هراز در کنار دریاچه سد قرار گرفته و این به یکی از
-                        بزرگترین مشکلات محیط زیستی این شهر تبدیل شده است.
+                        بزرگترین مشکلات محیط زیستی این شهر تبدیل شده است.این
+                        منطقه در زمینی به مساحت ۹ هکتار، روزانه میزبان ۴۱۰ تن
+                        زباله از شهرها و روستاهای اطراف است.
                       </p>
                     </motion.div>
 
@@ -227,11 +229,11 @@ const LandFill = () => {
                           className="aspect-w-16 rounded-lg overflow-hidden  aspect-h-10"
                           key2={"1y"}
                         >
-                          <Img
+                          <iframe
                             className="  rounded-lg overflow-hidden"
-                            layout="fill"
-                            loading="lazy"
-                            src="/landfill/amol/timelaps_amol.gif"
+                            src="https://www.aparat.com/video/video/embed/videohash/eBhQZ/vt/frame"
+                            title="تایم لپس محل دفن زباله های آمل"
+                            allowFullScreen
                           />
                         </InfoCard>
                       </div>

@@ -100,13 +100,12 @@ const LandFill = () => {
 
               <div className=" bg-skin-card w-full  rounded-lg md:w-8/12   font-extrabold shadow-lg">
                 <div className="aspect-w-16 aspect-h-9  rounded-lg shadow-lg">
-                  <video
-                    src="/landfill/freydoonkenar/freydoonkenar.mp4"
-                    title="محل دفن زباله های فریدونکنار"
-                    autoPlay
-                    loop
+                  <iframe
+                    src="https://www.aparat.com/video/video/embed/videohash/zNel4/vt/frame"
+                    title="محل دفن زباله های فریدون کنار- نقشه سه بعدی"
+                    allowFullScreen
                     className="rounded-lg"
-                  ></video>
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -236,12 +235,12 @@ const LandFill = () => {
                           className="aspect-w-16 rounded-lg overflow-hidden  aspect-h-10"
                           key2={"1y"}
                         >
-                          {/* <video
-                            className="  rounded-lg overflow-hidden"
-                            autoPlay
-                            loop
-                            src="/landfill/freydoonkenar/timelaps_freydoonkenar.mp4"
-                          /> */}
+                          <iframe
+                            className="rounded-lg overflow-hidden"
+                            allowFullScreen
+                            src="https://www.aparat.com/video/video/embed/videohash/d6V9B/vt/frame"
+                            title="تایم لپس محل دفن زباله های فریدونکنار"
+                          />
                         </InfoCard>
                       </div>
                       <div className="col-span-4 md:col-span-2 ">
