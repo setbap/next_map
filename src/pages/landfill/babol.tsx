@@ -76,11 +76,14 @@ const LandFill = () => {
               </div>
               <div className="w-full md:w-1/2 mx-2 text-center rounded-xl my-2 md:my-0 ">
                 <div className="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-lg">
-                  <Img
-                    src="/landfill/babol/babol.gif"
-                    layout="fill"
+                  <video
+                    src="/landfill/babol/babol.mp4"
+                    preload="metadata"
+                    loop
+                    controls={false}
+                    autoPlay
                     className="object-fill"
-                  />
+                  ></video>
                 </div>
               </div>
             </div>
