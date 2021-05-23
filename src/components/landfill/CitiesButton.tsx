@@ -43,6 +43,21 @@ const CitiesButtons = () => {
         cityName="noshahr"
         name="نوشهر"
       />
+      <CityButton
+        isActive={router === pagesLinks.landfillsItem({ city: "noor" })}
+        cityName="noor"
+        name="نور"
+      />
+      <CityButton
+        isActive={router === pagesLinks.landfillsItem({ city: "neka" })}
+        cityName="neka"
+        name="نکا"
+      />
+      <CityButton
+        isActive={router === pagesLinks.landfillsItem({ city: "ramsar" })}
+        cityName="ramsar"
+        name="رامسر"
+      />
     </div>
   );
 };
