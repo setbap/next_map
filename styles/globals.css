@@ -5,6 +5,17 @@
 @tailwind utilities;
 
 @layer components {
+  .chips {
+    @apply rounded-lg bg-opacity-30  px-2 py-1 m-2;
+  }
+
+  .chips__fail {
+    @apply bg-red-100 text-red-800;
+  }
+  .chips__success {
+    @apply bg-green-100 text-green-800;
+  }
+
   .footer_image {
     background-image: url(/footer_image.svg),
       linear-gradient(to right, var(--color-secondary), var(--color-primary));
@@ -39,7 +50,7 @@
     --color-border-muted: rgb(210 210 210);
     --color-muted: rgb(200 200 200);
 
-    --color-background: #e5e7eb;
+    --color-background: rgba(229, 231, 235, 1);
     --color-card-background: 255, 255, 255;
     --color-primary: #f59e0b;
     --color-landfill: #f2efe9;
