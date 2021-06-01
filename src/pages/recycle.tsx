@@ -1,53 +1,55 @@
 import { motion } from "framer-motion";
+import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
 import { FC, useEffect, useState } from "react";
 import { AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
 import Nav from "~/template/Nav";
-const x =
-  "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.".split(
-    " "
-  );
 
-const y = ["شیشه", "کاغذ", "فلز", "خطرناک", "قابل کمپوست", "پلاستیک"];
-const m1 = () => y[Math.ceil(Math.random() * y.length)];
-
-const m11 = () => {
-  if (Math.random() > 0.5) {
-    return true;
-  }
-  return false;
-};
-const data = x.map((e) => {
+export const getStaticProps: GetStaticProps = async () => {
+  const rawData = await fetch("http://217.219.165.22:5002/items");
+  const data: SmallItem[] = await rawData.json();
   return {
-    name: e,
-    recyclable: m11(),
-    category: m1(),
+    props: {
+      data,
+      baseUrl: "http://217.219.165.22:5002",
+    },
+    revalidate: 10,
   };
-});
+};
 
-const Waste = () => {
+const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
+  data,
+  baseUrl,
+}) => {
   const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
   const [inputText, setInputText] = useState("");
+
   const [showCloseBTN, setShowCloseBTN] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState<string[]>([
-    "شیشه",
-    "کاغذ",
-    "فلز",
-    "خطرناک",
-    "قابل کمپوست",
-    "پلاستیک",
-  ]);
-  const toggleCategory = (category: string, selectedCategory: string[]) => {
-    const categoryIndex = selectedCategory.indexOf(category);
-    if (categoryIndex === -1) {
-      setSelectedCategory([...selectedCategory, category]);
-    } else {
-      setSelectedCategory(
-        selectedCategory
-          .slice(0, categoryIndex)
-          .concat(selectedCategory.slice(categoryIndex + 1))
-      );
-    }
+  const allCategories = {
+    glass: "شیشه",
+    paper: "کاغذ",
+    metal: "فلز",
+    dangerous: "خطرناک",
+    compost: "کمپوست",
+    plastic: "پلاستیک",
+  };
+
+  const [selectedCategory, setSelectedCategory] = useState({
+    glass: true,
+    paper: true,
+    metal: true,
+    dangerous: true,
+    compost: true,
+    plastic: true,
+  });
+  const toggleCategory = (
+    categoryName: keyof typeof selectedCategory,
+    selectedCategories: typeof selectedCategory
+  ) => {
+    const categories = { ...selectedCategories };
+    categories[categoryName] = !categories[categoryName];
+    setSelectedCategory(categories);
   };
 
   useEffect(() => {
@@ -153,25 +155,16 @@ const Waste = () => {
               <div className="w-full flex relative sm:mt-12 mt-8">
                 <h3 className="bg-skin-card rounded-lg text-center mx-auto text-2xl py-2 px-4">
                   دسته بندی پسماند
-                  <small className="text-sm ">
-                    {"  "}(برای حذف یا فعال سازی بر روی هر کدام کلیک کنید){" "}
-                    {"  "}
-                  </small>
                 </h3>
               </div>
               {/*  end categories header */}
               {/* categories */}
               <section className="overflow-auto w-full">
                 <div className="w-min  mx-auto  select-none flex-nowrap  flex flex-row justify-center items-center ">
-                  {[
-                    "شیشه",
-                    "کاغذ",
-                    "فلز",
-                    "خطرناک",
-                    "قابل کمپوست",
-                    "پلاستیک",
-                  ].map((e) => (
+                  {Object.keys(selectedCategory).map((e) => (
                     <button
+                      key={e}
+                      // @ts-ignore
                       onClick={() => toggleCategory(e, selectedCategory)}
                       style={{
                         background:
@@ -179,9 +172,7 @@ const Waste = () => {
                         backgroundSize: "cover",
                       }}
                       className={`${
-                        selectedCategory.includes(e)
-                          ? "ring-4 ring-offset-2"
-                          : ""
+                        selectedCategory[e] ? "ring-4 ring-offset-2" : ""
                       } md:w-24  ring-red-400  sm:w-20 w-16 md:h-24 sm:h-20 h-16 focus:outline-none  group  rounded-full hover:shadow-lg  relative  overflow-hidden flex flex-col items-center justify-center mx-3 my-4 md:my-6`}
                     >
                       <div
@@ -189,7 +180,7 @@ const Waste = () => {
                         className="absolute inset-0 bg-black bg-opacity-40  group-hover:bg-opacity-60 transition-colors duration-200"
                       />
                       <p className=" text-white z-10 md:text-xl sm:text-md text-sm">
-                        {e}
+                        {allCategories[e]}
                       </p>
                     </button>
                   ))}
@@ -209,45 +200,44 @@ const Waste = () => {
               {data
                 .filter(
                   (item) =>
-                    item.name.includes(inputText) &&
-                    selectedCategory.includes(item.category)
+                    item.Name.includes(inputText) &&
+                    selectedCategory[item.Category ?? ""]
                 )
-                .map((item, i) => (
-                  <button
-                    key={i}
-                    className="flex-col ring-transparent  group border-4 border-skin-base focus:border-black  hover:border-green-400  hover:shadow-lg hover:bg-skin-base bg-skin-card flex w-full  rounded-xl shadow-sm overflow-hidden "
-                  >
-                    <div className="w-full ">
-                      <div className="aspect-w-16 aspect-h-9  rounded-lg">
-                        <img
-                          src="https://shokrino.ir/wp-content/uploads/2020/12/mahsul6.jpg"
-                          className="object-cover"
-                          alt="xasfasf"
-                        />
-                      </div>
-                    </div>
-                    <div className=" p-2 w-full  h-32 flex flex-col  justify-evenly items-start  ">
-                      <div className="flex justify-between items-center w-full">
-                        <p className="px-2 font-bold z-10 md:text-3xl sm:text-xl text-md">
-                          {item.name}
-                        </p>
-
-                        <div className="">
-                          <Chips
-                            status={item.recyclable ? "success" : "fail"}
-                            name={
-                              item.recyclable
-                                ? "غیر قابل بازیافت"
-                                : " قابل بازیافت"
-                            }
+                .map((item) => (
+                  <Link href={`/recycle/${item.id}`} key={item.id}>
+                    <button className="flex-col ring-transparent  group border-4 border-skin-base focus:border-black  hover:border-green-400  hover:shadow-lg hover:bg-skin-base bg-skin-card flex w-full  rounded-xl shadow-sm overflow-hidden ">
+                      <div className="w-full ">
+                        <div className="aspect-w-16 aspect-h-9  rounded-lg">
+                          <img
+                            src={baseUrl + item.Image[0].url}
+                            className="object-cover"
+                            alt={item.Image[0].caption}
                           />
                         </div>
                       </div>
-                      <div className="flex px-2  ">
-                        <div>{item.category}</div>
+                      <div className=" p-2 w-full  h-32 flex flex-col  justify-evenly items-start  ">
+                        <div className="flex justify-between items-center w-full">
+                          <p className="px-2 font-bold z-10 md:text-3xl sm:text-xl text-md">
+                            {item.Name}
+                          </p>
+
+                          <div className="">
+                            <Chips
+                              status={item.Recyclable ? "success" : "fail"}
+                              name={
+                                item.Recyclable
+                                  ? "غیر قابل بازیافت"
+                                  : " قابل بازیافت"
+                              }
+                            />
+                          </div>
+                        </div>
+                        <div className="flex px-2  ">
+                          <div>{allCategories[item.Category]}</div>
+                        </div>
                       </div>
-                    </div>
-                  </button>
+                    </button>
+                  </Link>
                 ))}
             </section>
             {/* end waste list */}
@@ -274,3 +264,70 @@ const Chips: FC<{ name: string; status: "success" | "fail" }> = ({
     </div>
   );
 };
+
+export interface SmallItem {
+  id: number;
+  Name: string;
+  Recyclable: string;
+  Category: string;
+  Image?: ImageEntity[] | null;
+}
+export interface ImageEntity {
+  id: number;
+  name: string;
+  alternativeText: string;
+  caption: string;
+  width: number;
+  height: number;
+  formats: Formats;
+  hash: string;
+  ext: string;
+  mime: string;
+  size: number;
+  url: string;
+  previewUrl?: null;
+  provider: string;
+  provider_metadata?: null;
+  created_by: number;
+  updated_by: number;
+  created_at: string;
+  updated_at: string;
+}
+export interface Formats {
+  small?: SmallOrThumbnailOrMedium | null;
+  thumbnail: SmallOrThumbnailOrMedium1;
+  medium?: SmallOrThumbnailOrMedium2 | null;
+}
+export interface SmallOrThumbnailOrMedium {
+  ext: string;
+  url: string;
+  hash: string;
+  mime: string;
+  name: string;
+  path?: null;
+  size: number;
+  width: number;
+  height: number;
+}
+export interface SmallOrThumbnailOrMedium1 {
+  ext: string;
+  url: string;
+  hash: string;
+  mime: string;
+  name: string;
+  path?: null;
+  size: number;
+  width: number;
+  height: number;
+}
+export interface SmallOrThumbnailOrMedium2 {
+  ext: string;
+  url: string;
+  hash: string;
+  mime: string;
+  name: string;
+  path?: null;
+  size: number;
+  width: number;
+  height: number;
+}
