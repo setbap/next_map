@@ -7,12 +7,12 @@ import { AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
 import Nav from "~/template/Nav";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const rawData = await fetch("http://217.219.165.22:5002/items");
+  const rawData = await fetch("https://geonitenviro.nit.ac.ir/api/items");
   const data: SmallItem[] = await rawData.json();
   return {
     props: {
       data,
-      baseUrl: "http://217.219.165.22:5002",
+      baseUrl: "https://geonitenviro.nit.ac.ir/api",
     },
     revalidate: 10,
   };

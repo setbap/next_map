@@ -127,7 +127,7 @@ const Chips: FC<{ name: string; status: "success" | "fail" }> = ({
 };
 
 export async function getStaticPaths() {
-  const rawData = await fetch("http://217.219.165.22:5002/items");
+  const rawData = await fetch("https://geonitenviro.nit.ac.ir/api/items");
   const data: SmallItem[] = await rawData.json();
 
   // Get the paths we want to pre-render based on posts
@@ -141,12 +141,12 @@ export async function getStaticPaths() {
 export const getStaticProps: GetStaticProps<{}, { id: string }> = async ({
   params: { id },
 }) => {
-  const rawData = await fetch(`http://217.219.165.22:5002/items/${id}`);
+  const rawData = await fetch(`https://geonitenviro.nit.ac.ir/api/items/${id}`);
   const data: SmallItem[] = await rawData.json();
   return {
     props: {
       data,
-      baseUrl: "http://217.219.165.22:5002",
+      baseUrl: "https://geonitenviro.nit.ac.ir/api",
     },
     revalidate: 10,
   };
