@@ -35,6 +35,7 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
     plastic: "پلاستیک",
     Recyclable: "قابل بازیافت",
     Not_Recyclable: "غیر قابل بازیافت",
+    Limited: "بازیافت محدود",
   };
 
   const [selectedCategory, setSelectedCategory] = useState({
@@ -115,7 +116,7 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
               ></div>
               <div className="relative w-full flex pt-4">
                 <h3 className="rounded-md bg-skin-base text-center mx-auto text-2xl p-3">
-                  سامانه تشخیص زباله های بازیافتی
+                  سامانه تشخیص زباله های قابل بازیافت و غیر قابل بازیافت
                 </h3>
               </div>
 
@@ -136,7 +137,7 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
                     type="text"
                     value={inputText}
                     onChange={(e) => setInputText(e.target.value)}
-                    placeholder="دنبال چه زباله ای میگردی؟"
+                    placeholder="نام زباله را وارد کنید ( مثلا قوطی رب )"
                     className=" focus:border-0 text-sm bg-skin-card h-11  border-skin-muted  outline-none  text-skin-muted  px-1 leading-8 transition-colors duration-200 ease-in-out  sm:text-base relative w-full border-2 rounded-xl placeholder-gray-400  focus:border-skin-primary-relaxed focus:outline-none p-0 py-2 ps-10 pe-9"
                   />
 
@@ -156,7 +157,7 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
               {/*  categories header */}
               <div className="w-full flex relative sm:mt-12 mt-8">
                 <h3 className="bg-skin-card rounded-lg text-center mx-auto text-2xl py-2 px-4">
-                  دسته بندی پسماند
+                  دسته بندی انواع پسماندها
                 </h3>
               </div>
               {/*  end categories header */}
@@ -198,7 +199,7 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
             </div>
             {/* end list header */}
             {/* waste list */}
-            <section className="p-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 container mx-auto gap-x-4 gap-y-6">
+            <section className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 container mx-auto gap-x-4 gap-y-6">
               {data
                 .filter(
                   (item) =>
@@ -209,17 +210,17 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
                   <Link href={`/recycle/${item.id}`} key={item.id}>
                     <button className="flex-col ring-transparent  group border-4 border-skin-base focus:border-black  hover:border-green-400  hover:shadow-lg hover:bg-skin-base bg-skin-card flex w-full  rounded-xl shadow-sm overflow-hidden ">
                       <div className="w-full ">
-                        <div className="aspect-w-16 aspect-h-9  rounded-lg">
+                        <div className=" aspect-w-12 bg-white aspect-h-9  rounded-lg">
                           <img
                             src={baseUrl + item.Image[0].url}
-                            className="object-cover"
+                            className="object-contain"
                             alt={item.Image[0].caption}
                           />
                         </div>
                       </div>
                       <div className=" p-2 w-full  h-32 flex flex-col  justify-evenly items-start  ">
                         <div className="flex justify-between items-center w-full">
-                          <p className="px-2 font-bold z-10 md:text-3xl sm:text-xl text-md">
+                          <p className="px-2 font-bold z-10 xl:text-2xl lg:text-xl  sm:text-lg text-md">
                             {item.Name}
                           </p>
 
@@ -236,7 +237,9 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
                           </div>
                         </div>
                         <div className="flex px-2  ">
-                          <div>{allInfo[item.Category]}</div>
+                          <div className="xl:text-lg lg:text-lg  sm:text-base text-sm">
+                            {allInfo[item.Category]}
+                          </div>
                         </div>
                       </div>
                     </button>

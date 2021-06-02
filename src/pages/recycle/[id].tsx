@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import { FC, useEffect, useState } from "react";
-import { AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
+import { FC } from "react";
 import Nav from "~/template/Nav";
 
 const Waste: NextPage<{ data: SmallItem; baseUrl: string }> = ({
@@ -20,6 +19,7 @@ const Waste: NextPage<{ data: SmallItem; baseUrl: string }> = ({
     plastic: "پلاستیک",
     Recyclable: "قابل بازیافت",
     Not_Recyclable: "غیر قابل بازیافت",
+    Limited: "بازیافت محدود",
   };
 
   const thumbnailVariants = {
@@ -57,12 +57,14 @@ const Waste: NextPage<{ data: SmallItem; baseUrl: string }> = ({
         >
           <div className="container mx-auto">
             <section className="p-4 grid grid-cols-12   container mx-auto gap-x-4 gap-y-6">
-              <div className="aspect-w-9 aspect-h-9  col-span-12 sm:col-span-6 md:col-span-4 shadow-lg  rounded-lg">
-                <img
-                  src={baseUrl + data.Image[0].url}
-                  className="object-fill  rounded-lg p-4 bg-skin-card "
-                  alt={data.Image[0].caption}
-                />
+              <div className="w-full   col-span-12 sm:col-span-6 md:col-span-4">
+                <div className="aspect-w-12  aspect-h-9 shadow-lg  rounded-lg">
+                  <img
+                    src={baseUrl + data.Image[0].url}
+                    className="object-contain overflow-hidden  rounded-lg  p-4 bg-skin-card "
+                    alt={data.Image[0].caption}
+                  />
+                </div>
               </div>
               <div className="flex-col p-4 col-span-12 sm:col-span-6 md:col-span-8 bg-skin-card flex w-full  rounded-xl shadow-sm overflow-hidden ">
                 <div className="  w-full  h-32 flex flex-col  justify-evenly items-start  ">
