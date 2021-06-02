@@ -26,13 +26,15 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
   const [inputText, setInputText] = useState("");
 
   const [showCloseBTN, setShowCloseBTN] = useState(false);
-  const allCategories = {
+  const allInfo = {
     glass: "شیشه",
     paper: "کاغذ",
     metal: "فلز",
     dangerous: "خطرناک",
     compost: "کمپوست",
     plastic: "پلاستیک",
+    Recyclable: "قابل بازیافت",
+    Not_Recyclable: "غیر قابل بازیافت",
   };
 
   const [selectedCategory, setSelectedCategory] = useState({
@@ -180,7 +182,7 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
                         className="absolute inset-0 bg-black bg-opacity-40  group-hover:bg-opacity-60 transition-colors duration-200"
                       />
                       <p className=" text-white z-10 md:text-xl sm:text-md text-sm">
-                        {allCategories[e]}
+                        {allInfo[e]}
                       </p>
                     </button>
                   ))}
@@ -223,17 +225,18 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
 
                           <div className="">
                             <Chips
-                              status={item.Recyclable ? "success" : "fail"}
-                              name={
-                                item.Recyclable
-                                  ? "غیر قابل بازیافت"
-                                  : " قابل بازیافت"
+                              status={
+                                allInfo[item.Recyclable] ===
+                                allInfo["Not_Recyclable"]
+                                  ? "fail"
+                                  : "success"
                               }
+                              name={allInfo[item.Recyclable]}
                             />
                           </div>
                         </div>
                         <div className="flex px-2  ">
-                          <div>{allCategories[item.Category]}</div>
+                          <div>{allInfo[item.Category]}</div>
                         </div>
                       </div>
                     </button>

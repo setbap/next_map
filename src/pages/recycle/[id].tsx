@@ -11,14 +11,15 @@ const Waste: NextPage<{ data: SmallItem; baseUrl: string }> = ({
 }) => {
   const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
 
-  const [showCloseBTN, setShowCloseBTN] = useState(false);
-  const allCategories = {
+  const allInfo = {
     glass: "شیشه",
     paper: "کاغذ",
     metal: "فلز",
     dangerous: "خطرناک",
     compost: "کمپوست",
     plastic: "پلاستیک",
+    Recyclable: "قابل بازیافت",
+    Not_Recyclable: "غیر قابل بازیافت",
   };
 
   const thumbnailVariants = {
@@ -54,54 +55,57 @@ const Waste: NextPage<{ data: SmallItem; baseUrl: string }> = ({
           animate="enter"
           exit="exit"
         >
-          <div className="">
-            <section className="p-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 container mx-auto gap-x-4 gap-y-6">
-              <button
-                key={data.id}
-                className="flex-col ring-transparent  group border-4 border-skin-base focus:border-black  hover:border-green-400  hover:shadow-lg hover:bg-skin-base bg-skin-card flex w-full  rounded-xl shadow-sm overflow-hidden "
-              >
-                <div className="w-full ">
-                  <div className="aspect-w-16 aspect-h-9  rounded-lg">
-                    <img
-                      src={baseUrl + data.Image[0].url}
-                      className="object-cover"
-                      alt={data.Image[0].caption}
-                    />
-                  </div>
-                </div>
-                <div className=" p-2 w-full  h-32 flex flex-col  justify-evenly items-start  ">
+          <div className="container mx-auto">
+            <section className="p-4 grid grid-cols-12   container mx-auto gap-x-4 gap-y-6">
+              <div className="aspect-w-9 aspect-h-9  col-span-12 sm:col-span-6 md:col-span-4 shadow-lg  rounded-lg">
+                <img
+                  src={baseUrl + data.Image[0].url}
+                  className="object-fill  rounded-lg p-4 bg-skin-card "
+                  alt={data.Image[0].caption}
+                />
+              </div>
+              <div className="flex-col p-4 col-span-12 sm:col-span-6 md:col-span-8 bg-skin-card flex w-full  rounded-xl shadow-sm overflow-hidden ">
+                <div className="  w-full  h-32 flex flex-col  justify-evenly items-start  ">
                   <div className="flex justify-between items-center w-full">
                     <p className="px-2 font-bold z-10 md:text-3xl sm:text-xl text-md">
                       {data.Name}
                     </p>
-
                     <div className="">
                       <Chips
-                        status={data.Recyclable ? "success" : "fail"}
-                        name={
-                          data.Recyclable ? "غیر قابل بازیافت" : " قابل بازیافت"
+                        status={
+                          allInfo[data.Recyclable] === allInfo["Not_Recyclable"]
+                            ? "fail"
+                            : "success"
                         }
+                        name={allInfo[data.Recyclable]}
                       />
                     </div>
                   </div>
                   <div className="flex px-2  ">
-                    <div>{allCategories[data.Category]}</div>
+                    <div>دسته زباله : {allInfo[data.Category]}</div>
                   </div>
                 </div>
-              </button>
+                {data.UseCases.split("\n").length && (
+                  <div className="w-full  mx-auto  flex flex-wrap justify-start items-center">
+                    <div className="px-1">موارد مصرف</div>
+                    {data.UseCases.split("\n").map((e) => (
+                      <Chips name={e} key={e} status="success" />
+                    ))}
+                  </div>
+                )}
+                <div className="pt-5 grid gap-3 sm:grid-cols-2 grid-cols-1">
+                  <div className="px-2 py-1 border-skin-base rounded-xl border">
+                    رد پا آب
+                    <span className="font-bold"> : {data.WaterFootprint}</span>
+                  </div>
+                  <div className="px-2 py-1 border-skin-base rounded-xl border">
+                    رد پا کربن
+                    <span className="font-bold"> : {data.CarbonFootprint}</span>
+                  </div>
+                </div>
+                <p className=" py-6 text-lg w-full">{data.Description}</p>
+              </div>
             </section>
-            <p className="prose my-4 mx-auto">{data.Description}</p>
-            <div className=" mx-auto prose my-4">
-              {data.UseCases.split("\n").map((e) => (
-                <Chips name={e} key={e} status="success" />
-              ))}
-            </div>
-            <div className="mx-auto text-center">
-              <div>رد پا اب {data.WaterFootprint}</div>
-              <div>رد پا کربن {data.CarbonFootprint}</div>
-              <div> {data.Dry ? "مرطوب" : "خشک"}</div>
-            </div>
-            {/* end waste list */}
           </div>
         </motion.div>
       </div>
