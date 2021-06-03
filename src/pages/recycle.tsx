@@ -104,6 +104,7 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
                   "url(https://cdn.zmescience.com/wp-content/uploads/2020/07/recycling.jpg)",
                 position: "relative",
                 backgroundSize: "cover",
+                backgroundPosition: "50% 60%",
               }}
             >
               <div
@@ -177,9 +178,9 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
                       }}
                       className={`${
                         selectedCategory[e]
-                          ? "ring-4 ring-offset-2 "
-                          : "ring-4 ring-offset-2  ring-transparent border-transparent ring-offset-transparent"
-                      } md:w-24   ring-red-400  sm:w-20 w-16 md:h-24 sm:h-20 h-16 focus:outline-none  group  rounded-full hover:shadow-lg  relative  overflow-hidden flex flex-col items-center justify-center mx-3 my-4 md:my-6`}
+                          ? " ring-red-400 ring-offset-green-400"
+                          : "  ring-transparent  ring-offset-transparent"
+                      } md:w-24  ring-4 ring-offset-2      sm:w-20 w-16 md:h-24 sm:h-20 h-16 focus:outline-none  group  rounded-full hover:shadow-lg  relative  overflow-hidden flex flex-col items-center justify-center mx-3 my-4 md:my-6`}
                     >
                       <div
                         style={{ backdropFilter: "blur(1px)" }}
@@ -196,8 +197,8 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
             </div>
             {/* list header */}
             <div className="w-full ">
-              <h3 className=" container mx-auto  text-2xl py-6">
-                لیست زباله ها
+              <h3 className=" container mx-auto font-bold text-2xl py-6 px-8">
+                لیست پسماندها
               </h3>
             </div>
             {/* end list header */}
