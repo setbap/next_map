@@ -51,6 +51,16 @@ const AsideMenu = ({ open }: Props) => {
             title={"خانه"}
           />
           <AsideNavLink
+            isActive={
+              router.route.startsWith(pagesLinks.index()) &&
+              router.route.endsWith(pagesLinks.index())
+            }
+            id="home-page-aside"
+            to={pagesLinks.recycle()}
+            Icon={BiHome}
+            title={"محاسبه بازیافت"}
+          />
+          <AsideNavLink
             isActive={router.route.startsWith(pagesLinks.map())}
             id="map-page-aside"
             to={pagesLinks.map()}

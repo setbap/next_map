@@ -87,7 +87,7 @@ const Waste: NextPage<{ data: SmallItem; baseUrl: string }> = ({
                     <div>دسته زباله : {allInfo[data.Category]}</div>
                   </div>
                 </div>
-                {data.UseCases.split("\n").length && (
+                {data.UseCases?.split("\n").length && (
                   <div className="w-full  mx-auto  flex flex-wrap justify-start items-center">
                     <div className="px-1">موارد مصرف</div>
                     {data.UseCases.split("\n").map((e) => (
