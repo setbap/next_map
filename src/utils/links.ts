@@ -17,8 +17,10 @@ const encyclopediaItem = ({ item, type }: { item: string; type: string }) =>
 
 const tutorialItem = ({ slug }: { slug: string }) => `/tutorial/${slug}`;
 const recycle = () => `/recycle`;
+const recycleItem = ({ id }: { id: string }) => `/recycle/${id}`;
 
 const pagesLinks = {
+  recycleItem,
   recycle,
   index,
   map,

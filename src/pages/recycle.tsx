@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FC, useEffect, useState } from "react";
 import { AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
 import Nav from "~/template/Nav";
+import { pagesLinks } from "~/utils/links";
 
 export const getStaticProps: GetStaticProps = async () => {
   const rawData = await fetch("https://geonitenviro.nit.ac.ir/api/items");
@@ -101,16 +102,15 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
               style={{
                 backgroundImage:
                   "url(https://cdn.zmescience.com/wp-content/uploads/2020/07/recycling.jpg)",
-
                 position: "relative",
                 backgroundSize: "cover",
               }}
             >
               <div
                 style={{
-                  backgroundColor: "rgba(155 ,11, 71,0.4)",
+                  backgroundColor: "rgba(40 ,40, 40,0.3)",
                   backgroundBlendMode: "color-dodge",
-                  backdropFilter: "blur(15px)",
+                  backdropFilter: "blur(3px)",
                 }}
                 className="absolute inset-0"
               ></div>
@@ -137,7 +137,7 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
                     type="text"
                     value={inputText}
                     onChange={(e) => setInputText(e.target.value)}
-                    placeholder="نام زباله را وارد کنید ( مثلا قوطی رب )"
+                    placeholder="دنبال چه زباله ای میگردی؟ ( مثلا قوطی رب )"
                     className=" focus:border-0 text-sm bg-skin-card h-11  border-skin-muted  outline-none  text-skin-muted  px-1 leading-8 transition-colors duration-200 ease-in-out  sm:text-base relative w-full border-2 rounded-xl placeholder-gray-400  focus:border-skin-primary-relaxed focus:outline-none p-0 py-2 ps-10 pe-9"
                   />
 
@@ -170,13 +170,16 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
                       // @ts-ignore
                       onClick={() => toggleCategory(e, selectedCategory)}
                       style={{
-                        background:
-                          "url(http://sepahanahan.ir/wp-content/uploads/2019/12/choudan-3.jpg)",
+                        // background:
+                        //   "url(http://sepahanahan.ir/wp-content/uploads/2019/12/choudan-3.jpg)",
                         backgroundSize: "cover",
+                        backdropFilter: "blur(8px)",
                       }}
                       className={`${
-                        selectedCategory[e] ? "ring-4 ring-offset-2" : ""
-                      } md:w-24  ring-red-400  sm:w-20 w-16 md:h-24 sm:h-20 h-16 focus:outline-none  group  rounded-full hover:shadow-lg  relative  overflow-hidden flex flex-col items-center justify-center mx-3 my-4 md:my-6`}
+                        selectedCategory[e]
+                          ? "ring-4 ring-offset-2 "
+                          : "ring-4 ring-offset-2  ring-transparent border-transparent ring-offset-transparent"
+                      } md:w-24   ring-red-400  sm:w-20 w-16 md:h-24 sm:h-20 h-16 focus:outline-none  group  rounded-full hover:shadow-lg  relative  overflow-hidden flex flex-col items-center justify-center mx-3 my-4 md:my-6`}
                     >
                       <div
                         style={{ backdropFilter: "blur(1px)" }}
@@ -207,7 +210,10 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
                     selectedCategory[item.Category ?? ""]
                 )
                 .map((item) => (
-                  <Link href={`/recycle/${item.id}`} key={item.id}>
+                  <Link
+                    href={pagesLinks.recycleItem({ id: item.id.toString() })}
+                    key={item.id}
+                  >
                     <button className="flex-col ring-transparent  group border-4 border-skin-base focus:border-black  hover:border-green-400  hover:shadow-lg hover:bg-skin-base bg-skin-card flex w-full  rounded-xl shadow-sm overflow-hidden ">
                       <div className="w-full ">
                         <div className=" aspect-w-12 bg-white aspect-h-9  rounded-lg">
@@ -237,7 +243,7 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
                           </div>
                         </div>
                         <div className="flex px-2  ">
-                          <div className="xl:text-lg lg:text-lg  sm:text-base text-sm">
+                          <div className="xl:text-xl lg:text-lg  sm:text-base text-sm">
                             {allInfo[item.Category]}
                           </div>
                         </div>

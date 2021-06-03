@@ -1,9 +1,8 @@
-import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { AiFillPayCircle } from "react-icons/ai";
 import { BiHome, BiMapAlt } from "react-icons/bi";
-import { BsInfoCircle } from "react-icons/bs";
 import { FaChalkboardTeacher } from "react-icons/fa";
+import { IoTrashBinOutline } from "react-icons/io5";
 import { MdContactMail } from "react-icons/md";
 import { RiArticleLine } from "react-icons/ri";
 import { pagesLinks } from "~/utils/links";
@@ -51,14 +50,11 @@ const AsideMenu = ({ open }: Props) => {
             title={"خانه"}
           />
           <AsideNavLink
-            isActive={
-              router.route.startsWith(pagesLinks.index()) &&
-              router.route.endsWith(pagesLinks.index())
-            }
+            isActive={router.route.startsWith(pagesLinks.recycle())}
             id="home-page-aside"
             to={pagesLinks.recycle()}
-            Icon={BiHome}
-            title={"محاسبه بازیافت"}
+            Icon={IoTrashBinOutline}
+            title={"نوع زباله من"}
           />
           <AsideNavLink
             isActive={router.route.startsWith(pagesLinks.map())}
