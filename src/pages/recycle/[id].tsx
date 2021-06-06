@@ -96,13 +96,21 @@ const Waste: NextPage<{ data: SmallItem; baseUrl: string }> = ({
                   </div>
                 )}
                 <div className="pt-5 grid gap-3 sm:grid-cols-2 grid-cols-1">
-                  <div className="px-2 py-1 border-skin-base rounded-xl border">
+                  <div className="text-lg px-2 py-1 border-skin-base rounded-xl border">
                     رد پا آب
                     <span className="font-bold"> : {data.WaterFootprint}</span>
+                    <span className="font-normal text-base">
+                      {" "}
+                      {data.WaterFootprintUnit ?? ""}
+                    </span>
                   </div>
-                  <div className="px-2 py-1 border-skin-base rounded-xl border">
+                  <div className="text-lg px-2 py-1 border-skin-base rounded-xl border">
                     رد پا کربن
                     <span className="font-bold"> : {data.CarbonFootprint}</span>
+                    <span className="font-normal text-base">
+                      {" "}
+                      {data.CarbonFootprintUnit ?? ""}
+                    </span>
                   </div>
                 </div>
                 <p className=" py-6 text-lg w-full">{data.Description}</p>
@@ -169,6 +177,8 @@ export interface SmallItem {
   Recyclable: string;
   Category: string;
   Image?: ImageEntity[] | null;
+  CarbonFootprintUnit?: string;
+  WaterFootprintUnit?: string;
 }
 export interface ImageEntity {
   id: number;
