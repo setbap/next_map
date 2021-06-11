@@ -58,9 +58,9 @@ const LandFill: NextPage<{
                   ></iframe>
                 </div>
               </div>
-              <div className="w-full md:w-1/2  text-center rounded-xl">
-                <div className=" aspect-w-16 aspect-h-9  text-center ">
-                  <img src="/landfill/mazandaran.jpg" className="object-fill" />
+              <div className="w-full md:w-1/2  text-center rounded-xl ms-2">
+                <div className=" aspect-w-16 aspect-h-9  text-center rounded-lg overflow-hidden ">
+                  <img src="/new_mazandaran.png" className="object-fill" />
                 </div>
               </div>
             </div>

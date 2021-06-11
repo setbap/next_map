@@ -13,7 +13,8 @@ import { GetStaticProps, NextPage } from "next";
 
 enum LandFillInfoState {
   Moarefi = 0,
-  Nemodar = 1,
+  MokhtasatEqlimi = 1,
+  Shirabe = 2,
 }
 
 const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
@@ -136,17 +137,33 @@ const LandFill: NextPage<{
 
               <button
                 className={`${
-                  infoState === LandFillInfoState.Nemodar
+                  infoState === LandFillInfoState.MokhtasatEqlimi
                     ? "text-skin-primary border-skin-primary"
                     : "border-transparent"
                 } h-full px-3 mt-1 outline-none focus:outline-none border-b-4 
               `}
                 onClick={() => {
                   scrollTo(myRef);
-                  return setInfoState(LandFillInfoState.Nemodar);
+                  return setInfoState(LandFillInfoState.MokhtasatEqlimi);
                 }}
               >
-                جزییات
+                مشخصات اقلیمی
+              </button>
+              <div className="md:mx-24 sm:hidden md:block" />
+
+              <button
+                className={`${
+                  infoState === LandFillInfoState.Shirabe
+                    ? "text-skin-primary border-skin-primary"
+                    : "border-transparent"
+                } h-full px-3 mt-1 outline-none focus:outline-none border-b-4 
+`}
+                onClick={() => {
+                  scrollTo(myRef);
+                  return setInfoState(LandFillInfoState.Shirabe);
+                }}
+              >
+                شیرابه
               </button>
             </div>
             <div ref={myRef} />
@@ -210,7 +227,7 @@ const LandFill: NextPage<{
                               <div key={i.hash} className="rounded-md">
                                 <div className="aspect-w-16 aspect-h-10">
                                   <img
-                                    src={`${baseUrl}${i.formats.thumbnail.url}`}
+                                    src={`${baseUrl}${i.formats.small.url}`}
                                     className=""
                                   />
                                 </div>
@@ -296,7 +313,7 @@ const LandFill: NextPage<{
               </AnimatePresence>
 
               <AnimatePresence>
-                {infoState === LandFillInfoState.Nemodar && (
+                {infoState === LandFillInfoState.MokhtasatEqlimi && (
                   <motion.div className=" w-full mx-auto grid md:grid-cols-2 grid-cols-1  gap-4">
                     <InfoCard
                       className="aspect-w-16 aspect-h-10 col-span-1"
@@ -348,6 +365,21 @@ const LandFill: NextPage<{
                     </InfoCard>
 
                     <InfoCard
+                      className="md:col-span-2 text-center flex justify-center col-span-1 p-4"
+                      key2={"1wy"}
+                    >
+                      <img
+                        src={`${baseUrl}${data.GolbadImage.formats.large.url}`}
+                      />
+                    </InfoCard>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <AnimatePresence>
+                {infoState === LandFillInfoState.Shirabe && (
+                  <motion.div className=" w-full mx-auto grid md:grid-cols-2 grid-cols-1  gap-4">
+                    <InfoCard
                       className="w-full   md:col-span-2 col-span-1 rounded-lg overflow-hidden  "
                       key2={"1wy"}
                     >
@@ -397,7 +429,9 @@ const InfoCard: FC<{ key2?: string; className?: string }> = ({
 export default LandFill;
 
 export async function getStaticPaths() {
-  const rawData = await fetch("https://geonitenviro.nit.ac.ir/api/landfills");
+  const rawData = await fetch(
+    "https://geonitenviro.nit.ac.ir/api/landfillNames"
+  );
   const data: Landfill[] = await rawData.json();
 
   // Get the paths we want to pre-render based on posts
@@ -415,14 +449,16 @@ export const getStaticProps: GetStaticProps<{}, { id: string }> = async ({
     `https://geonitenviro.nit.ac.ir/api/landfills/${id}`
   );
 
-  const rawCities = await fetch(`https://geonitenviro.nit.ac.ir/api/landfills`);
-  const data: Landfill = await rawData.json();
-  const cities: Landfill[] = await rawCities.json();
+  const rawCities = await fetch(
+    `https://geonitenviro.nit.ac.ir/api/landfillNames`
+  );
+  const data = await rawData.json();
+  const cities = await rawCities.json();
   return {
     props: {
       data,
       baseUrl: "https://geonitenviro.nit.ac.ir/api",
-      cities: cities.map((e) => ({ name: e.Name, id: e.id })),
+      cities: cities,
     },
     revalidate: 10,
   };
