@@ -10,10 +10,7 @@ import { Carousel } from "react-responsive-carousel";
 import CitiesButtons from "~/components/landfill/CitiesButton";
 import Shirabe from "~/components/landfill/shirabe";
 import { GetStaticProps, NextPage } from "next";
-import dynamic from "next/dynamic";
-const SimpleMap = dynamic(() => import("@components/SimpleMap"), {
-  ssr: false,
-});
+
 enum LandFillInfoState {
   Moarefi = 0,
   Nemodar = 1,
@@ -99,16 +96,14 @@ const LandFill: NextPage<{
             <CitiesButtons currentId={data.id.toString()} cities={cities} />
 
             <div className=" w-full mx-auto text-center rounded-xl flex-wrap md:flex-nowrap flex-row  flex ">
-              <div className="w-full md:w-4/12 md:mb-0 mb-4 overflow-hidden  mx-2 text-center rounded-xl">
-                {/* <div className="aspect-w-8 aspect-h-9  rounded-lg shadow-lg"> */}
-                <SimpleMap
-                  key={data.id}
-                  className={"aspect-w-8 aspect-h-9   rounded-lg shadow-lg"}
-                  lat={parseFloat(data.Latitude)}
-                  zoom={12}
-                  lon={parseFloat(data.Longitude)}
-                />
-                {/* </div> */}
+              <div className="w-full md:w-4/12 md:mb-0 mb-4  mx-2 text-center rounded-xl">
+                <div className="aspect-w-8 aspect-h-9  rounded-lg shadow-lg">
+                  <iframe
+                    className=" rounded-xl"
+                    src={data.GoogleEarthLink}
+                    loading="lazy"
+                  ></iframe>
+                </div>
               </div>
 
               <div className=" bg-green-100 w-full  rounded-lg md:w-8/12   font-extrabold shadow-lg">
@@ -435,6 +430,7 @@ export const getStaticProps: GetStaticProps<{}, { id: string }> = async ({
 
 export interface Landfill {
   id: number;
+  GoogleEarthLink: string;
   Latitude: string;
   Longitude: string;
   Video3DLink: null | string;
