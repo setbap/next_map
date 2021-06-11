@@ -1,11 +1,10 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { FC } from "react";
 import { pagesLinks } from "~/utils/links";
 
 const CitiesButtons: FC<{
   cities: {
-    name: string;
+    Name: string;
     id: number;
   }[];
   currentId: string;
@@ -17,7 +16,7 @@ const CitiesButtons: FC<{
           key={city.id}
           isActive={currentId === city.id.toString()}
           cityName={city.id.toString()}
-          name={city.name}
+          name={city.Name}
         />
       ))}
     </div>

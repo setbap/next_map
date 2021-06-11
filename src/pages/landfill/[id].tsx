@@ -23,7 +23,7 @@ const LandFill: NextPage<{
   data: Landfill;
   baseUrl: string;
   cities: {
-    name: string;
+    Name: string;
     id: number;
   }[];
 }> = ({ baseUrl, data, cities }) => {
@@ -257,19 +257,12 @@ const LandFill: NextPage<{
                           >
                             {data.AparatVideosLinks?.split("\n").map(
                               (url, index) => (
-                                <div>
-                                  <div
-                                    key={index}
-                                    className="aspect-w-16 rounded-lg overflow-hidden  aspect-h-10"
-                                  >
-                                    <iframe
-                                      allowFullScreen
-                                      className="rounded-lg "
-                                      src={url}
-                                    />
+                                <div key={index} className="rounded-md">
+                                  <div className="aspect-w-16 aspect-h-10">
+                                    <iframe allowFullScreen src={url} />
                                   </div>
                                   <p className="text-skin-base opacity-80 absolute bottom-8 start-5 h-10 rounded-lg bg-skin-base p-2 align-middle ">
-                                    ویدیو های محل دفن زباله های {data.Name}
+                                    عکس های محل دفن زباله های {data.Name}
                                   </p>
                                 </div>
                               )

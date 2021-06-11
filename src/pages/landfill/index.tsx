@@ -9,7 +9,7 @@ const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
 
 const LandFill: NextPage<{
   cities: {
-    name: string;
+    Name: string;
     id: number;
   }[];
 }> = ({ cities }) => {
