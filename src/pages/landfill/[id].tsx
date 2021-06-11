@@ -1,8 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
-import Img from "next/image";
 import Head from "next/head";
 import Nav from "~/template/Nav";
-import chartData from "~/../public/chart_data.json";
 import ChartBox from "~/components/ChartBox";
 import Footer from "~/template/Footer";
 import ChartBoxAIO from "~/components/ChartBoxAIO";
@@ -10,7 +8,12 @@ import { FC, MutableRefObject, useRef, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import CitiesButtons from "~/components/landfill/CitiesButton";
-
+import Shirabe from "~/components/landfill/shirabe";
+import { GetStaticProps, NextPage } from "next";
+import dynamic from "next/dynamic";
+const SimpleMap = dynamic(() => import("@components/SimpleMap"), {
+  ssr: false,
+});
 enum LandFillInfoState {
   Moarefi = 0,
   Nemodar = 1,
@@ -18,7 +21,14 @@ enum LandFillInfoState {
 
 const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
 
-const LandFill = () => {
+const LandFill: NextPage<{
+  data: Landfill;
+  baseUrl: string;
+  cities: {
+    name: string;
+    id: number;
+  }[];
+}> = ({ baseUrl, data, cities }) => {
   const thumbnailVariants = {
     initial: { scale: 0.9, opacity: 0 },
     enter: { scale: 1, opacity: 1, transition },
@@ -41,7 +51,7 @@ const LandFill = () => {
   return (
     <>
       <Head>
-        <title>{" لندفیل ساری "}</title>
+        <title>{` لندفیل  ${data.Name} `}</title>
         <meta property="og:title" content={"لندفیل ها"} />
         <meta
           property="og:url"
@@ -50,54 +60,61 @@ const LandFill = () => {
         <meta property="og:image" content={"/og/landfil.png"} />
         <meta
           property="og:description"
-          content={"معرفی لندفیل ساری به همراه ویدیو و عکس "}
+          content={`معرفی لندفیل  ${data.Name} به همراه ویدیو و عکس `}
         />
         <meta property="og:locale " content="fa_IR" />
       </Head>
       <Nav />
       <div className="flex  overflow-hidden ">
         <motion.div
-          layout
           className="w-full bg-skin-landfill   overflow-auto"
           variants={thumbnailVariants}
           initial="exit"
           animate="enter"
           exit="exit"
         >
-          <div className=" max-w-7xl   mx-auto w-full   space-y-6 relative">
+          <div className=" max-w-7xl   mx-auto w-full  space-y-6 relative">
             <div className=" w-full mt-4 mx-auto text-center rounded-xl flex-wrap md:flex-nowrap flex-row  flex ">
               <div className="w-full md:w-1/2 mx-2 text-center rounded-xl">
                 <div className="aspect-w-16 aspect-h-9  overflow-hidden bg-black  rounded-lg shadow-lg">
-                  <img src="/landfill/sari/sari.jpg" className="object-fill" />
-                </div>
-              </div>
-              <div className="w-full md:w-1/2 mx-2 text-center rounded-xl my-2 md:my-0 ">
-                <div className="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-lg">
-                  <Img
-                    src="/landfill/sari/sari.gif"
-                    layout="fill"
+                  <img
+                    src={`${baseUrl}${data.CityImage.formats.medium.url}`}
                     className="object-fill"
                   />
                 </div>
               </div>
+              <div className="w-full md:w-1/2 mx-2 text-center rounded-xl my-2 md:my-0 ">
+                <div className="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-lg">
+                  <video
+                    src={`${baseUrl}${data.GoogleEarthVideo.url}`}
+                    preload="metadata"
+                    loop
+                    controls={false}
+                    autoPlay
+                    className="object-fill"
+                  ></video>
+                </div>
+              </div>
             </div>
+            <CitiesButtons currentId={data.id.toString()} cities={cities} />
 
             <div className=" w-full mx-auto text-center rounded-xl flex-wrap md:flex-nowrap flex-row  flex ">
-              <div className="w-full md:w-4/12 md:mb-0 mb-4 mx-2 text-center rounded-xl">
-                <div className="aspect-w-8 aspect-h-9  rounded-lg shadow-lg">
-                  <iframe
-                    className=" rounded-xl"
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d8711.262160066999!2d53.74685816081104!3d36.15139472243679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2s!4v1619804055159!5m2!1sen!2s"
-                    loading="lazy"
-                  ></iframe>
-                </div>
+              <div className="w-full md:w-4/12 md:mb-0 mb-4 overflow-hidden  mx-2 text-center rounded-xl">
+                {/* <div className="aspect-w-8 aspect-h-9  rounded-lg shadow-lg"> */}
+                <SimpleMap
+                  key={data.id}
+                  className={"aspect-w-8 aspect-h-9   rounded-lg shadow-lg"}
+                  lat={parseFloat(data.Latitude)}
+                  zoom={12}
+                  lon={parseFloat(data.Longitude)}
+                />
+                {/* </div> */}
               </div>
 
               <div className=" bg-green-100 w-full  rounded-lg md:w-8/12   font-extrabold shadow-lg">
                 <div className="aspect-w-16 aspect-h-9  rounded-lg shadow-lg">
                   <iframe
-                    src="https://www.aparat.com/video/video/embed/videohash/peGtN/vt/frame"
-                    title="محل دفن زباله های ساری"
+                    src={data.Video3DLink}
                     className="rounded-lg"
                     allowFullScreen
                   ></iframe>
@@ -146,44 +163,20 @@ const LandFill = () => {
                       className="my-4 bg-skin-base rounded-lg font-bold shadow-lg
                       text-justify prose-sm flex-col justify-center items-center   p-4 "
                     >
-                      <h2>معرفی لندفیل ساری </h2>
-                      <p
-                        className="
-                      "
-                      >
-                        ساری مرکز استان و بزرگترین شهر مازندران می باشد. شهرستان
-                        ساری از پنج شهر ساری، کیاسر، فریم، پایین هولار، فرح آباد
-                        و شش بخش مرکزی، دودانگه، چهاردانگه، کلیجان رستاق، رودپی
-                        و رودپی شمالی تشکیل شده‌است. طبق سرشماری سال ۹۵ شهرستان
-                        ساری ۵۰۴ هزار و ۲۹۸ نفر جمعیت دارد. شهر ساری با جمعیت
-                        ۳۰۹۸۲۰ نفر و وسعت ۳۰ کیلومتر مربع پرجمعیت‌ترین شهر این
-                        استان است. ارتفاع ساری از سطح دریا ۴۰ متر است. از سال
-                        1383زباله های شهرستان ساری که در حال حاضر میزان آن به
-                        300 تن می رسد در منطقه پشت کوه چهاردانگه ساری دفن می
-                        شود. دفن غیراصولی زباله و فاصله زیاد این محل از شهر ساری
-                        مشکلات بسیار زیادی را برای اهالی منطقه و مسیرهای تردد
-                        این ناحیه به وجود آورده است. این محل در ۱۱۰ کیلومتری شهر
-                        ساری و در ۴۰ کیلومتری کیاسر (مرکز بخش چهار دانگه) و ۱۰۵
-                        کیلومتری سمنان، واقع شده است. مساحت این محل در حدود 10
-                        هکتار است.
-                      </p>
+                      <h2>معرفی لندفیل {data.Name} </h2>
+                      <p className="">{data.Description}</p>
                     </motion.div>
 
                     <motion.div className=" w-full mx-auto grid md:grid-cols-4 grid-cols-1 space-y-2 md:space-y-0  md:gap-4">
                       <div className="col-span-4 md:col-span-2 overflow-hidden">
-                        <InfoCard
-                          className="aspect-w-16 aspect-h-9"
-                          key2={" 1y"}
-                        >
+                        <InfoCard className="aspect-w-16 rounded-lg overflow-hidden  aspect-h-10">
                           <iframe
                             allowFullScreen
-                            className=""
-                            src="https://www.aparat.com/video/video/embed/videohash/peGtN/vt/frame"
-                            title="محل دفن زباله های ساری                            "
-                          ></iframe>
+                            className="  rounded-lg overflow-hidden"
+                            src={data.TimelapseVideoLink}
+                          />
                         </InfoCard>
                       </div>
-
                       <div className="col-span-4 md:col-span-2 overflow-hidden">
                         <InfoCard
                           className="aspect-w-16 aspect-h-9"
@@ -192,46 +185,83 @@ const LandFill = () => {
                           <a
                             className="aspect-w-16 aspect-h-9"
                             target="_blank"
-                            href="https://www.booked.net/weather/kiasar-w262836"
+                            href="https://www.booked.net/weather/babol-w262797"
                           >
                             <img
                               className=" overflow-hidden  rounded-lg "
-                              src="https://w.bookcdn.com/weather/picture/1_w262836_1_1_137AE9_240_ffffff_333333_08488D_1_ffffff_333333_0_6.png?scode=2&domid=w209&anc_id=81720"
+                              src="https://w.bookcdn.com/weather/picture/2_w262798_1_1_009fde_250_ffffff_333333_08488D_1_ffffff_333333_0_6.png?scode=124&domid=w209&anc_id=99031"
                               alt="booked.net"
                             />
                           </a>
                         </InfoCard>
                       </div>
-
                       <div
                         style={{ direction: "ltr" }}
                         className="col-span-4 md:col-span-2 "
                       >
                         <InfoCard
-                          className="aspect-w-16  aspect-h-10"
+                          className="aspect-w-16  aspect-h-10 rounded-md overflow-hidden"
                           key2="che"
                         >
                           <Carousel
-                            className=" rounded-lg "
+                            className=" rounded-lg overflow-hidden"
                             infiniteLoop
                             swipeable
                             interval={1500}
                             useKeyboardArrows={true}
                             showThumbs={false}
                           >
-                            {[1, 2, 3, 4].map((i) => (
-                              <div key={"gallery" + i} className="p-2  ">
-                                <div className="aspect-w-16 aspect-h-9">
+                            {data.ImagesAlbum.map((i) => (
+                              <div key={i.hash} className="rounded-md">
+                                <div className="aspect-w-16 aspect-h-10">
                                   <img
-                                    src={`/landfill/sari/gallery/${i}.jpg`}
+                                    src={`${baseUrl}${i.formats.thumbnail.url}`}
                                     className=""
                                   />
                                 </div>
-                                <p className="text-skin-base opacity-80 absolute bottom-8 start-5 h-10 rounded-lg bg-skin-base p-2 align-middle w-56">
-                                  محل دفن زباله های ساری
+                                <p className="text-skin-base opacity-80 absolute bottom-8 start-5 h-10 rounded-lg bg-skin-base p-2 align-middle ">
+                                  عکس های محل دفن زباله های {data.Name}
                                 </p>
                               </div>
                             ))}
+                          </Carousel>
+                        </InfoCard>
+                      </div>
+                      <div
+                        style={{ direction: "ltr" }}
+                        className="col-span-4 md:col-span-2 "
+                      >
+                        <InfoCard
+                          className="aspect-w-16  aspect-h-10 rounded-md overflow-hidden"
+                          key2="che"
+                        >
+                          <Carousel
+                            className=" rounded-lg overflow-hidden "
+                            infiniteLoop
+                            swipeable
+                            interval={1500}
+                            useKeyboardArrows={true}
+                            showThumbs={false}
+                          >
+                            {data.AparatVideosLinks?.split("\n").map(
+                              (url, index) => (
+                                <div>
+                                  <div
+                                    key={index}
+                                    className="aspect-w-16 rounded-lg overflow-hidden  aspect-h-10"
+                                  >
+                                    <iframe
+                                      allowFullScreen
+                                      className="rounded-lg "
+                                      src={url}
+                                    />
+                                  </div>
+                                  <p className="text-skin-base opacity-80 absolute bottom-8 start-5 h-10 rounded-lg bg-skin-base p-2 align-middle ">
+                                    ویدیو های محل دفن زباله های {data.Name}
+                                  </p>
+                                </div>
+                              )
+                            )}
                           </Carousel>
                         </InfoCard>
                       </div>
@@ -240,39 +270,13 @@ const LandFill = () => {
                           className="aspect-w-16 rounded-lg overflow-hidden  aspect-h-10"
                           key2={"1y"}
                         >
-                          <iframe
+                          <video
+                            preload="metadata"
+                            loop
+                            controls={false}
+                            autoPlay
                             className="  rounded-lg overflow-hidden"
-                            allowFullScreen
-                            loading="lazy"
-                            src="https://www.aparat.com/video/video/embed/videohash/bTjiU/vt/frame"
-                            title="تایم لپس محل دفن زباله های ساری در کیاسر"
-                          />
-                        </InfoCard>
-                      </div>
-                      <div className="col-span-4 md:col-span-2 overflow-hidden">
-                        <InfoCard
-                          className="aspect-w-16 rounded-lg overflow-hidden  aspect-h-10"
-                          key2={" 1y"}
-                        >
-                          <iframe
-                            allowFullScreen
-                            className=""
-                            src="https://www.aparat.com/video/video/embed/videohash/XH68M/vt/frame"
-                            title="محل دفن قدیمی زباله های شهر ساری                            "
-                          ></iframe>
-                        </InfoCard>
-                      </div>
-                      <div className="col-span-4 md:col-span-2 ">
-                        <InfoCard
-                          className="aspect-w-16 rounded-lg overflow-hidden  aspect-h-10"
-                          key2={"1y"}
-                        >
-                          <iframe
-                            className="  rounded-lg overflow-hidden"
-                            allowFullScreen
-                            loading="lazy"
-                            src="https://www.aparat.com/video/video/embed/videohash/mbfi7/vt/frame"
-                            title="تایم لپس محل دفن قدیمی زباله های ساری"
+                            src={`${baseUrl}${data.LiveVideo1.url}`}
                           />
                         </InfoCard>
                       </div>
@@ -281,24 +285,13 @@ const LandFill = () => {
                           className="aspect-w-16 rounded-lg overflow-hidden  aspect-h-10"
                           key2={"1y"}
                         >
-                          <Img
+                          <video
+                            preload="metadata"
+                            loop
+                            controls={false}
+                            autoPlay
                             className="  rounded-lg overflow-hidden"
-                            layout="fill"
-                            loading="lazy"
-                            src="/landfill/live.gif"
-                          />
-                        </InfoCard>
-                      </div>
-                      <div className="col-span-4 md:col-span-2 ">
-                        <InfoCard
-                          className="aspect-w-16 rounded-lg overflow-hidden  aspect-h-10"
-                          key2={"1y"}
-                        >
-                          <Img
-                            className="  rounded-lg overflow-hidden"
-                            layout="fill"
-                            loading="lazy"
-                            src="/landfill/plate_recog.gif"
+                            src={`${baseUrl}${data.LiveVideo2.url}`}
                           />
                         </InfoCard>
                       </div>
@@ -316,7 +309,7 @@ const LandFill = () => {
                     >
                       <ChartBox
                         title="نمودار میزان بارش در طی ماه های سال"
-                        data={chartData}
+                        data={data.ChartDetails}
                         areaDataKey="rain"
                         xAxisDataKey="month"
                       />
@@ -327,7 +320,7 @@ const LandFill = () => {
                     >
                       <ChartBox
                         title="نمودار میزان تبخیر در طی ماه های سال"
-                        data={chartData}
+                        data={data.ChartDetails}
                         areaDataKey="eva"
                         xAxisDataKey="month"
                       />
@@ -338,7 +331,7 @@ const LandFill = () => {
                     >
                       <ChartBox
                         title="نمودار میزان دما در طی ماه های سال"
-                        data={chartData}
+                        data={data.ChartDetails}
                         areaDataKey="temp"
                         xAxisDataKey="month"
                       />
@@ -349,7 +342,7 @@ const LandFill = () => {
                     >
                       <ChartBoxAIO
                         title="نمودار  ماه های سال"
-                        data={chartData}
+                        data={data.ChartDetails}
                         areaDataKey={[
                           { name: "temp", persian: "دما" },
                           { name: "eva", persian: "تبخیر" },
@@ -360,15 +353,10 @@ const LandFill = () => {
                     </InfoCard>
 
                     <InfoCard
-                      className="aspect-w-9 w-full aspect-h-2 md:col-span-2 col-span-1 rounded-lg overflow-hidden  "
+                      className="w-full   md:col-span-2 col-span-1 rounded-lg overflow-hidden  "
                       key2={"1wy"}
                     >
-                      <Img
-                        className="  rounded-lg overflow-hidden"
-                        layout="fill"
-                        loading="lazy"
-                        src="/landfill/mohasebe.png"
-                      />
+                      <Shirabe shirabeData={data.ChartDetails} />
                     </InfoCard>
                   </motion.div>
                 )}
@@ -384,17 +372,15 @@ const LandFill = () => {
   );
 };
 
-const InfoCard: FC<{ key2: string; height?: number; className?: string }> = ({
+const InfoCard: FC<{ key2?: string; className?: string }> = ({
   children,
-  key2,
+
   className,
-  height,
 }) => {
   const thumbnailVariants = {
-    initial: { scale: 0.9, opacity: 0, height: 0 },
-    enter: { scale: 1, height: height, opacity: 1, transition },
+    initial: { scale: 0.9, opacity: 0 },
+    enter: { scale: 1, opacity: 1, transition },
     exit: {
-      height: 0,
       opacity: 0,
       transition: { ...transition, duration: 0.3 },
     },
@@ -402,12 +388,11 @@ const InfoCard: FC<{ key2: string; height?: number; className?: string }> = ({
 
   return (
     <motion.div
-      key={key2}
       variants={thumbnailVariants}
       initial="exit"
       animate="enter"
       exit="exit"
-      className={`bg-skin-base   rounded-lg  font-bold shadow-lg ${className}`}
+      className={`bg-skin-card   rounded-lg  font-bold shadow-lg ${className}`}
     >
       {children}
     </motion.div>
@@ -415,3 +400,113 @@ const InfoCard: FC<{ key2: string; height?: number; className?: string }> = ({
 };
 
 export default LandFill;
+
+export async function getStaticPaths() {
+  const rawData = await fetch("https://geonitenviro.nit.ac.ir/api/landfills");
+  const data: Landfill[] = await rawData.json();
+
+  // Get the paths we want to pre-render based on posts
+  const paths = data.map((post) => ({
+    params: { id: post.id.toString() },
+  }));
+
+  return { paths, fallback: "blocking" };
+}
+
+export const getStaticProps: GetStaticProps<{}, { id: string }> = async ({
+  params: { id },
+}) => {
+  const rawData = await fetch(
+    `https://geonitenviro.nit.ac.ir/api/landfills/${id}`
+  );
+
+  const rawCities = await fetch(`https://geonitenviro.nit.ac.ir/api/landfills`);
+  const data: Landfill = await rawData.json();
+  const cities: Landfill[] = await rawCities.json();
+  return {
+    props: {
+      data,
+      baseUrl: "https://geonitenviro.nit.ac.ir/api",
+      cities: cities.map((e) => ({ name: e.Name, id: e.id })),
+    },
+    revalidate: 10,
+  };
+};
+
+export interface Landfill {
+  id: number;
+  Latitude: string;
+  Longitude: string;
+  Video3DLink: null | string;
+  Description: string;
+  TimelapseVideoLink: string;
+  AparatVideosLinks: null | string;
+  ChartDetails: null;
+  publishedAt: Date;
+  createdAt: Date;
+  updatedAt: Date;
+  Name: string;
+  GoogleEarthVideo: CityImage;
+  CityImage: CityImage;
+  LiveVideo1: CityImage;
+  LiveVideo2: CityImage;
+  ImagesAlbum: CityImage[];
+  VideosAlbum: any[];
+  GolbadImage: CityImage;
+}
+
+export interface CityImage {
+  id: number;
+  name: string;
+  alternativeText: string;
+  caption: string;
+  width: number | null;
+  height: number | null;
+  formats: Formats | null;
+  hash: string;
+  ext: EXT;
+  mime: MIME;
+  size: number;
+  url: string;
+  previewURL: null;
+  provider: Provider;
+  providerMetadata: null;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export enum EXT {
+  EXTJPG = ".JPG",
+  Jpg = ".jpg",
+  Mp4 = ".mp4",
+  PNG = ".png",
+}
+
+export interface Formats {
+  large?: Large;
+  small?: Large;
+  medium?: Large;
+  thumbnail: Large;
+}
+
+export interface Large {
+  ext: EXT;
+  url: string;
+  hash: string;
+  mime: MIME;
+  name: string;
+  path: null;
+  size: number;
+  width: number;
+  height: number;
+}
+
+export enum MIME {
+  ImageJPEG = "image/jpeg",
+  ImagePNG = "image/png",
+  VideoMp4 = "video/mp4",
+}
+
+export enum Provider {
+  Local = "local",
+}

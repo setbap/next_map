@@ -3,10 +3,16 @@ import Head from "next/head";
 import Nav from "~/template/Nav";
 import Footer from "~/template/Footer";
 import CitiesButtons from "~/components/landfill/CitiesButton";
+import { GetStaticProps, NextPage } from "next";
 
 const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
 
-const LandFill = () => {
+const LandFill: NextPage<{
+  cities: {
+    name: string;
+    id: number;
+  }[];
+}> = ({ cities }) => {
   const thumbnailVariants = {
     initial: { scale: 0.9, opacity: 0 },
     enter: { scale: 1, opacity: 1, transition },
@@ -58,7 +64,7 @@ const LandFill = () => {
                 </div>
               </div>
             </div>
-            <CitiesButtons />
+            <CitiesButtons cities={cities} currentId={"-1"} />
             <div className="     w-full text-center rounded-xl flex-wrap md:flex-nowrap flex-row  ">
               <div className=" text-center md:shadow-none rounded-xl">
                 <div className=" md:aspect-h-2    aspect-w-16 aspect-h-9   rounded-lg ">
@@ -82,3 +88,15 @@ const LandFill = () => {
 };
 
 export default LandFill;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const rawCities = await fetch(`https://geonitenviro.nit.ac.ir/api/landfills`);
+
+  const cities: any = await rawCities.json();
+  return {
+    props: {
+      cities: cities.map((e) => ({ name: e.Name, id: e.id })),
+    },
+    revalidate: 10,
+  };
+};

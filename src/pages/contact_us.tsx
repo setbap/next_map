@@ -46,7 +46,7 @@ const ContactUs = () => {
           <section className="text-skin-muted body-font flex-1">
             <div className="container px-5 py-4 mx-auto flex lg:flex-row flex-col">
               <div className="lg:w-1/2 flex-col   rounded-lg  sm:mx-3  flex items-end justify-start relative">
-                <UniMap />
+                <UniMap lon={52.680423} lat={36.561673} />
               </div>
               <div className="w-10 block lg:hidden" />
               <div className="lg:w-1/2 flex flex-col md:ms-auto w-full px-2 lg:py-8 mt-8 ">

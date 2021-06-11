@@ -8,20 +8,20 @@ import { usePopper } from "react-popper";
 import ChartBox from "~/components/ChartBox";
 import { InfoCard } from "~/components/landfill/InfoCard";
 
-const shirabeData = [
-  { month: "مهر", rain_monthly: 137.85, tabkhir: 68, dayPerMonth: 30 },
-  { month: "آبان", rain_monthly: 98.75, tabkhir: 47.05, dayPerMonth: 30 },
-  { month: "آذر", rain_monthly: 97.35, tabkhir: 34.4, dayPerMonth: 30 },
-  { month: "دی", rain_monthly: 73.75, tabkhir: 28.85, dayPerMonth: 30 },
-  { month: "بهمن", rain_monthly: 86.6, tabkhir: 29.4, dayPerMonth: 30 },
-  { month: "اسفند", rain_monthly: 93.3, tabkhir: 42.95, dayPerMonth: 29 },
-  { month: "فروردین", rain_monthly: 72.9, tabkhir: 67.75, dayPerMonth: 31 },
-  { month: "اردیبهشت", rain_monthly: 71.55, tabkhir: 85.6, dayPerMonth: 31 },
-  { month: "خرداد", rain_monthly: 60.1, tabkhir: 107.35, dayPerMonth: 31 },
-  { month: "تیر", rain_monthly: 71.05, tabkhir: 106.3, dayPerMonth: 31 },
-  { month: "مرداد", rain_monthly: 66.6, tabkhir: 122.2, dayPerMonth: 31 },
-  { month: "شهریور", rain_monthly: 111.95, tabkhir: 97.35, dayPerMonth: 31 },
-];
+// const shirabeData = [
+//   { month: "مهر", rain: 137.85, eva: 68, dayPerMonth: 30 },
+//   { month: "آبان", rain: 98.75, eva: 47.05, dayPerMonth: 30 },
+//   { month: "آذر", rain: 97.35, eva: 34.4, dayPerMonth: 30 },
+//   { month: "دی", rain: 73.75, eva: 28.85, dayPerMonth: 30 },
+//   { month: "بهمن", rain: 86.6, eva: 29.4, dayPerMonth: 30 },
+//   { month: "اسفند", rain: 93.3, eva: 42.95, dayPerMonth: 29 },
+//   { month: "فروردین", rain: 72.9, eva: 67.75, dayPerMonth: 31 },
+//   { month: "اردیبهشت", rain: 71.55, eva: 85.6, dayPerMonth: 31 },
+//   { month: "خرداد", rain: 60.1, eva: 107.35, dayPerMonth: 31 },
+//   { month: "تیر", rain: 71.05, eva: 106.3, dayPerMonth: 31 },
+//   { month: "مرداد", rain: 66.6, eva: 122.2, dayPerMonth: 31 },
+//   { month: "شهریور", rain: 111.95, eva: 97.35, dayPerMonth: 31 },
+// ];
 
 interface FormType {
   masahat_faal: number;
@@ -38,7 +38,14 @@ interface FormType {
   zarib_tabdil_tabkhir_vaqei: number;
 }
 
-const Shirabe = () => {
+const Shirabe: FC<{
+  shirabeData: {
+    month: string;
+    rain: number;
+    eva: number;
+    dayPerMonth: number;
+  }[];
+}> = ({ shirabeData }) => {
   const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
   const minValueMassege = (min: number) => ({
     value: min,
@@ -63,8 +70,8 @@ const Shirabe = () => {
     fromData: FormType;
   }) =>
     data.map((month) => {
-      const rainToMetter = month.rain_monthly / 1000;
-      const tabkhirToMetter = month.tabkhir / 1000;
+      const rainToMetter = month.rain / 1000;
+      const tabkhirToMetter = month.eva / 1000;
       const tabkhirVaqeiAE = tabkhirToMetter * fromData.zarib_tabdil_tabkhir;
       const bareshMoaser = Math.abs(rainToMetter - tabkhirVaqeiAE);
       const shirabeNofozMasahateBaz = bareshMoaser * fromData.masahat_faal;

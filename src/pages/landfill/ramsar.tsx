@@ -85,8 +85,6 @@ const LandFill = () => {
               </div>
             </div>
 
-            <CitiesButtons />
-
             <div className=" w-full mx-auto text-center rounded-xl flex-wrap md:flex-nowrap flex-row  flex ">
               <div className="w-full md:w-4/12 md:mb-0 mb-4  mx-2 text-center rounded-xl">
                 <div className="aspect-w-8 aspect-h-9  rounded-lg shadow-lg">

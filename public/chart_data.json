@@ -3,72 +3,84 @@
         "month": "مهر",
         "temp": 16.2,
         "eva": 97.35,
-        "rain": 111.95
+        "rain": 111.95,
+        "dayPerMonth": 30
     },
     {
         "month": "آبان",
         "temp": 11.9,
         "eva": 122.2,
-        "rain": 66.6
+        "rain": 66.6,
+        "dayPerMonth": 30
     },
     {
         "month": "آذر",
         "temp": 7.85,
         "eva": 106.3,
-        "rain": 71.05
+        "rain": 71.05,
+        "dayPerMonth": 30
     },
     {
         "month": "دی",
         "temp": 6.05,
         "eva": 107.35,
-        "rain": 60.1
+        "rain": 60.1,
+        "dayPerMonth": 30
     },
     {
         "month": "بهمن",
         "temp": 5.4,
         "eva": 85.6,
-        "rain": 71.55
+        "rain": 71.55,
+        "dayPerMonth": 30
     },
     {
         "month": "اسفند",
         "temp": 8.05,
         "eva": 67.75,
-        "rain": 72.9
+        "rain": 72.9,
+        "dayPerMonth": 29
     },
     {
         "month": "فروردین",
         "temp": 11.2,
         "eva": 42.95,
-        "rain": 93.3
+        "rain": 93.3,
+        "dayPerMonth": 31
     },
     {
         "month": "اردیبهشت",
         "temp": 15.35,
         "eva": 29.4,
-        "rain": 86.6
+        "rain": 86.6,
+        "dayPerMonth": 31
     },
     {
         "month": "خرداد",
         "temp": 19.35,
         "eva": 28.85,
-        "rain": 73.75
+        "rain": 73.75,
+        "dayPerMonth": 31
     },
     {
         "month": "تیر",
         "temp": 21.1,
         "eva": 34.4,
-        "rain": 97.35
+        "rain": 97.35,
+        "dayPerMonth": 31
     },
     {
         "month": "مرداد",
         "temp": 22.3,
         "eva": 47.05,
-        "rain": 98.75
+        "rain": 98.75,
+        "dayPerMonth": 31
     },
     {
         "month": "شهریور ",
         "temp": 20.5,
         "eva": 68,
-        "rain": 137.85
+        "rain": 137.85,
+        "dayPerMonth": 31
     }
 ]

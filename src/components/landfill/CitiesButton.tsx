@@ -1,63 +1,25 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { FC } from "react";
 import { pagesLinks } from "~/utils/links";
 
-const CitiesButtons = () => {
-  const router = useRouter().route;
+const CitiesButtons: FC<{
+  cities: {
+    name: string;
+    id: number;
+  }[];
+  currentId: string;
+}> = ({ cities, currentId }) => {
   return (
     <div className=" w-full mx-auto text-center rounded-xl flex flex-wrap items-center justify-center">
-      <CityButton
-        isActive={router === pagesLinks.landfillsItem({ city: "sari" })}
-        cityName="sari"
-        name="ساری"
-      />
-      <CityButton
-        isActive={router === pagesLinks.landfillsItem({ city: "babol" })}
-        cityName="babol"
-        name="بابل"
-      />
-      <CityButton
-        isActive={router === pagesLinks.landfillsItem({ city: "amol" })}
-        cityName="amol"
-        name="آمل"
-      />
-      <CityButton
-        isActive={router === pagesLinks.landfillsItem({ city: "qaemshahr" })}
-        cityName="qaemshahr"
-        name="قائمشهر"
-      />
-      <CityButton
-        isActive={
-          router === pagesLinks.landfillsItem({ city: "freydoonkenar" })
-        }
-        cityName="freydoonkenar"
-        name="فریدونکنار"
-      />
-      <CityButton
-        isActive={router === pagesLinks.landfillsItem({ city: "babolsar" })}
-        cityName="babolsar"
-        name="بابلسر"
-      />
-      <CityButton
-        isActive={router === pagesLinks.landfillsItem({ city: "noshahr" })}
-        cityName="noshahr"
-        name="نوشهر"
-      />
-      <CityButton
-        isActive={router === pagesLinks.landfillsItem({ city: "noor" })}
-        cityName="noor"
-        name="نور"
-      />
-      <CityButton
-        isActive={router === pagesLinks.landfillsItem({ city: "neka" })}
-        cityName="neka"
-        name="نکا"
-      />
-      <CityButton
-        isActive={router === pagesLinks.landfillsItem({ city: "ramsar" })}
-        cityName="ramsar"
-        name="رامسر"
-      />
+      {cities.map((city) => (
+        <CityButton
+          key={city.id}
+          isActive={currentId === city.id.toString()}
+          cityName={city.id.toString()}
+          name={city.name}
+        />
+      ))}
     </div>
   );
 };

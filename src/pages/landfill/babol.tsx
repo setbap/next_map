@@ -87,7 +87,6 @@ const LandFill = () => {
                 </div>
               </div>
             </div>
-            <CitiesButtons />
 
             <div className=" w-full mx-auto text-center rounded-xl flex-wrap md:flex-nowrap flex-row  flex ">
               <div className="w-full md:w-4/12 md:mb-0 mb-4  mx-2 text-center rounded-xl">
@@ -340,9 +339,7 @@ const LandFill = () => {
                     <InfoCard
                       className="w-full   md:col-span-2 col-span-1 rounded-lg overflow-hidden  "
                       key2={"1wy"}
-                    >
-                      <Shirabe />
-                    </InfoCard>
+                    ></InfoCard>
                   </motion.div>
                 )}
               </AnimatePresence>
