@@ -228,7 +228,12 @@ const LandFill: NextPage<{
                             {data.ImagesAlbum.map((i) => (
                               <div key={i.hash} className="rounded-md">
                                 <div className="aspect-w-16 aspect-h-10">
-                                  {i.formats.small ? (
+                                  {i.formats.medium ? (
+                                    <img
+                                      src={`${baseUrl}${i.formats.medium.url}`}
+                                      className=""
+                                    />
+                                  ) : i.formats.small ? (
                                     <img
                                       src={`${baseUrl}${i.formats.small.url}`}
                                       className=""
