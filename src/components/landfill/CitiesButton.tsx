@@ -33,21 +33,19 @@ const CityButton = ({
   isActive: boolean;
 }) => {
   return (
-    <Link scroll={true} href={pagesLinks.landfillsItem({ city: cityName })}>
-      <a className="m-2">
-        <button type="button" className="shadow-lg">
-          <div>
-            <div
-              className={` w-16 h-12 ${isActive ? "bg-white" : "bg-green-100"}
-              text-skin-primary flex flex-grow items-center hover:shadow-xl justify-center
+    <div className="m-2">
+      <Link scroll={true} href={pagesLinks.landfillsItem({ city: cityName })}>
+        <div
+          className={`cursor-pointer  h-12 ${
+            isActive ? "bg-white" : "bg-green-100"
+          }
+              text-skin-primary px-3 flex flex-grow items-center hover:shadow-xl justify-center
               shadow-md  rounded-md`}
-            >
-              {name}
-            </div>
-          </div>
-        </button>
-      </a>
-    </Link>
+        >
+          {name}
+        </div>
+      </Link>
+    </div>
   );
 };
 

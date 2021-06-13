@@ -83,14 +83,16 @@ const LandFill: NextPage<{
               </div>
               <div className="w-full md:w-1/2 mx-2 text-center rounded-xl my-2 md:my-0 ">
                 <div className="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-lg">
-                  <video
-                    src={`${baseUrl}${data.GoogleEarthVideo.url}`}
-                    preload="metadata"
-                    loop
-                    controls={false}
-                    autoPlay
-                    className="object-fill"
-                  ></video>
+                  {!!data.GoogleEarthVideo && (
+                    <video
+                      src={`${baseUrl}${data.GoogleEarthVideo?.url}`}
+                      preload="metadata"
+                      loop
+                      controls={false}
+                      autoPlay
+                      className="object-fill"
+                    ></video>
+                  )}
                 </div>
               </div>
             </div>
@@ -226,10 +228,17 @@ const LandFill: NextPage<{
                             {data.ImagesAlbum.map((i) => (
                               <div key={i.hash} className="rounded-md">
                                 <div className="aspect-w-16 aspect-h-10">
-                                  <img
-                                    src={`${baseUrl}${i.formats.small.url}`}
-                                    className=""
-                                  />
+                                  {i.formats.small ? (
+                                    <img
+                                      src={`${baseUrl}${i.formats.small.url}`}
+                                      className=""
+                                    />
+                                  ) : (
+                                    <img
+                                      src={`${baseUrl}${i.formats.thumbnail.url}`}
+                                      className=""
+                                    />
+                                  )}
                                 </div>
                                 <p className="text-skin-base opacity-80 absolute bottom-8 start-5 h-10 rounded-lg bg-skin-base p-2 align-middle ">
                                   عکس های محل دفن زباله های {data.Name}
@@ -471,7 +480,7 @@ export interface Landfill {
   createdAt: Date;
   updatedAt: Date;
   Name: string;
-  GoogleEarthVideo: CityImage;
+  GoogleEarthVideo?: CityImage;
   CityImage: CityImage;
   LiveVideo1: CityImage;
   LiveVideo2: CityImage;

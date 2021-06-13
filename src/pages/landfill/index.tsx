@@ -90,12 +90,15 @@ const LandFill: NextPage<{
 export default LandFill;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const rawCities = await fetch(`https://geonitenviro.nit.ac.ir/api/landfills`);
+  const rawCities = await fetch(
+    `https://geonitenviro.nit.ac.ir/api/landfillNames`
+  );
 
-  const cities: any = await rawCities.json();
+  const cities = await rawCities.json();
+
   return {
     props: {
-      cities: cities.map((e) => ({ name: e.Name, id: e.id })),
+      cities: cities,
     },
     revalidate: 10,
   };
