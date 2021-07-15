@@ -40,10 +40,7 @@ const Blog = ({
         />
         <meta
           property="og:image"
-          content={
-            "https://geonitenviro.nit.ac.ir/api/" +
-            postData.Poster.formats.small.url
-          }
+          content={"https://geonitenviro.nit.ac.ir/api/" + postData.Poster.url}
         />
         <meta
           property="og:video"

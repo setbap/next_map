@@ -74,7 +74,7 @@ const LandFill: NextPage<{
               <div className="w-full md:w-1/2 mx-2 text-center rounded-xl">
                 <div className="aspect-w-16 aspect-h-9  overflow-hidden bg-black  rounded-lg shadow-lg">
                   <img
-                    src={`${baseUrl}${data.CityImage.formats.medium.url}`}
+                    src={`${baseUrl}${data.CityImage.url}`}
                     className="object-fill"
                   />
                 </div>
