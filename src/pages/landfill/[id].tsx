@@ -41,8 +41,6 @@ const LandFill: NextPage<{
   );
   const myRef = useRef<HTMLDivElement>(null);
   const scrollTo = (ref: MutableRefObject<HTMLDivElement>) => {
-    console.log(ref.current.offsetTop);
-
     return;
   };
 
@@ -370,7 +368,6 @@ const LandFill: NextPage<{
                         xAxisDataKey="month"
                       />
                     </InfoCard>
-
                     <InfoCard
                       className="md:col-span-2 text-center flex justify-center col-span-1 p-4"
                       key2={"1wy"}

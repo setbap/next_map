@@ -4,8 +4,9 @@ import { getTutorialTypeShort } from "lib/tutorial";
 import Nav from "~/template/Nav";
 import Footer from "../template/Footer";
 import TutorialCard from "~/components/TutorialCard";
+import { GetStaticProps } from "next";
 
-const Blog = ({ tutorial }) => {
+const Blog = ({ tutorial }: { tutorial: IPosts[] }) => {
   return (
     <>
       <Head>
@@ -43,12 +44,83 @@ const Blog = ({ tutorial }) => {
 
 export default Blog;
 
-export async function getStaticProps() {
-  const allTutorialsData = getTutorialTypeShort();
+export const getStaticProps: GetStaticProps = async () => {
+  const rawCities = await fetch(`https://geonitenviro.nit.ac.ir/api/posts`);
+
+  const cities: IPosts[] = await rawCities.json();
 
   return {
     props: {
-      tutorial: allTutorialsData,
+      tutorial: cities,
     },
+    revalidate: 10,
   };
+};
+
+export interface IPosts {
+  id: number;
+  Title: string;
+  Description: string;
+  AparatVideo: null;
+  published_at: Date;
+  created_at: string;
+  updated_at: string;
+  Video: Poster;
+  Poster: Poster;
+}
+
+export interface Poster {
+  id: number;
+  name: string;
+  alternativeText: string;
+  caption: string;
+  width: number | null;
+  height: number | null;
+  formats: Formats | null;
+  hash: string;
+  ext: Ext;
+  mime: Mime;
+  size: number;
+  url: string;
+  previewUrl: null;
+  provider: Provider;
+  providerMetadata: null;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export enum Ext {
+  ExtMP4 = ".MP4",
+  Jpg = ".jpg",
+  Mp4 = ".mp4",
+  Png = ".png",
+}
+
+export interface Formats {
+  large?: Large;
+  small?: Large;
+  medium?: Large;
+  thumbnail: Large;
+}
+
+export interface Large {
+  ext: Ext;
+  url: string;
+  hash: string;
+  mime: Mime;
+  name: string;
+  path: null;
+  size: number;
+  width: number;
+  height: number;
+}
+
+export enum Mime {
+  Imagejpeg = "image/jpeg",
+  Imagepng = "image/png",
+  VideoMp4 = "video/mp4",
+}
+
+export enum Provider {
+  Local = "local",
 }

@@ -1,9 +1,10 @@
 import React from "react";
+import { IPosts } from "~/pages/tutorial";
 import BlogItem from "~/template/BlogItem";
 import { pagesLinks } from "~/utils/links";
 
 interface Props {
-  data: any;
+  data: IPosts[];
   title: string;
   subtitle: string;
 }
@@ -20,17 +21,17 @@ const TutorialCard = ({ data, subtitle, title }: Props) => {
         </h3>
       </div>
       <div className="flex flex-wrap ">
-        {data.map(({ postId, image, jdate, title, short }) => {
+        {data.map(({ id, Poster: { url }, updated_at, Title, Description }) => {
           return (
             <BlogItem
-              href={pagesLinks.tutorialItem({ slug: postId })}
+              href={pagesLinks.tutorialItem({ slug: id.toString() })}
               type={""}
-              image={image}
-              key={postId}
-              short={short}
-              date={jdate}
-              id={postId}
-              title={title}
+              image={"https://geonitenviro.nit.ac.ir/api/" + url}
+              key={id}
+              short={Description}
+              date={updated_at + ""}
+              id={id + "poster"}
+              title={Title}
             />
           );
         })}
