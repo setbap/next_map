@@ -67,15 +67,10 @@ const Blog = ({
                   exit={{ opacity: 0, transition: { duration: 0.15 } }}
                   transition={{ duration: 0.2, delay: 0.15 }}
                   className=" w-full"
-                  layoutId={`layout-${postData.id}`}
                 >
-                  <motion.div
-                    layoutId={`main-${postData.id}`}
-                    className="h-full"
-                  >
+                  <motion.div className="h-full">
                     <div className="lg:h-48 md:h-36 w-full relative ">
                       <motion.img
-                        layoutId={`img-${postData.id}`}
                         style={{ filter: "blur(6px)", maxHeight: "50vh" }}
                         id="image_cover"
                         className=" lg:h-48 md:h-36 w-full object-cover object-center"
@@ -99,14 +94,8 @@ const Blog = ({
                         </span>
                       </h2>
                     </div>
-                    <motion.div
-                      layoutId={`category-${postData.id}`}
-                      className="p-6"
-                    >
-                      <motion.div
-                        layoutId={`link-${postData.id}`}
-                        className="flex items-center flex-wrap "
-                      >
+                    <motion.div className="p-6">
+                      <motion.div className="flex items-center flex-wrap ">
                         <span className="text-skin-secondary inline-flex items-center leading-none text-sm"></span>
                         <span className="text-skin-secondary mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"></span>
                       </motion.div>
