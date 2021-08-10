@@ -26,6 +26,13 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
   const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
   const [inputText, setInputText] = useState("");
 
+  const changeTextInputValue = (value: string) => {
+    setInputText(value);
+    if (window && window.sessionStorage) {
+      window.sessionStorage.setItem(Input_Text_Key, value);
+    }
+  };
+
   const [showCloseBTN, setShowCloseBTN] = useState(false);
   const allInfo = {
     glass: "شیشه",
@@ -38,15 +45,20 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
     Not_Recyclable: "غیر قابل بازیافت",
     Limited: "بازیافت محدود",
   };
-
-  const [selectedCategory, setSelectedCategory] = useState({
+  const Selected_Category_Key = "selectedCategory";
+  const Input_Text_Key = "inputText";
+  const defualtSelectedCategory = {
     glass: true,
     paper: true,
     metal: true,
     dangerous: true,
     compost: true,
     plastic: true,
-  });
+  };
+
+  const [selectedCategory, setSelectedCategory] = useState(
+    defualtSelectedCategory
+  );
   const toggleCategory = (
     categoryName: keyof typeof selectedCategory,
     selectedCategories: typeof selectedCategory
@@ -54,7 +66,22 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
     const categories = { ...selectedCategories };
     categories[categoryName] = !categories[categoryName];
     setSelectedCategory(categories);
+    if (window && window.sessionStorage) {
+      sessionStorage.setItem(Selected_Category_Key, JSON.stringify(categories));
+    }
   };
+
+  useEffect(() => {
+    const storageItem =
+      JSON.parse(window.sessionStorage.getItem(Selected_Category_Key)) ||
+      defualtSelectedCategory;
+    setSelectedCategory(storageItem);
+
+    const searchText = window.sessionStorage.getItem(Input_Text_Key) || "";
+
+    setInputText(searchText);
+    return () => {};
+  }, []);
 
   useEffect(() => {
     if (inputText.length > 0 && !showCloseBTN) {
@@ -137,7 +164,9 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
                     name="name"
                     type="text"
                     value={inputText}
-                    onChange={(e) => setInputText(e.target.value)}
+                    onChange={function (e) {
+                      return changeTextInputValue(e.target.value);
+                    }}
                     placeholder="دنبال چه زباله ای میگردی؟ ( مثلا قوطی رب )"
                     className=" focus:border-0 text-sm bg-skin-card h-11  border-skin-muted  outline-none  text-skin-muted  px-1 leading-8 transition-colors duration-200 ease-in-out  sm:text-base relative w-full border-2 rounded-xl placeholder-gray-400  focus:border-skin-primary-relaxed focus:outline-none p-0 py-2 ps-10 pe-9"
                   />
@@ -145,7 +174,7 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
                   {showCloseBTN && (
                     <div className="absolute cursor-pointer flex border border-transparent end-1 h-9 top-1  w-9">
                       <button
-                        onClick={() => setInputText("")}
+                        onClick={() => changeTextInputValue("")}
                         className="flex rounded-full items-center justify-center rounded-tl rounded-bl z-10 bg-transparent text-skin-muted text-lg h-full w-full"
                       >
                         <AiOutlineClose className="w-5 h-5" size={20} />
