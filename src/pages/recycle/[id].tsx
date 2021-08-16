@@ -41,7 +41,7 @@ const Waste: NextPage<{ data: SmallItem; baseUrl: string }> = ({
           openGraph={{
             url: "https://www.nitenviro.com/tutorial",
             title: `محاسبه زباله های  بازیافتی - ${data.Name}`,
-            description:"توضیحات در مورد نحوه بازیافت و یا امحا "
+            description: "توضیحات در مورد نحوه بازیافت و یا امحا ",
             images: [
               {
                 url: "https://www.nitenviro.ir/og/article.png",
