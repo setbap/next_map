@@ -11,6 +11,7 @@ import Link from "next/link";
 import { BiTimeFive } from "react-icons/bi";
 import { pagesLinks } from "~/utils/links";
 import { IPosts } from "../tutorial";
+import { NextSeo } from "next-seo";
 
 const Blog = ({
   postData,
@@ -32,22 +33,37 @@ const Blog = ({
   return (
     <>
       <Head>
-        <title>{postData.Title}</title>
-        <meta property="og:title" content={postData.Title} key="title" />
-        <meta
-          property="og:url"
-          content={`https://www.nitenviro.com/tutorial/${postData.id}`}
+        <NextSeo
+          title={postData.Title}
+          description={postData.Description}
+          openGraph={{
+            url: `https://www.nitenviro.com/tutorial/${postData.id}`,
+            title: postData.Title,
+            description: postData.Description,
+
+            videos: [
+              {
+                url: "https://geonitenviro.nit.ac.ir/api/" + postData.Video.url,
+                width: 400,
+                height: 320,
+              },
+            ],
+            images: [
+              {
+                url:
+                  "https://geonitenviro.nit.ac.ir/api/" + postData.Poster.url,
+                width: 400,
+                height: 400,
+              },
+            ],
+            site_name: "NitEnviro",
+          }}
+          twitter={{
+            handle: "@handle",
+            site: "@site",
+            cardType: "summary_large_image",
+          }}
         />
-        <meta
-          property="og:image"
-          content={"https://geonitenviro.nit.ac.ir/api/" + postData.Poster.url}
-        />
-        <meta
-          property="og:video"
-          content={"https://geonitenviro.nit.ac.ir/api/" + postData.Video.url}
-        />
-        <meta property="og:description" content={postData.Description} />
-        <meta property="og:locale " content="fa_IR" />
       </Head>
       <Nav />
       <div className="flex flex-1 overflow-auto ">

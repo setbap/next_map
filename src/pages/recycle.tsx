@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { GetStaticProps, NextPage } from "next";
+import { NextSeo } from "next-seo";
 import Head from "next/head";
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
@@ -103,15 +104,33 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
   return (
     <>
       <Head>
-        <title>{"محاسبه زباله های  بازیافتی"}</title>
-        <meta property="og:title" content={"محاسبه زباله های  بازیافتی"} />
-        <meta property="og:url" content={`https://www.nitenviro.com/waste`} />
-        <meta property="og:image" content={"/og/map.png"} />
         <meta
           property="og:description"
           content={"محاسبه زباله های  بازیافتی"}
         />
-        <meta property="og:locale " content="fa_IR" />
+        <NextSeo
+          title="محاسبه زباله های  بازیافتی"
+          description="صفحه شناسایی پسماند های بازیافتی با قابلیت جست و جو و نمایش اطلاعات پسماند"
+          openGraph={{
+            url: "https://www.nitenviro.com/recycle",
+            title: "محاسبه زباله های  بازیافتی",
+            description:
+              "صفحه شناسایی پسماند های بازیافتی با قابلیت جست و جو و نمایش اطلاعات پسماند",
+            images: [
+              {
+                url: "https://www.nitenviro.ir/og/article.png",
+                width: 400,
+                height: 400,
+              },
+            ],
+            site_name: "NitEnviro",
+          }}
+          twitter={{
+            handle: "@handle",
+            site: "@site",
+            cardType: "summary_large_image",
+          }}
+        />
       </Head>
       <Nav />
       <div className="flex flex-1 overflow-hidden ">

@@ -5,6 +5,7 @@ import Footer from "~/template/Footer";
 import GetStarted from "@components/home/get_started";
 import HomeTwo from "@components/home/home";
 import Head from "next/head";
+import { NextSeo } from "next-seo";
 // import MapNav from "~/template/MapNav";
 
 const Home = () => {
@@ -22,16 +23,30 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>{"خانه"}</title>
-        <meta property="og:title" content={"خانه"} />
-        <meta property="og:url" content={`https://www.nitenviro.com`} />
-        <meta property="og:image" content={"/og/home.png"} />
-        <meta
-          property="og:description"
-          content={"NITEnviro مکانی برای ارح نهادن به محیط زیست و آینده "}
+        <NextSeo
+          title="nitEnviro"
+          description="nitEnviroکوششی است جهت افزایش آگاهی‌ و کمک به بهبود وضعیت محیط زیست کشور"
+          openGraph={{
+            url: "https://www.nitenviro.ir",
+            title: "nitEnviro",
+            description:
+              "nitEnviroکوششی است جهت افزایش آگاهی‌ و کمک به بهبود وضعیت محیط زیست کشور",
+            images: [
+              {
+                url: "https://www.nitenviro.ir/og/home.png",
+                width: 400,
+                height: 400,
+                alt: "تصویر خانه",
+              },
+            ],
+            site_name: "NitEnviro",
+          }}
+          twitter={{
+            handle: "@handle",
+            site: "@site",
+            cardType: "summary_large_image",
+          }}
         />
-
-        <meta property="og:locale " content="fa_IR" />
       </Head>
       {/* <MapNav />  */}
       <div className="flex flex-1 overflow-hidden ">

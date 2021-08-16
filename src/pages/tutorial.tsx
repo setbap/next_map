@@ -5,17 +5,34 @@ import Nav from "~/template/Nav";
 import Footer from "../template/Footer";
 import TutorialCard from "~/components/TutorialCard";
 import { GetStaticProps } from "next";
+import { NextSeo } from "next-seo";
 
 const Blog = ({ tutorial }: { tutorial: IPosts[] }) => {
   return (
     <>
       <Head>
-        <title>{"صفحه مقالات"}</title>
-        <meta property="og:title" content={"مقالات"} />
-        <meta property="og:url" content={`https://www.nitenviro.com/blog`} />
-        <meta property="og:image" content={"/og/article.png"} />
-        <meta property="og:description" content={"صفحه ی مقالات "} />
-        <meta property="og:locale " content="fa_IR" />
+        <NextSeo
+          title="آموزش بازیافت"
+          description="محتوا آموزش در زمینه بازیافت و دفن بهداشتی زباله"
+          openGraph={{
+            url: "https://www.nitenviro.com/tutorial",
+            title: "آموزش بازیافت",
+            description: "محتوا آموزش در زمینه بازیافت و دفن بهداشتی زباله",
+            images: [
+              {
+                url: "https://www.nitenviro.ir/og/article.png",
+                width: 400,
+                height: 400,
+              },
+            ],
+            site_name: "NitEnviro",
+          }}
+          twitter={{
+            handle: "@handle",
+            site: "@site",
+            cardType: "summary_large_image",
+          }}
+        />
       </Head>
       <Nav />
       <div className="flex flex-1 overflow-hidden ">

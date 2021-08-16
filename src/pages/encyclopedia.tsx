@@ -4,17 +4,35 @@ import { getEncyclopediaTypeShort, EncyclopediaType } from "lib/encyclopedia";
 import Nav from "~/template/Nav";
 import Footer from "../template/Footer";
 import EncyclopediaCard from "~/components/EncyclopediaCard";
+import { NextSeo } from "next-seo";
 
 const Blog = ({ introductions, articles, documents }) => {
   return (
     <>
       <Head>
-        <title>{"صفحه مقالات"}</title>
-        <meta property="og:title" content={"مقالات"} />
-        <meta property="og:url" content={`https://www.nitenviro.com/blog`} />
-        <meta property="og:image" content={"/og/article.png"} />
-        <meta property="og:description" content={"صفحه ی مقالات "} />
-        <meta property="og:locale " content="fa_IR" />
+        <NextSeo
+          title="صفحه مقالات"
+          description="لیستی از مقالات و کتاب های مرتبط با محیط زیست"
+          openGraph={{
+            url: "https://www.nitenviro.com/tutorial",
+            title: "مقالات",
+            description: "لیستی از مقالات و کتاب های مرتبط با محیط زیست",
+            images: [
+              {
+                url: "https://www.nitenviro.ir/og/article.png",
+                width: 400,
+                height: 400,
+                alt: "تصویر خانه",
+              },
+            ],
+            site_name: "NitEnviro",
+          }}
+          twitter={{
+            handle: "@handle",
+            site: "@site",
+            cardType: "summary_large_image",
+          }}
+        />
       </Head>
       <Nav />
       <div className="flex flex-1 overflow-hidden ">

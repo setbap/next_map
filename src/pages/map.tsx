@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import MapNav from "~/template/MapNav";
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import { NextSeo } from "next-seo";
 
 const MapWrapper = dynamic(() => import("~/components/map/mapWrapper"), {
   ssr: false,
@@ -23,12 +24,29 @@ const App = () => {
   return (
     <>
       <Head>
-        <title>{"نقشه"}</title>
-        <meta property="og:title" content={"نقشه استان مازندران"} />
-        <meta property="og:url" content={`https://www.nitenviro.com/map`} />
-        <meta property="og:image" content={"/og/map.png"} />
-        <meta property="og:description" content={"نقشه جزیی استان مازندران"} />
         <meta property="og:locale " content="fa_IR" />
+        <NextSeo
+          title="نقشه استان مازندران"
+          description="نمایش نقشه استان مازندران به همراه لایه ها"
+          openGraph={{
+            url: "https://www.nitenviro.com/map",
+            title: "نقشه استان مازندران",
+            description: "نمایش نقشه استان مازندران به همراه لایه ها",
+            images: [
+              {
+                url: "https://www.nitenviro.ir/og/map.png",
+                width: 400,
+                height: 400,
+              },
+            ],
+            site_name: "NitEnviro",
+          }}
+          twitter={{
+            handle: "@handle",
+            site: "@site",
+            cardType: "summary_large_image",
+          }}
+        />
       </Head>
       <MapNav />
       <div className="flex flex-1 overflow-hidden ">
