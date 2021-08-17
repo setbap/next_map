@@ -61,7 +61,9 @@ const Blog = ({ tutorial }: { tutorial: IPosts[] }) => {
 export default Blog;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const rawCities = await fetch(`https://geonitenviro.nit.ac.ir/api/posts`);
+  const rawCities = await fetch(
+    `https://geonitenviro.nit.ac.ir/api/posts?_limit=500`
+  );
 
   const cities: IPosts[] = await rawCities.json();
 

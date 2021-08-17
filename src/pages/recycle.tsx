@@ -9,7 +9,9 @@ import Nav from "~/template/Nav";
 import { pagesLinks } from "~/utils/links";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const rawData = await fetch("https://geonitenviro.nit.ac.ir/api/items");
+  const rawData = await fetch(
+    "https://geonitenviro.nit.ac.ir/api/items?_limit=500"
+  );
   const data: SmallItem[] = await rawData.json();
   return {
     props: {
@@ -101,6 +103,10 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
       transition: { ...transition, duration: 0.3 },
     },
   };
+  const selectedData = data.filter(
+    (item) =>
+      item.Name.includes(inputText) && selectedCategory[item.Category ?? ""]
+  );
   return (
     <>
       <NextSeo
@@ -239,62 +245,57 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
               {/* end categories */}
             </div>
             {/* list header */}
-            <div className="w-full ">
-              <h3 className=" container mx-auto font-bold text-2xl py-6 px-8">
-                لیست پسماندها
-              </h3>
+            <div className="container py-6 px-8  items-center flex flex-row justify-start  ">
+              <h3 className="  font-bold text-2xl ">لیست پسماندها</h3>
+              <caption className=" mx-4 font-bold text-sm">
+                ({selectedData.length} مورد)
+              </caption>
             </div>
             {/* end list header */}
             {/* waste list */}
             <section className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 container mx-auto gap-x-4 gap-y-6">
-              {data
-                .filter(
-                  (item) =>
-                    item.Name.includes(inputText) &&
-                    selectedCategory[item.Category ?? ""]
-                )
-                .map((item) => (
-                  <Link
-                    href={pagesLinks.recycleItem({ id: item.id.toString() })}
-                    key={item.id}
-                  >
-                    <button className="flex-col ring-transparent  group border-4 border-skin-base focus:border-black  hover:border-green-400  hover:shadow-lg hover:bg-skin-base bg-skin-card flex w-full  rounded-xl shadow-sm overflow-hidden ">
-                      <div className="w-full ">
-                        <div className=" aspect-w-12 bg-white aspect-h-9  rounded-lg">
-                          <img
-                            src={baseUrl + item.Image[0].url}
-                            className="object-contain"
-                            alt={item.Image[0].caption}
+              {selectedData.map((item) => (
+                <Link
+                  href={pagesLinks.recycleItem({ id: item.id.toString() })}
+                  key={item.id}
+                >
+                  <button className="flex-col ring-transparent  group border-4 border-skin-base focus:border-black  hover:border-green-400  hover:shadow-lg hover:bg-skin-base bg-skin-card flex w-full  rounded-xl shadow-sm overflow-hidden ">
+                    <div className="w-full ">
+                      <div className=" aspect-w-12 bg-white aspect-h-9  rounded-lg">
+                        <img
+                          src={baseUrl + item.Image[0].url}
+                          className="object-contain"
+                          alt={item.Image[0].caption}
+                        />
+                      </div>
+                    </div>
+                    <div className=" p-2 w-full  h-32 flex flex-col  justify-evenly items-start  ">
+                      <div className="flex justify-between items-center w-full">
+                        <p className="px-2 font-bold z-10 xl:text-2xl lg:text-xl  sm:text-lg text-md">
+                          {item.Name}
+                        </p>
+
+                        <div className="">
+                          <Chips
+                            status={
+                              allInfo[item.Recyclable] ===
+                              allInfo["Not_Recyclable"]
+                                ? "fail"
+                                : "success"
+                            }
+                            name={allInfo[item.Recyclable]}
                           />
                         </div>
                       </div>
-                      <div className=" p-2 w-full  h-32 flex flex-col  justify-evenly items-start  ">
-                        <div className="flex justify-between items-center w-full">
-                          <p className="px-2 font-bold z-10 xl:text-2xl lg:text-xl  sm:text-lg text-md">
-                            {item.Name}
-                          </p>
-
-                          <div className="">
-                            <Chips
-                              status={
-                                allInfo[item.Recyclable] ===
-                                allInfo["Not_Recyclable"]
-                                  ? "fail"
-                                  : "success"
-                              }
-                              name={allInfo[item.Recyclable]}
-                            />
-                          </div>
-                        </div>
-                        <div className="flex px-2  ">
-                          <div className="xl:text-xl lg:text-lg  sm:text-base text-sm">
-                            {allInfo[item.Category]}
-                          </div>
+                      <div className="flex px-2  ">
+                        <div className="xl:text-xl lg:text-lg  sm:text-base text-sm">
+                          {allInfo[item.Category]}
                         </div>
                       </div>
-                    </button>
-                  </Link>
-                ))}
+                    </div>
+                  </button>
+                </Link>
+              ))}
             </section>
             {/* end waste list */}
           </div>

@@ -149,8 +149,9 @@ const Content = () => {
     },
   ]);
 
-  const [menuPage, setMenuPage] =
-    useState<"mapsPage" | "layerPage">("layerPage");
+  const [menuPage, setMenuPage] = useState<
+    "mapsPage" | "layerPage" | "seond" | "third"
+  >("layerPage");
   const [mapType, setMapType] = useState<{ type: "osm" | "bing" }>({
     type: "osm",
   });
@@ -244,12 +245,21 @@ const Content = () => {
                     >
                       <motion.div
                         initial={{ x: 0 }}
-                        animate={{ x: menuPage === "mapsPage" ? "0%" : "50%" }}
-                        style={{ width: "200%" }}
+                        animate={{
+                          x:
+                            menuPage === "layerPage"
+                              ? "0%"
+                              : menuPage === "mapsPage"
+                              ? "25%"
+                              : menuPage === "seond"
+                              ? "50%"
+                              : "75%",
+                        }}
+                        style={{ width: "400%" }}
                         transition={{ type: "tween" }}
                         className="flex flex-row flex-nowrap bg-skin-card"
                       >
-                        <div className="w-1/2 flex flex-col h-20 p-3   ">
+                        <div className="w-1/4 flex flex-col h-20 p-3   ">
                           <motion.div
                             layout
                             onClick={() => {
@@ -293,7 +303,7 @@ const Content = () => {
                           style={{
                             maxHeight: "50vh",
                           }}
-                          className="w-1/2 flex-1 bg-skin-card overflow-auto "
+                          className="w-1/4 flex-1 bg-skin-card overflow-auto "
                         >
                           {layersData.map((data, index) => {
                             return (
@@ -318,6 +328,8 @@ const Content = () => {
                             );
                           })}
                         </div>
+                        <div className="w-1/4 flex flex-col h-20 p-3   "></div>
+                        <div className="w-1/4 flex flex-col h-20 p-3   "></div>
                       </motion.div>
                       <div className="flex text-skin-base flex-row text-center border-b border-skin-primary">
                         <div
@@ -341,6 +353,30 @@ const Content = () => {
                           }  flex-1 p-2 transition-colors duration-300`}
                         >
                           نقشه ها
+                        </div>
+                        <div
+                          onClick={() => {
+                            setMenuPage("seond");
+                          }}
+                          className={`${
+                            menuPage === "seond"
+                              ? "bg-skin-card"
+                              : "bg-skin-base"
+                          }  flex-1 p-2 transition-colors duration-300`}
+                        >
+                          دومی
+                        </div>
+                        <div
+                          onClick={() => {
+                            setMenuPage("third");
+                          }}
+                          className={`${
+                            menuPage === "third"
+                              ? "bg-skin-card"
+                              : "bg-skin-base"
+                          }  flex-1 p-2 transition-colors duration-300`}
+                        >
+                          سومی
                         </div>
                       </div>
                     </motion.div>
