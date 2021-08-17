@@ -25,29 +25,30 @@ const App = () => {
     <>
       <Head>
         <meta property="og:locale " content="fa_IR" />
-        <NextSeo
-          title="نقشه استان مازندران"
-          description="نمایش نقشه استان مازندران به همراه لایه ها"
-          openGraph={{
-            url: "https://www.nitenviro.com/map",
-            title: "نقشه استان مازندران",
-            description: "نمایش نقشه استان مازندران به همراه لایه ها",
-            images: [
-              {
-                url: "https://www.nitenviro.ir/og/map.png",
-                width: 400,
-                height: 400,
-              },
-            ],
-            site_name: "NitEnviro",
-          }}
-          twitter={{
-            handle: "@handle",
-            site: "@site",
-            cardType: "summary_large_image",
-          }}
-        />
       </Head>
+      <NextSeo
+        title="نقشه استان مازندران"
+        description="نمایش نقشه استان مازندران به همراه لایه ها"
+        openGraph={{
+          url: "https://www.nitenviro.com/map",
+          title: "نقشه استان مازندران",
+          description: "نمایش نقشه استان مازندران به همراه لایه ها",
+          images: [
+            {
+              url: "https://www.nitenviro.ir/og/map.png",
+              width: 400,
+              height: 400,
+            },
+          ],
+          site_name: "NitEnviro",
+        }}
+        twitter={{
+          handle: "@handle",
+          site: "@site",
+          cardType: "summary_large_image",
+        }}
+      />
+
       <MapNav />
       <div className="flex flex-1 overflow-hidden ">
         <motion.div

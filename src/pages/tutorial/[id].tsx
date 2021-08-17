@@ -32,39 +32,37 @@ const Blog = ({
   };
   return (
     <>
-      <Head>
-        <NextSeo
-          title={postData.Title}
-          description={postData.Description}
-          openGraph={{
-            url: `https://www.nitenviro.com/tutorial/${postData.id}`,
-            title: postData.Title,
-            description: postData.Description,
+      <NextSeo
+        title={postData.Title}
+        description={postData.Description}
+        openGraph={{
+          url: `https://www.nitenviro.com/tutorial/${postData.id}`,
+          title: postData.Title,
+          description: postData.Description,
 
-            videos: [
-              {
-                url: "https://geonitenviro.nit.ac.ir/api/" + postData.Video.url,
-                width: 400,
-                height: 320,
-              },
-            ],
-            images: [
-              {
-                url:
-                  "https://geonitenviro.nit.ac.ir/api/" + postData.Poster.url,
-                width: 400,
-                height: 400,
-              },
-            ],
-            site_name: "NitEnviro",
-          }}
-          twitter={{
-            handle: "@handle",
-            site: "@site",
-            cardType: "summary_large_image",
-          }}
-        />
-      </Head>
+          videos: [
+            {
+              url: "https://geonitenviro.nit.ac.ir/api/" + postData.Video.url,
+              width: 400,
+              height: 320,
+            },
+          ],
+          images: [
+            {
+              url: "https://geonitenviro.nit.ac.ir/api/" + postData.Poster.url,
+              width: 400,
+              height: 400,
+            },
+          ],
+          site_name: "NitEnviro",
+        }}
+        twitter={{
+          handle: "@handle",
+          site: "@site",
+          cardType: "summary_large_image",
+        }}
+      />
+
       <Nav />
       <div className="flex flex-1 overflow-auto ">
         <motion.div

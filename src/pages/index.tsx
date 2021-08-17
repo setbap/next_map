@@ -22,32 +22,31 @@ const Home = () => {
   };
   return (
     <>
-      <Head>
-        <NextSeo
-          title="nitEnviro"
-          description="nitEnviroکوششی است جهت افزایش آگاهی‌ و کمک به بهبود وضعیت محیط زیست کشور"
-          openGraph={{
-            url: "https://www.nitenviro.ir",
-            title: "nitEnviro",
-            description:
-              "nitEnviroکوششی است جهت افزایش آگاهی‌ و کمک به بهبود وضعیت محیط زیست کشور",
-            images: [
-              {
-                url: "https://www.nitenviro.ir/og/home.png",
-                width: 400,
-                height: 400,
-                alt: "تصویر خانه",
-              },
-            ],
-            site_name: "NitEnviro",
-          }}
-          twitter={{
-            handle: "@handle",
-            site: "@site",
-            cardType: "summary_large_image",
-          }}
-        />
-      </Head>
+      <NextSeo
+        title="nitEnviro"
+        description="nitEnviroکوششی است جهت افزایش آگاهی‌ و کمک به بهبود وضعیت محیط زیست کشور"
+        openGraph={{
+          url: "https://www.nitenviro.ir",
+          title: "nitEnviro",
+          description:
+            "nitEnviroکوششی است جهت افزایش آگاهی‌ و کمک به بهبود وضعیت محیط زیست کشور",
+          images: [
+            {
+              url: "https://www.nitenviro.ir/og/home.png",
+              width: 400,
+              height: 400,
+              alt: "تصویر خانه",
+            },
+          ],
+          site_name: "NitEnviro",
+        }}
+        twitter={{
+          handle: "@handle",
+          site: "@site",
+          cardType: "summary_large_image",
+        }}
+      />
+
       {/* <MapNav />  */}
       <div className="flex flex-1 overflow-hidden ">
         <motion.div

@@ -103,35 +103,30 @@ const Waste: NextPage<{ data: SmallItem[]; baseUrl: string }> = ({
   };
   return (
     <>
-      <Head>
-        <meta
-          property="og:description"
-          content={"محاسبه زباله های  بازیافتی"}
-        />
-        <NextSeo
-          title="محاسبه زباله های  بازیافتی"
-          description="صفحه شناسایی پسماند های بازیافتی با قابلیت جست و جو و نمایش اطلاعات پسماند"
-          openGraph={{
-            url: "https://www.nitenviro.com/recycle",
-            title: "محاسبه زباله های  بازیافتی",
-            description:
-              "صفحه شناسایی پسماند های بازیافتی با قابلیت جست و جو و نمایش اطلاعات پسماند",
-            images: [
-              {
-                url: "https://www.nitenviro.ir/og/article.png",
-                width: 400,
-                height: 400,
-              },
-            ],
-            site_name: "NitEnviro",
-          }}
-          twitter={{
-            handle: "@handle",
-            site: "@site",
-            cardType: "summary_large_image",
-          }}
-        />
-      </Head>
+      <NextSeo
+        title="محاسبه زباله های  بازیافتی"
+        description="صفحه شناسایی پسماند های بازیافتی با قابلیت جست و جو و نمایش اطلاعات پسماند"
+        openGraph={{
+          url: "https://www.nitenviro.com/recycle",
+          title: "محاسبه زباله های  بازیافتی",
+          description:
+            "صفحه شناسایی پسماند های بازیافتی با قابلیت جست و جو و نمایش اطلاعات پسماند",
+          images: [
+            {
+              url: "https://www.nitenviro.ir/og/article.png",
+              width: 400,
+              height: 400,
+            },
+          ],
+          site_name: "NitEnviro",
+        }}
+        twitter={{
+          handle: "@handle",
+          site: "@site",
+          cardType: "summary_large_image",
+        }}
+      />
+
       <Nav />
       <div className="flex flex-1 overflow-hidden ">
         <motion.div
