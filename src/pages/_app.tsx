@@ -13,6 +13,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div className="min-h-screen" lang="fa" dir="rtl">
       <Head>
+        <meta
+          name="google-site-verification"
+          content="bOL98ET-j9Iu_9bsy4TLElo4SYlnWgAX0V_CAfdOlP8"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
