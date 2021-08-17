@@ -10,30 +10,29 @@ import { NextSeo } from "next-seo";
 const Blog = ({ tutorial }: { tutorial: IPosts[] }) => {
   return (
     <>
-      <Head>
-        <NextSeo
-          title="آموزش بازیافت"
-          description="محتوا آموزش در زمینه بازیافت و دفن بهداشتی زباله"
-          openGraph={{
-            url: "https://www.nitenviro.com/tutorial",
-            title: "آموزش بازیافت",
-            description: "محتوا آموزش در زمینه بازیافت و دفن بهداشتی زباله",
-            images: [
-              {
-                url: "https://www.nitenviro.ir/og/article.png",
-                width: 400,
-                height: 400,
-              },
-            ],
-            site_name: "NitEnviro",
-          }}
-          twitter={{
-            handle: "@handle",
-            site: "@site",
-            cardType: "summary_large_image",
-          }}
-        />
-      </Head>
+      <NextSeo
+        title="آموزش بازیافت"
+        description="محتوا آموزش در زمینه بازیافت و دفن بهداشتی زباله"
+        openGraph={{
+          url: "https://www.nitenviro.com/tutorial",
+          title: "آموزش بازیافت",
+          description: "محتوا آموزش در زمینه بازیافت و دفن بهداشتی زباله",
+          images: [
+            {
+              url: "https://www.nitenviro.ir/og/article.png",
+              width: 400,
+              height: 400,
+            },
+          ],
+          site_name: "NitEnviro",
+        }}
+        twitter={{
+          handle: "@handle",
+          site: "@site",
+          cardType: "summary_large_image",
+        }}
+      />
+
       <Nav />
       <div className="flex flex-1 overflow-hidden ">
         <motion.div
