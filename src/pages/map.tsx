@@ -4,12 +4,13 @@ import MapNav from "~/template/MapNav";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import { NextSeo } from "next-seo";
+import { GetStaticProps } from "next";
 
 const MapWrapper = dynamic(() => import("~/components/map/mapWrapper"), {
   ssr: false,
 });
 
-const App = () => {
+const App = ({ mapInfo }: { mapInfo: MapLayers[] }) => {
   const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
 
   const thumbnailVariants = {
@@ -58,10 +59,39 @@ const App = () => {
           animate="enter"
           exit="exit"
         >
-          <MapWrapper />
+          <MapWrapper info={mapInfo} />
         </motion.div>
       </div>
     </>
   );
 };
+
+export const getStaticProps: GetStaticProps = async () => {
+  const rawMapInfo = await fetch(
+    `https://geonitenviro.nit.ac.ir/api/map-layers?_limit=500`
+  );
+
+  const mapInfo: MapLayers[] = await rawMapInfo.json();
+
+  return {
+    props: {
+      mapInfo: mapInfo,
+    },
+    revalidate: 10,
+  };
+};
+
+export interface MapLayers {
+  id: string;
+  name: string;
+  layerName: string;
+  visibility: boolean;
+  layerType: MapLayerName;
+}
+export enum MapLayerName {
+  MohitZist = "محیط زیست",
+  Omomi = "عمومی",
+  Mahdodiat = "محدودیت",
+  MakaniAbi = "مکانی آبی",
+}
 export default App;

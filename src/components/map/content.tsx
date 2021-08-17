@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Dispatch, useState } from "react";
 // import "./App.css";
 import "ol/ol.css";
 import TileLayer from "../../layers/TileLayer";
@@ -16,6 +16,8 @@ import PointIntraction from "../../interaction/PointIntraction";
 import { AiOutlineClose } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Popover } from "@headlessui/react";
+import { MapLayerName, MapLayers } from "~/pages/map";
+import { SetStateAction } from "react";
 const bing = new olSource.BingMaps({
   key: "As5lCJ8HFDctXz0rIwzvRo8UEQMxXgJQICk4_1FdR6VWhCV9vxx27Mx4tCLFjxLn",
   imagerySet: "AerialWithLabelsOnDemand",
@@ -25,137 +27,35 @@ const bing = new olSource.BingMaps({
 });
 const osm = new olSource.OSM({});
 
-const Content = () => {
-  const [layersData, setLayersData] = useState([
-    {
-      name: "شهرستان",
-      url: "https://geonitenviro.nit.ac.ir/geoserver/harim/wms",
-      layer: "shahrestan",
-      visibility: false,
-    },
-    {
-      name: "شهر",
-      url: "https://geonitenviro.nit.ac.ir/geoserver/harim/wms",
-      layer: "Shahr",
-      visibility: false,
-    },
-    {
-      name: "روستا",
-      url: "https://geonitenviro.nit.ac.ir/geoserver/harim/wms",
-      layer: "Roosta",
-      visibility: false,
-    },
-    {
-      name: "مراکز دفن زباله",
-      url: "https://geonitenviro.nit.ac.ir/geoserver/harim/wms",
-      layer: "landfills",
-      visibility: true,
-    },
-    {
-      name: "آثار طبیعی ملی",
-      url: "https://geonitenviro.nit.ac.ir/geoserver/harim/wms",
-      layer: "AsareTabieMelli",
-      visibility: false,
-    },
-    {
-      name: "منطقه حفاظت شده",
-      url: "https://geonitenviro.nit.ac.ir/geoserver/harim/wms",
-      layer: "MantaghHefazatshode",
-      visibility: false,
-    },
-    {
-      name: "پناهگاه حیات وحش",
-      url: "https://geonitenviro.nit.ac.ir/geoserver/harim/wms",
-      layer: "PanahgaheHayateVAHSH",
-      visibility: false,
-    },
-    {
-      name: "پارک ملی",
-      url: "https://geonitenviro.nit.ac.ir/geoserver/harim/wms",
-      layer: "ParkeMelli",
-      visibility: false,
-    },
-    {
-      name: "رودخانه",
-      url: "https://geonitenviro.nit.ac.ir/geoserver/harim/wms",
-      layer: "Roodkhane",
-      visibility: false,
-    },
-    {
-      name: "پهنه سیلابی",
-      url: "https://geonitenviro.nit.ac.ir/geoserver/harim/wms",
-      layer: "pahneSeylabi",
-      visibility: false,
-    },
-    {
-      name: "تالاب و دریاچه",
-      url: "https://geonitenviro.nit.ac.ir/geoserver/harim/wms",
-      layer: "TalabVaDaryache",
-      visibility: false,
-    },
-    {
-      name: "گسل",
-      url: "https://geonitenviro.nit.ac.ir/geoserver/harim/wms",
-      layer: "GosalFaalVaGheyrefaal",
-      visibility: false,
-    },
-    {
-      name: "شهرک صنعتی",
-      url: "https://geonitenviro.nit.ac.ir/geoserver/harim/wms",
-      layer: "Sanaye",
-      visibility: true,
-    },
-    {
-      name: "حریم شهر",
-      url: "https://geonitenviro.nit.ac.ir/geoserver/harim/wms",
-      layer: "harimShahr",
-      visibility: false,
-    },
-    {
-      name: "حریم روستا",
-      url: "https://geonitenviro.nit.ac.ir/geoserver/harim/wms",
-      layer: "harimRoosta",
-      visibility: false,
-    },
-    {
-      name: "حریم مناطق چهارگانه محیط زیستی",
-      url: "https://geonitenviro.nit.ac.ir/geoserver/harim/wms",
-      layer: "HarimManateghe4ganeMohitzist",
-      visibility: false,
-    },
-    {
-      name: "حریم رودخانه با محدودیت حداکثر",
-      url: "https://geonitenviro.nit.ac.ir/geoserver/harim/wms",
-      layer: "HarimRoodkhaneMahdoodiate1000M",
-      visibility: true,
-    },
-    {
-      name: "حریم دریا، تالاب و دریاچه با محدودیت حداکثر",
-      url: "https://geonitenviro.nit.ac.ir/geoserver/harim/wms",
-      layer: "HarimTalabDaryaDaryache1000m",
-      visibility: false,
-    },
-    {
-      name: "حریم گسل",
-      url: "https://geonitenviro.nit.ac.ir/geoserver/harim/wms",
-      layer: "HarimGOSAL",
-      visibility: true,
-    },
-    {
-      name: "مناطق بهینه جهت دفن زباله با محدودیت حداکثر و مساحت بیشتر از 10 هکتار",
-      url: "https://geonitenviro.nit.ac.ir/geoserver/harim/wms",
-      layer: "tabaghebandiMahdoodeMojazMahdoodiatHIGH",
-      visibility: false,
-    },
-  ]);
+const baseMapUri = "http://geonitenviro.nit.ac.ir/geoserver/harim/wms";
 
-  const [menuPage, setMenuPage] = useState<
-    "mapsPage" | "layerPage" | "seond" | "third"
-  >("layerPage");
+const Content = ({ info }: { info: MapLayers[] }) => {
+  const [layersData, setLayersData] = useState<MapLayers[]>(info);
+
+  const [menuPage, setMenuPage] = useState<MapLayerName | "mapType">(
+    MapLayerName.Omomi
+  );
   const [mapType, setMapType] = useState<{ type: "osm" | "bing" }>({
     type: "osm",
   });
 
+  const ChooseLayerFn = ({
+    selectedLayer,
+    layer,
+  }: {
+    layer: MapLayerName;
+    selectedLayer: MapLayerName | "mapType";
+  }) => (
+    <div
+      role="button"
+      onClick={() => setMenuPage(layer)}
+      className={`${
+        layer === selectedLayer ? "bg-skin-card" : "bg-skin-base"
+      }  w-16 p-2 transition-colors grid place-items-center duration-300 text-sm leading-relaxed align-middle h-16 text-center `}
+    >
+      <span className="align-middle">{layer}</span>
+    </div>
+  );
   return (
     <>
       <Layers>
@@ -170,9 +70,9 @@ const Content = () => {
               <TileLayer
                 source={
                   new olSource.TileWMS({
-                    url: data.url,
+                    url: "http://geonitenviro.nit.ac.ir/geoserver/harim/wms",
                     params: {
-                      LAYERS: `harim:${data.layer}`,
+                      LAYERS: `harim:${data.layerName}`,
                       TILED: true,
                     },
 
@@ -235,7 +135,7 @@ const Content = () => {
                     }}
                     transition={{ type: "tween" }}
                     style={{ direction: "rtl" }}
-                    className="absolute bottom-16 z-10 start-4 sm:start-8 overflow-hidden  w-56   sm:w-64 max-w-sm bg-skin-card start-4 border-2 border-skin-primary rounded-lg"
+                    className="absolute bottom-16 z-10 start-4 sm:start-8 overflow-hidden  w-80   sm:w-80 max-w-sm bg-skin-card start-4 border-2 border-skin-primary rounded-lg"
                   >
                     <motion.div
                       className="overflow-hidden"
@@ -247,25 +147,39 @@ const Content = () => {
                         initial={{ x: 0 }}
                         animate={{
                           x:
-                            menuPage === "layerPage"
+                            menuPage === MapLayerName.MohitZist
                               ? "0%"
-                              : menuPage === "mapsPage"
-                              ? "25%"
-                              : menuPage === "seond"
-                              ? "50%"
-                              : "75%",
+                              : menuPage === MapLayerName.Omomi
+                              ? "20%"
+                              : menuPage === MapLayerName.Mahdodiat
+                              ? "40%"
+                              : menuPage === MapLayerName.MakaniAbi
+                              ? "60%"
+                              : "80%",
                         }}
-                        style={{ width: "400%" }}
+                        style={{ width: "500%" }}
                         transition={{ type: "tween" }}
                         className="flex flex-row flex-nowrap bg-skin-card"
                       >
-                        <div className="w-1/4 flex flex-col h-20 p-3   ">
+                        {Object.keys(MapLayerName).map((layer, index) => (
+                          <LayerList
+                            layersData={layersData.filter((i) => {
+                              return i.layerType === layer;
+                            })}
+                            setLayersData={setLayersData}
+                          />
+                        ))}
+
+                        <div
+                          className="w-1/5 flex flex-col pt-4 h-20 px-3   "
+                          style={{ minHeight: "100px" }}
+                        >
                           <motion.div
                             layout
                             onClick={() => {
                               setMapType({ type: "osm" });
                             }}
-                            className={`relative flex-1 h-10 p-2  rounded-2xl text-center text-skin-base`}
+                            className={`relative w-full h-10 p-2  rounded-2xl text-center text-skin-base`}
                           >
                             osm
                             {mapType.type === "osm" && (
@@ -284,7 +198,7 @@ const Content = () => {
                             onClick={() => {
                               setMapType({ type: "bing" });
                             }}
-                            className={`flex-1 p-2 m-1 rounded-2xl text-center relative  text-skin-base`}
+                            className={`w-full p-2 m-1 rounded-2xl text-center relative  text-skin-base`}
                           >
                             bing
                             {mapType.type === "bing" && (
@@ -299,84 +213,25 @@ const Content = () => {
                             )}
                           </motion.div>
                         </div>
-                        <div
-                          style={{
-                            maxHeight: "50vh",
-                          }}
-                          className="w-1/4 flex-1 bg-skin-card overflow-auto "
-                        >
-                          {layersData.map((data, index) => {
-                            return (
-                              <div>
-                                <label className="flex cursor-pointer text-xs sm:text-sm text-skin-base justify-between m-4 items-center">
-                                  <span>{data.name}</span>
-                                  <input
-                                    type="checkbox"
-                                    className="rounded-lg text-skin-primary"
-                                    checked={data.visibility}
-                                    onChange={(event) =>
-                                      setLayersData((layers) => {
-                                        const newLayers = [...layers];
-                                        newLayers[index].visibility =
-                                          event.target.checked;
-                                        return newLayers;
-                                      })
-                                    }
-                                  />
-                                </label>
-                              </div>
-                            );
-                          })}
-                        </div>
-                        <div className="w-1/4 flex flex-col h-20 p-3   "></div>
-                        <div className="w-1/4 flex flex-col h-20 p-3   "></div>
                       </motion.div>
-                      <div className="flex text-skin-base flex-row text-center border-b border-skin-primary">
+                      <div className="flex flex-1 align-middle sm:overflow-hidden  overflow-auto text-skin-base flex-row text-center border-b border-skin-primary">
+                        {Object.keys(MapLayerName).map((i, index) => (
+                          <ChooseLayerFn
+                            key={index}
+                            selectedLayer={menuPage}
+                            layer={MapLayerName[i]}
+                          />
+                        ))}
                         <div
-                          onClick={() => setMenuPage("layerPage")}
+                          onClick={() => setMenuPage("mapType")}
+                          role="button"
                           className={`${
-                            menuPage === "layerPage"
+                            menuPage === "mapType"
                               ? "bg-skin-card"
                               : "bg-skin-base"
-                          }  flex-1 p-2 transition-colors duration-300`}
+                          }  w-16 p-2 text-sm  transition-colors duration-300 grid place-items-center`}
                         >
-                          لایه ها
-                        </div>
-                        <div
-                          onClick={() => {
-                            setMenuPage("mapsPage");
-                          }}
-                          className={`${
-                            menuPage === "mapsPage"
-                              ? "bg-skin-card"
-                              : "bg-skin-base"
-                          }  flex-1 p-2 transition-colors duration-300`}
-                        >
-                          نقشه ها
-                        </div>
-                        <div
-                          onClick={() => {
-                            setMenuPage("seond");
-                          }}
-                          className={`${
-                            menuPage === "seond"
-                              ? "bg-skin-card"
-                              : "bg-skin-base"
-                          }  flex-1 p-2 transition-colors duration-300`}
-                        >
-                          دومی
-                        </div>
-                        <div
-                          onClick={() => {
-                            setMenuPage("third");
-                          }}
-                          className={`${
-                            menuPage === "third"
-                              ? "bg-skin-card"
-                              : "bg-skin-base"
-                          }  flex-1 p-2 transition-colors duration-300`}
-                        >
-                          سومی
+                          <span>لایه ها</span>
                         </div>
                       </div>
                     </motion.div>
@@ -417,3 +272,48 @@ const Content = () => {
   );
 };
 export default Content;
+function LayerList({
+  layersData,
+  setLayersData,
+}: {
+  layersData: MapLayers[];
+  setLayersData: Dispatch<SetStateAction<MapLayers[]>>;
+}) {
+  return (
+    <div
+      style={{
+        maxHeight: "50vh",
+      }}
+      className="w-1/5 flex-1 bg-skin-card overflow-auto "
+    >
+      {layersData.map((data) => {
+        return (
+          <div>
+            <label className="flex cu rsor-pointer text-xs sm:text-sm text-skin-base justify-between m-4 items-center">
+              <span>{data.name}</span>
+              <input
+                type="checkbox"
+                className="rounded-lg text-skin-primary"
+                checked={data.visibility}
+                onChange={(event) =>
+                  setLayersData((layers) => {
+                    const newLayers = [];
+                    layers.forEach((l) => {
+                      if (l.id === data.id) {
+                        l.visibility = event.target.checked;
+                      }
+
+                      newLayers.push(l);
+                    });
+
+                    return newLayers;
+                  })
+                }
+              />
+            </label>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
