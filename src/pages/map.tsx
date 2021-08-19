@@ -92,6 +92,6 @@ export enum MapLayerName {
   MohitZist = "محیط زیست",
   Omomi = "عمومی",
   Mahdodiat = "محدودیت",
-  MakaniAbi = "مکانی آبی",
+  MakaniAbi = "مکان یابی",
 }
 export default App;

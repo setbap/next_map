@@ -2,7 +2,7 @@ import { Features } from "./features";
 import Profit from "./profit";
 
 // import CommentItem from "./comment_item";
-// import TeamMember from "./team_members";
+import TeamMember from "./team_members";
 import TimrLine from "./timeline";
 
 const Home = () => {
@@ -38,7 +38,8 @@ const Home = () => {
           comment="با وجود این سایت دلیلی برای این که به شما نمره 20 ندهم نمی بینم"
         />
       </div>
-      <TeamMember /> */}
+    */}
+      <TeamMember />
       <TimrLine />
       <div className="absolute top-0 bottom-0 left-0 right-0 footer_image footer_filter " />
     </div>

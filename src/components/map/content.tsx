@@ -231,7 +231,7 @@ const Content = ({ info }: { info: MapLayers[] }) => {
                               : "bg-skin-base"
                           }  w-16 p-2 text-sm  transition-colors duration-300 grid place-items-center`}
                         >
-                          <span>لایه ها</span>
+                          <span>نقشه پایه</span>
                         </div>
                       </div>
                     </motion.div>

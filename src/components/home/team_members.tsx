@@ -25,7 +25,7 @@ const TeamMember = () => {
           })}
         </div>
       </div>
-      <div className="p-8 bg-skin-card dark:bg-gray-800 rounded-lg shadow">
+      <div className="p-8  mt-4 bg-skin-card dark:bg-gray-800 rounded-lg shadow">
         <h6 className="text-center text-3xl font-bold text-skin-base dark:text-white">
           اعضای تیم
         </h6>

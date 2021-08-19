@@ -39,12 +39,7 @@
         "work": "مسئول سیستم های ابزار دقیق",
         "linkedin": "abedin-ranjbar-a3a776119"
     },
-    {
-        "image": "/persons/سعیده رستگار.jpeg",
-        "name": "سعیده رستگار",
-        "work": "عضو تیم بازیافت ",
-        "linkedin": ""
-    },
+
     {
         "image": "/persons/حسن اکبری.jpg",
         "name": "حسن اکبری",
@@ -60,7 +55,7 @@
     {
         "image": "/persons/Profile-1.jpg",
         "name": "مصطفی عباس تبار",
-        "work": "توسعه دهنده اپلیکیشن و وبسایت",
+        "work": "توسعه دهنده ios",
         "linkedin": "mostafaabbastabar"
     },
     {
@@ -100,14 +95,14 @@
     {
         "image": "/persons/مهدی طالبی.jpeg",
         "name": "مهدی طالبی اطربی",
-        "work": "مسئول تحلیل و پیاده سازی و نگهداری سمت سرور",
+        "work": "توسعه دهنده بک اند و نگهداری سمت سرور",
         "linkedin": "mahdi-talebi-103b701b8"
     }
     ,
     {
         "image": "/persons/سینا ابراهیمی.jpg",
         "name": "سینا ابراهیمی",
-        "work": "طراحی و توسعه دهنده فرانت اند و نگهداری سرور",
+        "work": "توسعه دهنده فرانت اند و اندروید",
         "linkedin": "sina-ebrahimi-88893314b"
     }
 

@@ -37,13 +37,13 @@ export const Features = () => {
 
 const FeatureItem = ({ title, icon }: { title: string; icon: JSX.Element }) => {
   return (
-    <div className="w-full md:w-2/3 sm:w-4/5 lg:w-1/4 px-4 py-4 bg-skin-card mt-6  shadow-lg rounded-lg">
-      <div className="flex-shrink-0">
+    <div className="w-full md:w-2/3 h-44 sm:w-4/5 lg:w-1/4 px-4 py-4 bg-skin-card mt-4  shadow-lg rounded-lg">
+      <div className="flex-shrink-0 h-20 pt-2">
         <div className="flex items-center mx-auto justify-center h-14 w-14 rounded-lg bg-skin-primary text-skin-on-primary">
           {icon}
         </div>
       </div>
-      <h3 className="text-2xl sm:text-xl text-skin-base text-muted font-semibold dark:text-white px-3 pb-2 pt-5">
+      <h3 className="text-2xl sm:text-xl text-skin-base text-muted font-semibold dark:text-white px-3 ">
         {title}
       </h3>
     </div>
