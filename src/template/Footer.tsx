@@ -1,4 +1,4 @@
-import { FiTwitter, FiInstagram, FiLinkedin, FiGithub } from "react-icons/fi";
+import { FiVideo, FiInstagram, FiLinkedin, FiGithub } from "react-icons/fi";
 
 const Footer = () => {
   return (
@@ -6,40 +6,9 @@ const Footer = () => {
       <div className="absolute  top-0 left-0 bottom-0 right-0 footer_filter footer_image "></div>
 
       <div className="  top-0 left-0 bottom-0 right-0 z-50 max-w-screen-xl mx-auto px-4">
-        <ul className="max-w-screen-md mx-auto text-lg font-light flex flex-wrap justify-between">
-          <li className="my-2">
-            <a
-              className="text-skin-muted hover:text-skin-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200"
-              href="/"
-            >
-              یه لینک
-            </a>
-          </li>
-          <li className="my-2">
-            <a
-              className="text-skin-muted hover:text-skin-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200"
-              href="/"
-            >
-              یه لینک دیگه
-            </a>
-          </li>
-          <li className="my-2">
-            <a
-              className="text-skin-muted hover:text-skin-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200"
-              href="/"
-            >
-              لینکداین
-            </a>
-          </li>
-          <li className="my-2">
-            <a
-              className="text-skin-muted hover:text-skin-primary dark:text-gray-300 dark:hover:text-white transition-colors duration-200"
-              href="/"
-            >
-              گیتهاب
-            </a>
-          </li>
-        </ul>
+        {/* <div className="pt-8 flex max-w-xs mx-auto items-center justify-between">
+          <div></div>
+        </div> */}
         <div className="pt-8 flex max-w-xs mx-auto items-center justify-between">
           <a
             href="/"
@@ -48,13 +17,13 @@ const Footer = () => {
             <FiInstagram size={28} />
           </a>
           <a
-            href="/"
+            href="https://www.aparat.com/NITEnviro"
             className="text-skin-muted hover:text-skin-primary dark:hover:text-white transition-colors duration-200"
           >
-            <FiTwitter size={28} />
+            <FiVideo size={28} />
           </a>
           <a
-            href="/"
+            href="https://www.github.com/setbap/mapi-next"
             className="text-skin-muted hover:text-skin-primary dark:hover:text-white transition-colors duration-200"
           >
             <FiGithub size={28} />
@@ -67,7 +36,11 @@ const Footer = () => {
           </a>
         </div>
         <div className="text-center text-skin-muted  pt-10 sm:pt-12 font-light flex items-center justify-center">
-          Created by Copy & Paste
+          ساخته شده با
+          <span className="text-red-500 text-lg px-3 font-bold">
+            {" "}
+            تلاش و کار تیمی
+          </span>
         </div>
       </div>
     </footer>

@@ -69,7 +69,13 @@
         "name": "فرید مصطفوی",
         "work": "مسئول طراحی سایت و تولید محتوی",
         "linkedin": "farid-mo-392187210"
-    }
+    },
+    {
+       "image": "/persons/سعیده رستگار.jpeg",
+       "name": "سعیده رستگار",
+       "work": "عضو تیم بازیافت ",
+       "linkedin": ""
+   }
     ,
     {
         "image": "/persons/میلاد حسنعلی زاده.jpg",
@@ -78,13 +84,7 @@
         "linkedin": "milad-hasanalizadeh-25bb221ba"
     }
     ,
-    {
-        "image": "/persons/محمد امین زاده.jpeg",
-        "name": "محمد امین زاده",
-        "work": "عضو گروه عمران- GIS",
-        "linkedin": "mohammad-aminzadeh"
-    }
-    ,
+
     {
         "image": "/persons/مهرداد آهنگر.jpg",
         "name": "مهرداد آهنگرکانی",
