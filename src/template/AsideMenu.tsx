@@ -18,7 +18,7 @@ const AsideMenu = ({ open }: Props) => {
     <>
       <aside
         className={`z-50 h-full absolute start-0 overflow-auto   transition-all duration-200 ${
-          open ? "sm:w-48 lg:w-48 w-full" : "w-0"
+          open ? "sm:w-56 lg:w-56 w-full" : "w-0"
         }  bg-skin-card `}
       >
         <ul className="text-center flex flex-col w-full">
@@ -28,14 +28,14 @@ const AsideMenu = ({ open }: Props) => {
               className="h-full w-full hover:bg-skin-primary block p-3"
             >
               <div className=" flex flex-col justify-center items-center ">
-                <div className="bg-white p-1  rounded-lg">
+                {/* <div className="bg-white p-1  rounded-lg">
                   <img
                     src="/title_image.png"
                     className="scale-75 transform"
                     width="30px"
                     height="30px"
                   />
-                </div>
+                </div> */}
               </div>
             </div>
           </li>
@@ -93,6 +93,15 @@ const AsideMenu = ({ open }: Props) => {
             Icon={MdContactMail}
             title={"ارتباط با ما"}
           />
+
+          <a
+            href="https://app.nitenviro.ir"
+            target="blank"
+            className="p-2 pt-3 mt-6 text-lg mx-auto glow-on-hover"
+            type="button"
+          >
+            دانلود اپ
+          </a>
         </ul>
       </aside>
     </>

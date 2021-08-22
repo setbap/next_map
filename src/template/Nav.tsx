@@ -29,12 +29,12 @@ const Nav = () => {
           // history.goBack();
         }}
       />
-      <img
+      {/* <img
         src="/title_image.png"
         className="scale-75 transform"
         width="40px"
         height="40px"
-      />
+      /> */}
       <h1 className="font-semibold text-skin-base text-sm sm:text-lg">
         مدیریت محیط زیست
       </h1>
