@@ -97,7 +97,7 @@ const AsideMenu = ({ open }: Props) => {
           <a
             href="https://app.nitenviro.ir"
             target="blank"
-            className="p-2 pt-3 mt-6 text-lg mx-auto glow-on-hover"
+            className="p-2 py-3 mt-6 text-lg mx-auto glow-on-hover"
             type="button"
           >
             دانلود اپ
