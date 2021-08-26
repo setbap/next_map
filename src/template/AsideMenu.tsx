@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { AiFillPayCircle } from "react-icons/ai";
+import { AiFillPayCircle, AiOutlineBarChart } from "react-icons/ai";
 import { BiHome, BiMapAlt } from "react-icons/bi";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import { IoTrashBinOutline } from "react-icons/io5";
@@ -92,6 +92,13 @@ const AsideMenu = ({ open }: Props) => {
             to={pagesLinks.contact_us()}
             Icon={MdContactMail}
             title={"ارتباط با ما"}
+          />
+          <AsideNavLink
+            isActive={router.route.startsWith("report")}
+            id="contactus-gozaresh"
+            to={"/"}
+            Icon={AiOutlineBarChart}
+            title={"گزارش گیری"}
           />
 
           <a

@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div className="min-h-screen" lang="fa" dir="rtl">
       <Head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta
           name="google-site-verification"
           content="bOL98ET-j9Iu_9bsy4TLElo4SYlnWgAX0V_CAfdOlP8"
