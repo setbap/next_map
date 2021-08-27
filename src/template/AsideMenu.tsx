@@ -18,7 +18,7 @@ const AsideMenu = ({ open }: Props) => {
     <>
       <aside
         className={`z-50 h-full absolute start-0 overflow-auto   transition-all duration-200 ${
-          open ? "sm:w-56 lg:w-56 w-full" : "w-0"
+          open ? "sm:w-64 lg:w-64 w-full" : "w-0"
         }  bg-skin-card `}
       >
         <ul className="text-center flex flex-col w-full">
@@ -104,10 +104,10 @@ const AsideMenu = ({ open }: Props) => {
           <a
             href="https://app.nitenviro.ir"
             target="blank"
-            className="p-2 py-3 mt-6 text-lg mx-auto glow-on-hover"
+            className="p-3  mt-6  mx-auto glow-on-hover"
             type="button"
           >
-            اپلیکیشن تفکیک از مبدا
+            دانلود اپلیکیشن تفکیک
           </a>
         </ul>
       </aside>
