@@ -107,7 +107,7 @@ const AsideMenu = ({ open }: Props) => {
             className="p-2 py-3 mt-6 text-lg mx-auto glow-on-hover"
             type="button"
           >
-            دانلود اپ
+            اپلیکیشن تفکیک از مبدا
           </a>
         </ul>
       </aside>
